@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nordic Team — Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #F47920;
+      --orange-2: #FF9940;
+      --orange-pale: #FFF4EA;
+      --navy: #0D1929;
+      --text: #1E293B;
+      --text-2: #475569;
+      --text-3: #94A3B8;
+      --border: #E2E8F0;
+      --light: #F4F7FA;
+    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #F4F7FA; color: var(--text); min-height: 100vh; }
+
+    /* LOGIN */
+    .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .login-card { background: #fff; border-radius: 20px; padding: 48px 40px; width: 100%; max-width: 420px; box-shadow: 0 8px 48px rgba(13,25,41,.1); border: 1.5px solid var(--border); }
+    .login-logo { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .login-logo span { color: var(--orange); }
+    .login-sub { font-size: .875rem; color: var(--text-2); margin-bottom: 36px; }
+    .login-label { display: block; font-size: .72rem; font-weight: 800; color: var(--navy); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+    .login-input { width: 100%; background: var(--light); border: 1.5px solid var(--border); border-radius: 10px; font-family: inherit; font-size: .95rem; color: var(--text); padding: 13px 16px; outline: none; transition: border-color .2s; }
+    .login-input:focus { border-color: var(--orange); }
+    .login-btn { width: 100%; margin-top: 16px; background: var(--orange); color: #fff; font-family: inherit; font-size: 1rem; font-weight: 700; padding: 14px; border-radius: 10px; border: none; cursor: pointer; transition: background .2s; }
+    .login-btn:hover { background: var(--orange-2); }
+    .login-error { margin-top: 12px; font-size: .875rem; color: #DC2626; text-align: center; display: none; }
+
+    /* ADMIN PANEL */
+    .admin-wrap { display: none; }
+    .topbar { background: var(--navy); padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .topbar-logo { font-size: 1rem; font-weight: 800; color: #fff; }
+    .topbar-logo span { color: var(--orange); }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .badge-count { background: var(--orange); color: #fff; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 99px; }
+    .logout-btn { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); font-family: inherit; font-size: .8rem; font-weight: 600; padding: 8px 16px; border-radius: 8px; cursor: pointer; transition: background .2s; }
+    .logout-btn:hover { background: rgba(255,255,255,.18); }
+
+    .main { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+    .page-title { font-size: 1.6rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .page-sub { font-size: .9rem; color: var(--text-2); margin-bottom: 32px; }
+
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+    @media(max-width: 640px) { .stats-row { grid-template-columns: 1fr; } }
+    .stat-card { background: #fff; border-radius: 14px; padding: 24px; border: 1.5px solid var(--border); }
+    .stat-card-n { font-size: 2rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .stat-card-n span { color: var(--orange); }
+    .stat-card-l { font-size: .8rem; color: var(--text-2); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+
+    .filter-row { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+    .filter-select { background: #fff; border: 1.5px solid var(--border); border-radius: 8px; font-family: inherit; font-size: .875rem; color: var(--text); padding: 9px 14px; outline: none; cursor: pointer; }
+    .filter-select:focus { border-color: var(--orange); }
+    .refresh-btn { background: var(--orange); color: #fff; font-family: inherit; font-size: .875rem; font-weight: 700; padding: 9px 20px; border-radius: 8px; border: none; cursor: pointer; margin-left: auto; transition: background .2s; display: flex; align-items: center; gap: 8px; }
+    .refresh-btn:hover { background: var(--orange-2); }
+
+    .table-wrap { background: #fff; border-radius: 16px; border: 1.5px solid var(--border); overflow: hidden; box-shadow: 0 2px 20px rgba(13,25,41,.05); }
+    table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+    thead tr { background: var(--navy); }
+    th { color: rgba(255,255,255,.9); font-weight: 700; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding: 14px 18px; text-align: left; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; cursor: pointer; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--orange-pale); }
+    td { padding: 16px 18px; vertical-align: top; line-height: 1.5; }
+    td.navn { font-weight: 700; color: var(--navy); }
+    td.dato { color: var(--text-3); font-size: .8rem; white-space: nowrap; }
+    .fag-badge { display: inline-block; background: var(--orange-pale); color: var(--orange); font-size: .75rem; font-weight: 700; padding: 3px 10px; border-radius: 6px; border: 1px solid rgba(244,121,32,.2); }
+
+    .empty-state { padding: 80px 24px; text-align: center; }
+    .empty-state p { font-size: 1rem; color: var(--text-2); }
+
+    /* MODAL */
+    .modal-bg { position: fixed; inset: 0; background: rgba(13,25,41,.5); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(4px); }
+    .modal-bg.open { display: flex; }
+    .modal { background: #fff; border-radius: 20px; padding: 40px; max-width: 560px; width: 100%; box-shadow: 0 24px 80px rgba(13,25,41,.2); }
+    .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+    .modal-navn { font-size: 1.2rem; font-weight: 800; color: var(--navy); }
+    .modal-close { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-3); padding: 4px; line-height: 1; }
+    .modal-close:hover { color: var(--text); }
+    .modal-row { display: flex; gap: 12px; margin-bottom: 14px; }
+    .modal-lbl { font-size: .72rem; font-weight: 800; color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; min-width: 80px; padding-top: 2px; }
+    .modal-val { font-size: .9rem; color: var(--text); line-height: 1.55; }
+    .modal-val a { color: var(--orange); text-decoration: none; }
+    .modal-val a:hover { text-decoration: underline; }
+    .modal-behov { margin-top: 20px; background: var(--light); border-radius: 10px; padding: 16px; font-size: .9rem; color: var(--text); line-height: 1.65; }
+
+    .loading { padding: 60px; text-align: center; color: var(--text-2); }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <div class="login-logo">Nordic <span>Team</span></div>
+    <div class="login-sub">Admin panel — forespørgsler fra hjemmesiden</div>
+    <label class="login-label" for="pw-input">Adgangskode</label>
+    <input class="login-input" type="password" id="pw-input" placeholder="Indtast adgangskode" autocomplete="current-password" />
+    <button class="login-btn" id="login-btn">Log ind</button>
+    <div class="login-error" id="login-error">Forkert adgangskode</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-wrap" id="adminWrap">
+  <div class="topbar">
+    <div class="topbar-logo">Nordic <span>Team</span> Admin</div>
+    <div class="topbar-right">
+      <span class="badge-count" id="total-count">0 forespørgsler</span>
+      <button class="logout-btn" id="logout-btn">Log ud</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="page-title">Forespørgsler</div>
+    <div class="page-sub">Alle indkomne forespørgsler fra nordic-team.dk</div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-card-n" id="stat-total">0</div>
+        <div class="stat-card-l">Total forespørgsler</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-n" id="stat-today">0</div>
+        <div class="stat-card-l">I dag</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-n" id="stat-week">0</div>
+        <div class="stat-card-l">Denne uge</div>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <select class="filter-select" id="filter-fag">
+        <option value="">Alle faggrupper</option>
+        <option value="tomrer">Tømrer</option>
+        <option value="murer">Murer</option>
+        <option value="maler">Maler</option>
+        <option value="fjernvarme">Fjernvarme</option>
+        <option value="reetablering">Reetablering</option>
+        <option value="montage">Generel montage</option>
+        <option value="andet">Andet</option>
+      </select>
+      <button class="refresh-btn" id="refresh-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Opdater
+      </button>
+    </div>
+
+    <div class="table-wrap">
+      <div class="loading" id="loading">Henter forespørgsler...</div>
+      <table id="inquiry-table" style="display:none">
+        <thead>
+          <tr>
+            <th>Navn</th>
+            <th>Firma</th>
+            <th>Telefon</th>
+            <th>Faggruppe</th>
+            <th>Dato</th>
+          </tr>
+        </thead>
+        <tbody id="inquiry-body"></tbody>
+      </table>
+      <div class="empty-state" id="empty-state" style="display:none">
+        <p>Ingen forespørgsler endnu.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-navn" id="modal-navn"></div>
+      <button class="modal-close" id="modal-close">×</button>
+    </div>
+    <div class="modal-row"><span class="modal-lbl">Firma</span><span class="modal-val" id="modal-firma"></span></div>
+    <div class="modal-row"><span class="modal-lbl">Telefon</span><span class="modal-val" id="modal-telefon"></span></div>
+    <div class="modal-row"><span class="modal-lbl">Email</span><span class="modal-val" id="modal-email"></span></div>
+    <div class="modal-row"><span class="modal-lbl">Faggruppe</span><span class="modal-val" id="modal-faggruppe"></span></div>
+    <div class="modal-row"><span class="modal-lbl">Dato</span><span class="modal-val" id="modal-dato"></span></div>
+    <div class="modal-behov" id="modal-behov"></div>
+  </div>
+</div>
+
+<script>
+  let allData = [];
+  let adminPassword = '';
+
+  const loginWrap = document.getElementById('loginWrap');
+  const adminWrap = document.getElementById('adminWrap');
+  const pwInput = document.getElementById('pw-input');
+  const loginBtn = document.getElementById('login-btn');
+  const loginError = document.getElementById('login-error');
+
+  async function fetchInquiries(pw) {
+    const res = await fetch('/api/inquiries', {
+      headers: { 'x-admin-password': pw }
+    });
+    if (res.status === 401) throw new Error('unauthorized');
+    if (!res.ok) throw new Error('server error');
+    return res.json();
+  }
+
+  async function login() {
+    const pw = pwInput.value.trim();
+    if (!pw) return;
+    loginBtn.textContent = 'Logger ind...';
+    loginBtn.disabled = true;
+    loginError.style.display = 'none';
+    try {
+      const data = await fetchInquiries(pw);
+      adminPassword = pw;
+      allData = data;
+      loginWrap.style.display = 'none';
+      adminWrap.style.display = 'block';
+      renderTable(data);
+      updateStats(data);
+    } catch (e) {
+      loginError.style.display = 'block';
+    } finally {
+      loginBtn.textContent = 'Log ind';
+      loginBtn.disabled = false;
+    }
+  }
+
+  loginBtn.addEventListener('click', login);
+  pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
+
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    adminPassword = '';
+    allData = [];
+    loginWrap.style.display = 'flex';
+    adminWrap.style.display = 'none';
+    pwInput.value = '';
+  });
+
+  document.getElementById('refresh-btn').addEventListener('click', async () => {
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('inquiry-table').style.display = 'none';
+    document.getElementById('empty-state').style.display = 'none';
+    try {
+      allData = await fetchInquiries(adminPassword);
+      renderTable(filterData(allData));
+      updateStats(allData);
+    } catch(e) {}
+  });
+
+  document.getElementById('filter-fag').addEventListener('change', () => {
+    renderTable(filterData(allData));
+  });
+
+  function filterData(data) {
+    const fag = document.getElementById('filter-fag').value;
+    if (!fag) return data;
+    return data.filter(d => d.faggruppe === fag);
+  }
+
+  const fagLabels = {
+    tomrer: 'Tømrer', murer: 'Murer', maler: 'Maler',
+    fjernvarme: 'Fjernvarme', reetablering: 'Reetablering',
+    montage: 'Generel montage', andet: 'Andet'
+  };
+
+  function formatDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('da-DK', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+
+  function updateStats(data) {
+    document.getElementById('stat-total').textContent = data.length;
+    document.getElementById('total-count').textContent = data.length + ' forespørgsler';
+    const today = new Date(); today.setHours(0,0,0,0);
+    const weekAgo = new Date(); weekAgo.setDate(weekAgo.getDate() - 7);
+    document.getElementById('stat-today').textContent = data.filter(d => new Date(d.created_at) >= today).length;
+    document.getElementById('stat-week').textContent = data.filter(d => new Date(d.created_at) >= weekAgo).length;
+  }
+
+  function renderTable(data) {
+    document.getElementById('loading').style.display = 'none';
+    const tbody = document.getElementById('inquiry-body');
+    tbody.innerHTML = '';
+    if (!data.length) {
+      document.getElementById('empty-state').style.display = 'block';
+      document.getElementById('inquiry-table').style.display = 'none';
+      return;
+    }
+    document.getElementById('inquiry-table').style.display = 'table';
+    document.getElementById('empty-state').style.display = 'none';
+    data.forEach(row => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="navn">${row.navn}</td>
+        <td>${row.firma || '—'}</td>
+        <td>${row.telefon}</td>
+        <td><span class="fag-badge">${fagLabels[row.faggruppe] || row.faggruppe}</span></td>
+        <td class="dato">${formatDate(row.created_at)}</td>
+      `;
+      tr.addEventListener('click', () => openModal(row));
+      tbody.appendChild(tr);
+    });
+  }
+
+  function openModal(row) {
+    document.getElementById('modal-navn').textContent = row.navn;
+    document.getElementById('modal-firma').textContent = row.firma || '—';
+    document.getElementById('modal-telefon').innerHTML = `<a href="tel:${row.telefon}">${row.telefon}</a>`;
+    document.getElementById('modal-email').innerHTML = `<a href="mailto:${row.email}">${row.email}</a>`;
+    document.getElementById('modal-faggruppe').textContent = fagLabels[row.faggruppe] || row.faggruppe;
+    document.getElementById('modal-dato').textContent = formatDate(row.created_at);
+    document.getElementById('modal-behov').textContent = row.behov;
+    document.getElementById('modal').classList.add('open');
+  }
+
+  document.getElementById('modal-close').addEventListener('click', () => {
+    document.getElementById('modal').classList.remove('open');
+  });
+  document.getElementById('modal').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal')) document.getElementById('modal').classList.remove('open');
+  });
+</script>
+</body>
+</html>

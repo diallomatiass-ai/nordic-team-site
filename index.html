@@ -588,9 +588,7 @@
       </div>
       <div class="reveal rd2">
         <div class="form-wrap">
-          <form action="https://formsubmit.co/info@nordic-team.dk" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Ny forespørgsel fra Nordic Team hjemmeside">
+          <form id="kontakt-form">
             <div class="form-grid">
               <div><label for="f-navn">Navn</label><input type="text" id="f-navn" name="navn" placeholder="Dit fulde navn" required></div>
               <div><label for="f-firma">Firma</label><input type="text" id="f-firma" name="firma" placeholder="Firmanavn"></div>
@@ -607,7 +605,13 @@
               </div>
               <div class="form-full"><label for="f-behov">Antal personer og varighed</label><textarea id="f-behov" name="behov" placeholder="Beskriv dit behov — antal mand, dage/uger, arbejdssted og opstartstidspunkt" required></textarea></div>
             </div>
-            <button type="submit" class="form-btn">Send forespørgsel →</button>
+            <button type="submit" class="form-btn" id="form-btn">Send forespørgsel →</button>
+            <div id="form-success" style="display:none;margin-top:16px;padding:14px 18px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:10px;color:#16a34a;font-weight:600;font-size:.9rem;">
+              ✓ Tak! Vi vender tilbage inden for 2 timer i åbningstiden.
+            </div>
+            <div id="form-error" style="display:none;margin-top:16px;padding:14px 18px;background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;color:#dc2626;font-weight:600;font-size:.9rem;">
+              Noget gik galt. Prøv igen eller ring til os på +45 50 26 07 39.
+            </div>
           </form>
         </div>
       </div>
@@ -645,6 +649,43 @@
   document.querySelectorAll('.mobile-menu a').forEach(a => { a.addEventListener('click', () => { document.getElementById('nav-toggle').checked = false; }); });
   const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  document.getElementById('kontakt-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('form-btn');
+    const successEl = document.getElementById('form-success');
+    const errorEl = document.getElementById('form-error');
+    btn.textContent = 'Sender...';
+    btn.disabled = true;
+    successEl.style.display = 'none';
+    errorEl.style.display = 'none';
+    const body = {
+      navn: document.getElementById('f-navn').value,
+      firma: document.getElementById('f-firma').value,
+      telefon: document.getElementById('f-tlf').value,
+      email: document.getElementById('f-email').value,
+      faggruppe: document.getElementById('f-fag').value,
+      behov: document.getElementById('f-behov').value,
+    };
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (res.ok) {
+        successEl.style.display = 'block';
+        this.reset();
+      } else {
+        errorEl.style.display = 'block';
+      }
+    } catch {
+      errorEl.style.display = 'block';
+    } finally {
+      btn.textContent = 'Send forespørgsel →';
+      btn.disabled = false;
+    }
+  });
 </script>
 </body>
 </html>
