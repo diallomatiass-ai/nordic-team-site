@@ -337,6 +337,10 @@
     .footer-bottom p { font-size:.8rem; color:var(--text-3); line-height:1.6; }
 
     /* ── FLOATING CTA ── */
+    /* ── ADMIN KNAP ── */
+    .admin-btn { position:fixed; bottom:28px; left:28px; z-index:9999; background:rgba(13,25,41,.55); color:rgba(255,255,255,.5); font-family:'Plus Jakarta Sans',sans-serif; font-size:.7rem; font-weight:600; padding:8px 14px; border-radius:99px; text-decoration:none; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.1); transition:background .2s,color .2s; }
+    .admin-btn:hover { background:rgba(13,25,41,.85); color:#fff; }
+
     .float-cta { position:fixed; bottom:28px; right:28px; z-index:9999; background:var(--orange); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-size:.875rem; font-weight:700; padding:14px 24px; border-radius:99px; text-decoration:none; display:flex; align-items:center; gap:10px; box-shadow:0 8px 36px rgba(0,153,112,.55); transition:background .2s,transform .2s,box-shadow .2s; animation:fbob 3.5s ease-in-out infinite; }
     .float-cta:hover { background:var(--orange-2); transform:translateY(-3px) scale(1.03); animation:none; box-shadow:0 12px 44px rgba(0,153,112,.68); }
     @keyframes fbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
@@ -636,6 +640,8 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   Få tilbud
 </a>
+
+<a href="/admin" class="admin-btn">⚙ Admin</a>
 
 <script>
   const nav = document.getElementById('main-nav');
