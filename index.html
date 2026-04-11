@@ -473,7 +473,7 @@
       <a href="#ydelser" class="btn-outline">Se vores ydelser <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd"/></svg></a>
     </div>
     <div class="hero-stats reveal rd4">
-      <div class="stat"><div class="stat-n">48<span>t</span></div><div class="stat-l">Levering garanteret</div></div>
+      <div class="stat"><div class="stat-n">48<span>t</span></div><div class="stat-l">Typisk leveringstid</div></div>
       <div class="stat"><div class="stat-n">100<span>%</span></div><div class="stat-l">Lovlig arbejdskraft</div></div>
       <div class="stat"><div class="stat-n">6<span>+</span></div><div class="stat-l">Faggrupper til rådighed</div></div>
     </div>
@@ -737,10 +737,12 @@
       behov: document.getElementById('f-behov').value,
     };
     try {
-      const res = await fetch('/api/contact', {
+      const formData = new FormData();
+      Object.entries(body).forEach(([k,v]) => formData.append(k,v));
+      const res = await fetch('https://formspree.io/f/mykbrkdk', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+        body: formData,
+        headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
         successEl.style.display = 'block';

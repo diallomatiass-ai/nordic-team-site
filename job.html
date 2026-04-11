@@ -351,7 +351,7 @@
     <div class="form-wrap">
       <h2>Send din ansøgning</h2>
       <p class="sub">Udfyld formularen, så vender vi tilbage inden for 1-2 hverdage.</p>
-      <form action="mailto:info@nordic-team.dk" method="POST" enctype="text/plain">
+      <form id="job-form">
         <div class="form-grid">
           <div class="form-group">
             <label for="navn">Fulde navn *</label>
@@ -406,9 +406,46 @@
             <textarea id="besked" name="Besked" placeholder="Kort om din erfaring, certifikater, kørekort osv."></textarea>
           </div>
         </div>
-        <button type="submit" class="form-submit">Send ansøgning</button>
+        <button type="submit" class="form-submit" id="job-btn">Send ansøgning</button>
+        <div id="job-success" style="display:none;margin-top:16px;padding:14px 18px;background:rgba(34,197,94,.15);border:1.5px solid rgba(34,197,94,.4);border-radius:10px;color:#22c55e;font-weight:600;font-size:.9rem;text-align:center;">
+          &#10003; Tak for din ansøgning! Vi kontakter dig inden for 1-2 hverdage.
+        </div>
+        <div id="job-error" style="display:none;margin-top:16px;padding:14px 18px;background:rgba(220,38,38,.15);border:1.5px solid rgba(220,38,38,.4);border-radius:10px;color:#ef4444;font-weight:600;font-size:.9rem;text-align:center;">
+          Noget gik galt. Prøv igen eller ring til os på +45 50 26 07 39.
+        </div>
         <p class="form-note">Ved at sende accepterer du vores <a href="privatlivspolitik.html">privatlivspolitik</a>.</p>
       </form>
+      <script>
+      document.getElementById('job-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('job-btn');
+        const successEl = document.getElementById('job-success');
+        const errorEl = document.getElementById('job-error');
+        btn.textContent = 'Sender...';
+        btn.disabled = true;
+        successEl.style.display = 'none';
+        errorEl.style.display = 'none';
+        const formData = new FormData(this);
+        try {
+          const res = await fetch('https://formspree.io/f/xojpgjnw', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            successEl.style.display = 'block';
+            this.reset();
+          } else {
+            errorEl.style.display = 'block';
+          }
+        } catch {
+          errorEl.style.display = 'block';
+        } finally {
+          btn.textContent = 'Send ansøgning';
+          btn.disabled = false;
+        }
+      });
+      </script>
     </div>
   </div>
 </div>
