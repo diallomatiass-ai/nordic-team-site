@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nordic Team — Admin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Admin er internt — ingen cookie-banner her, men ingen ekstern Google Fonts -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -139,11 +139,8 @@
     <div class="filter-row">
       <select class="filter-select" id="filter-fag">
         <option value="">Alle faggrupper</option>
-        <option value="tomrer">Tømrer</option>
-        <option value="murer">Murer</option>
-        <option value="maler">Maler</option>
+        <option value="brolaegger">Brolægger</option>
         <option value="fjernvarme">Fjernvarme</option>
-        <option value="reetablering">Reetablering</option>
         <option value="montage">Generel montage</option>
         <option value="andet">Andet</option>
       </select>
@@ -264,9 +261,12 @@
   }
 
   const fagLabels = {
-    tomrer: 'Tømrer', murer: 'Murer', maler: 'Maler',
-    fjernvarme: 'Fjernvarme', reetablering: 'Reetablering',
-    montage: 'Generel montage', andet: 'Andet'
+    brolaegger: 'Brolægger',
+    fjernvarme: 'Fjernvarme',
+    montage: 'Generel montage',
+    andet: 'Andet',
+    // legacy — bevares så gamle henvendelser stadig vises korrekt
+    tomrer: 'Tømrer', murer: 'Murer', maler: 'Maler', reetablering: 'Reetablering'
   };
 
   function formatDate(iso) {
