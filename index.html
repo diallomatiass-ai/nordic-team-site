@@ -195,7 +195,7 @@
       position: relative;
       color: #fff;
       overflow: hidden;
-      min-height: 640px;
+      min-height: 720px;
       display: flex;
       align-items: center;
       padding: 96px 0 80px;
@@ -206,8 +206,11 @@
       background-color: var(--navy);
       background-image: url('hero_brolaegger.jpg');
       background-size: cover;
-      background-position: center right;
+      background-position: 65% 35%;
       z-index: 0;
+    }
+    @media (max-width: 880px) {
+      .hero-bg { background-position: 70% 30%; }
     }
     .hero-overlay {
       position: absolute;
