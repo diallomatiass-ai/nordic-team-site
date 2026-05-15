@@ -554,8 +554,13 @@
       border: 1px solid var(--border);
       border-radius: 4px;
       transition: border-color .15s;
+      overflow: visible;
     }
     .service:hover { border-color: var(--orange); }
+    .service > div:last-child {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
     .service-icon {
       width: 48px;
       height: 48px;
@@ -573,8 +578,15 @@
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 6px;
+      overflow-wrap: break-word;
     }
-    .service p { font-size: .92rem; color: var(--text); line-height: 1.6; margin-bottom: 8px; }
+    .service p {
+      font-size: .92rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 8px;
+      overflow-wrap: break-word;
+    }
     .service-tag {
       display: inline-block;
       font-size: .78rem;
@@ -583,7 +595,7 @@
       background: var(--orange-soft);
       padding: 3px 10px;
       border-radius: 3px;
-      margin-right: 12px;
+      white-space: nowrap;
     }
     .service-link {
       display: inline-flex;
@@ -593,11 +605,17 @@
       font-weight: 600;
       color: var(--orange);
       text-decoration: none;
-      margin-top: 4px;
       transition: gap .15s;
+      white-space: nowrap;
     }
     .service-link:hover { gap: 10px; }
-    .service-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; margin-top: 10px; }
+    .service-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 12px;
+    }
 
     /* ── PROCES ── */
     .process-grid {
@@ -1035,31 +1053,34 @@
       .nav-inner { height: 64px; }
       .nav-logo img { height: 40px; }
 
-      /* ─── HERO — full-bleed billede med tekst på toppen ─── */
+      /* ─── HERO — split layout: foto øverst, tekst nederst ─── */
       .hero {
-        min-height: 580px;
-        padding: 64px 0 48px;
-        align-items: center;
+        min-height: auto;
+        padding: 0;
+        align-items: stretch;
         background: var(--navy);
+        display: flex;
+        flex-direction: column;
       }
       .hero-bg {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+        position: relative;
+        top: auto; left: auto; right: auto; bottom: auto;
         width: 100%;
-        height: 100%;
+        height: 320px;
         margin: 0;
         z-index: 0;
+        order: 1;
       }
-      .hero-bg img { object-position: 70% center; }
+      .hero-bg img {
+        object-position: 50% 25%;
+      }
       .hero-overlay {
-        display: block;
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        background: linear-gradient(180deg,
-          rgba(15,42,71,.88) 0%,
-          rgba(15,42,71,.78) 50%,
-          rgba(15,42,71,.65) 100%);
+        display: none;
+      }
+      .hero .container {
+        order: 2;
+        padding-top: 48px;
+        padding-bottom: 56px;
       }
       .hero-content {
         position: relative;
