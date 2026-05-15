@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nordic Team — Mandskabsudlejning til Byggebranchen | Sjælland</title>
-  <meta name="description" content="Nordic Team udlejer kvalificerede håndværkere til bygge- og anlægsprojekter på Sjælland. Brolæggere, fjernvarme og generel montage — leveret inden 48 timer. CVR: 46382056." />
+  <meta name="description" content="Nordic Team — vikarbureau på Sjælland med faglærte brolæggere, fjernvarme-folk og montage-mandskab til byggebranchen. Vi udfører også brolægger- og anlægsopgaver for private. CVR: 46382056." />
   <meta name="keywords" content="mandskabsudlejning, vikarbureau byggeri, håndværkere Sjælland, brolægger udlejning, brolægning Sjælland, fjernvarme montør, bemanding byggeri, vikar byggeplads, Nordic Team" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Nordic Team" />
@@ -48,9 +48,10 @@
       "@type": "OfferCatalog",
       "name": "Mandskabsudlejning",
       "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brolægger udlejning", "description": "Indkørsler, terrasser, fortove, granitarbejde og reetablering af belægning"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fjernvarme", "description": "Gravefolk og håndmænd til fjernvarmeprojekter og ledningsanlæg"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Generel montage", "description": "Fleksibelt mandskab til monteringsopgaver, hjælpearbejde og byggelogistik"}}
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brolægger udlejning", "description": "Vikarbureau — udleje af faglærte brolæggere til entreprenører"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fjernvarme", "description": "Vikarbureau — gravefolk og håndmænd til fjernvarmeprojekter"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Generel montage", "description": "Vikarbureau — fleksibelt mandskab til monteringsopgaver"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brolægger til private — anlæg og belægning", "description": "Brolægger- og anlægsopgaver for private kunder med fast pris: indkørsler, terrasser, fortove, granitarbejde"}}
       ]
     }
   }
@@ -418,6 +419,91 @@
     }
     .sec-header.left { text-align: left; margin-left: 0; }
 
+    /* ── PRIVAT SEKTION ── */
+    section.section-warm { background: var(--bg-warm); padding: 96px 0; position: relative; }
+    .private-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (max-width: 880px) { .private-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .private-text h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin-bottom: 18px;
+    }
+    .private-text > p {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+    .private-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 520px) { .private-list { grid-template-columns: 1fr; } }
+    .private-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text);
+      font-size: .95rem;
+    }
+    .private-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+    .private-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 40px 36px;
+      box-shadow: 0 16px 36px rgba(15,42,71,.08);
+      border-top: 4px solid var(--orange);
+    }
+    .private-card h3 {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 22px;
+    }
+    .private-card-list { list-style: none; }
+    .private-card-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-soft);
+      color: var(--text);
+      font-size: .95rem;
+      font-weight: 500;
+    }
+    .private-card-list li:last-child { border-bottom: none; }
+    .private-card-list svg {
+      width: 18px;
+      height: 18px;
+      color: var(--orange);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .private-card-list strong { color: var(--navy); font-weight: 700; display: block; margin-bottom: 2px; }
+
     /* ── FORDELE (3 søjler) ── */
     .pillars {
       display: grid;
@@ -758,12 +844,13 @@
     footer a:hover { color: var(--orange); }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
       padding-bottom: 48px;
       border-bottom: 1px solid rgba(255,255,255,.1);
     }
-    @media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; } }
+    @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-brand img {
       height: 56px;
@@ -845,8 +932,8 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo"><img src="nordic_team_logo_transparent.png" alt="Nordic Team" /></a>
       <ul class="nav-links">
-        <li><a href="#ydelser">Ydelser</a></li>
-        <li><a href="#proces">Sådan virker det</a></li>
+        <li><a href="#ydelser">Vikarbureau</a></li>
+        <li><a href="#privat">Privat</a></li>
         <li><a href="#priser">Priser</a></li>
         <li><a href="#om-os">Om os</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
@@ -858,8 +945,8 @@
       </label>
     </div>
     <div class="mobile-menu">
-      <a href="#ydelser">Ydelser</a>
-      <a href="#proces">Sådan virker det</a>
+      <a href="#ydelser">Vikarbureau</a>
+      <a href="#privat">Privat</a>
       <a href="#priser">Priser</a>
       <a href="#om-os">Om os</a>
       <a href="#kontakt">Kontakt</a>
@@ -877,12 +964,12 @@
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-eyebrow">Mandskabsudlejning på Sjælland</span>
-      <h1>Kvalificeret <span class="accent">arbejdskraft</span> til byggebranchen — leveret inden 48 timer.</h1>
+      <span class="hero-eyebrow">Vikarbureau & brolægger på Sjælland</span>
+      <h1>Mandskab til byggebranchen — og <span class="accent">brolægger</span> til private.</h1>
       <div class="hero-tagline">Nordic Team dækker alle dine huller.</div>
       <p class="lead">
-        Nordic Team udlejer faglærte håndværkere til bygge- og anlægsprojekter på hele Sjælland.
-        Brolæggere, fjernvarmemontører og generel montage. Du betaler kun for de timer, du bruger.
+        Vi udlejer faglærte håndværkere til entreprenører og byggevirksomheder på hele Sjælland —
+        og udfører selv brolægger- og anlægsopgaver hjemme hos private. To forretninger, samme håndværk.
       </p>
       <div class="hero-ctas">
         <a href="#kontakt" class="btn-primary">Få et tilbud</a>
@@ -937,15 +1024,16 @@
   </div>
 </div>
 
-<!-- YDELSER -->
+<!-- YDELSER (B2B - VIKARBUREAU) -->
 <section id="ydelser" class="section">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">Vores ydelser</span>
-      <h2 class="sec-title">Hvad kan vi hjælpe jer med?</h2>
+      <span class="sec-eyebrow">For virksomheder · Vikarbureau</span>
+      <h2 class="sec-title">Vi udlejer mandskab til byggebranchen</h2>
       <p class="sec-lead">
-        Vi leverer mandskab til de fag, hvor det ofte halter med kapacitet:
-        brolægning, fjernvarme og generel montage.
+        Entreprenører og byggevirksomheder på Sjælland lejer mandskab hos os
+        til de fag, hvor det ofte halter med kapacitet: brolægning, fjernvarme og generel montage.
+        I betaler kun for de timer, I bruger.
       </p>
     </div>
 
@@ -990,6 +1078,66 @@
             <a href="#kontakt" class="service-link">Bestil nu →</a>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVAT (B2C - BROLÆGGER TIL PRIVATE) -->
+<section id="privat" class="section section-warm">
+  <div class="container">
+    <div class="sec-header" style="margin-bottom:48px">
+      <span class="sec-eyebrow">For private · Brolægger</span>
+      <h2 class="sec-title">Anlæg og belægning hjemme hos dig</h2>
+      <p class="sec-lead">
+        Skal du have lagt ny indkørsel, terrasse eller fortov?
+        Vi tager også private opgaver — udført af de samme erfarne brolæggere,
+        som arbejder for vores professionelle kunder. Fast pris, så du ved præcis hvad det koster.
+      </p>
+    </div>
+
+    <div class="private-grid">
+      <div class="private-text">
+        <p>
+          Fra én ny stenterrasse til hele indkørslen — vi tager opgaverne ordentligt,
+          og afleverer et resultat, der står i mange år. Vi rydder op efter os og giver
+          dig en klar plan for, hvornår vi starter og slutter.
+        </p>
+        <ul class="private-list">
+          <li>Indkørsler i sten eller fliser</li>
+          <li>Terrasser og udendørsarealer</li>
+          <li>Fortove og gangstier</li>
+          <li>Granitarbejde og kantsten</li>
+          <li>Reetablering af belægning</li>
+          <li>Drænage og afvanding</li>
+        </ul>
+        <a href="#kontakt" class="btn-primary">Få fast pris på opgaven</a>
+      </div>
+
+      <div class="private-card">
+        <h3>Hvad får du som privat kunde?</h3>
+        <ul class="private-card-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Fast pris</strong>Skriftligt tilbud før vi går i gang — ingen overraskelser</div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Erfarne brolæggere</strong>Samme folk, som arbejder for byggevirksomheder</div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Materialer kan inkluderes</strong>Vi kan også stå for indkøb af sten og sand</div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Klar tidsplan</strong>Du ved hvornår vi starter og er færdige</div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Garanti på arbejdet</strong>Vi står inde for det vi laver</div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1082,11 +1230,12 @@
 <section id="priser" class="section alt">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">Vores priser</span>
+      <span class="sec-eyebrow">Vikarbureau-priser</span>
       <h2 class="sec-title">Hvad koster det at leje en håndværker?</h2>
       <p class="sec-lead">
-        Klare timepriser uden skjulte gebyrer. Alle priser er ekskl. moms og forudsætter
-        almindelig dagarbejde mandag til fredag.
+        Klare timepriser uden skjulte gebyrer for vores erhvervskunder.
+        Alle priser er ekskl. moms og forudsætter almindelig dagarbejde mandag til fredag.
+        <strong>Private kunder får altid fast pris på opgaven</strong> — kontakt os for tilbud.
       </p>
     </div>
 
@@ -1270,9 +1419,17 @@
             <label for="ydelse">Hvad har I brug for?</label>
             <select id="ydelse" name="ydelse">
               <option value="">Vælg ydelse</option>
-              <option value="brolaegning">Brolægning</option>
-              <option value="fjernvarme">Fjernvarme</option>
-              <option value="montage">Generel montage</option>
+              <optgroup label="For virksomheder (vikarbureau)">
+                <option value="brolaegning">Brolægning — vikarbureau</option>
+                <option value="fjernvarme">Fjernvarme — vikarbureau</option>
+                <option value="montage">Generel montage — vikarbureau</option>
+              </optgroup>
+              <optgroup label="For private (brolægger til opgaven)">
+                <option value="privat-indkoersel">Privat — indkørsel</option>
+                <option value="privat-terrasse">Privat — terrasse</option>
+                <option value="privat-anlaeg">Privat — anlæg & belægning</option>
+                <option value="privat-andet">Privat — andet</option>
+              </optgroup>
               <option value="andet">Andet</option>
             </select>
           </div>
@@ -1301,11 +1458,20 @@
         </p>
       </div>
       <div class="footer-col">
-        <h5>Ydelser</h5>
+        <h5>Vikarbureau</h5>
         <ul>
           <li><a href="#ydelser">Brolægning</a></li>
           <li><a href="#ydelser">Fjernvarme</a></li>
           <li><a href="#ydelser">Generel montage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>For private</h5>
+        <ul>
+          <li><a href="#privat">Indkørsler</a></li>
+          <li><a href="#privat">Terrasser</a></li>
+          <li><a href="#privat">Fortove & gangstier</a></li>
+          <li><a href="#privat">Anlæg & belægning</a></li>
         </ul>
       </div>
       <div class="footer-col">
