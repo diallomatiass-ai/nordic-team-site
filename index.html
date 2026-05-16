@@ -170,12 +170,12 @@
       padding: 10px 8px;
     }
     .hamburger span { display: block; height: 2px; background: var(--ink); }
-    #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-    #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(2){opacity:0}
-    #nav-toggle:checked ~ .nav-inner .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    #nav-toggle:checked ~ nav .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    #nav-toggle:checked ~ nav .hamburger span:nth-child(2){opacity:0}
+    #nav-toggle:checked ~ nav .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
     .hamburger span { transition: transform .25s, opacity .15s; }
     .mobile-menu { display: none; flex-direction: column; padding: 12px 24px 20px; border-top: 1px solid var(--border); }
-    #nav-toggle:checked ~ .mobile-menu { display: flex; }
+    #nav-toggle:checked ~ nav .mobile-menu { display: flex; }
     .mobile-menu a {
       color: var(--ink);
       padding: 12px 0;
