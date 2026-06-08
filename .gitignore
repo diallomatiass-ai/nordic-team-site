@@ -1,1 +1,9 @@
 .vercel
+.env
+.env.*
+!.env.example
+node_modules/
+*.backup-*
+*.bak
+api/graphify-out/
+graphify-out/
