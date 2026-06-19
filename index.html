@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nordic Team — Mandskabsudlejning til Byggebranchen | Sjælland</title>
+  <title data-en="Nordic Team — Labour Hire for the Construction Industry | Zealand">Nordic Team — Mandskabsudlejning til Byggebranchen | Sjælland</title>
   <meta name="description" content="Nordic Team — vikarbureau på Sjælland med faglærte brolæggere, fjernvarme-folk og montage-mandskab til byggebranchen. Vi udfører også brolægger- og anlægsopgaver for private. CVR: 46382056." />
   <meta name="keywords" content="mandskabsudlejning, vikarbureau byggeri, håndværkere Sjælland, brolægger udlejning, brolægning Sjælland, fjernvarme montør, bemanding byggeri, vikar byggeplads, Nordic Team" />
   <meta name="robots" content="index, follow" />
@@ -185,6 +185,28 @@
     }
     .mobile-menu a:last-of-type { border-bottom: none; }
     .mobile-menu .nav-cta { margin-top: 12px; justify-content: center; }
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .lang-toggle:hover { border-color: var(--orange); color: var(--orange); }
+    .nav-inner .lang-toggle { margin-left: auto; }
+    @media (min-width: 881px) { .nav-inner .lang-toggle { margin-left: 0; } }
     @media (max-width: 880px) {
       .nav-links, nav > .nav-inner > .nav-cta { display: none; }
       .hamburger { display: flex; }
@@ -1213,11 +1235,11 @@
     <div class="topbar-left">
       <span class="topbar-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span class="label">Sjælland — Hovedstaden & omegn</span>
+        <span class="label" data-en="Zealand — Greater Copenhagen">Sjælland — Hovedstaden & omegn</span>
       </span>
       <span class="topbar-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span class="label">Man–Fre 07:00–17:00</span>
+        <span class="label" data-en="Mon–Fri 07:00–17:00">Man–Fre 07:00–17:00</span>
       </span>
     </div>
     <div class="topbar-right">
@@ -1240,25 +1262,26 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo"><img src="nordic_team_logo_transparent.png" alt="Nordic Team" /></a>
       <ul class="nav-links">
-        <li><a href="#ydelser">Vikarbureau</a></li>
-        <li><a href="#privat">Privat</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="job.html">Job</a></li>
+        <li><a href="#ydelser" data-en="Staffing">Vikarbureau</a></li>
+        <li><a href="#privat" data-en="Private">Privat</a></li>
+        <li><a href="#faq" data-en="FAQ">FAQ</a></li>
+        <li><a href="#kontakt" data-en="Contact">Kontakt</a></li>
+        <li><a href="job.html" data-en="Jobs">Job</a></li>
       </ul>
-      <a href="#kontakt" class="nav-cta">Få et tilbud</a>
+      <a href="#kontakt" class="nav-cta" data-en="Get a quote">Få et tilbud</a>
+      <button class="lang-toggle" type="button" onclick="ntToggleLang()" aria-label="Skift sprog / Change language">EN</button>
       <label class="hamburger" for="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </label>
     </div>
     <div class="mobile-menu">
-      <a href="#ydelser">Vikarbureau</a>
-      <a href="#privat">Privat</a>
-      <a href="#faq">FAQ</a>
-      <a href="#om-os">Om os</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="job.html">Job</a>
-      <a href="tel:+4550260739" class="nav-cta">Ring 50 26 07 39</a>
+      <a href="#ydelser" data-en="Staffing">Vikarbureau</a>
+      <a href="#privat" data-en="Private">Privat</a>
+      <a href="#faq" data-en="FAQ">FAQ</a>
+      <a href="#om-os" data-en="About us">Om os</a>
+      <a href="#kontakt" data-en="Contact">Kontakt</a>
+      <a href="job.html" data-en="Jobs">Job</a>
+      <a href="tel:+4550260739" class="nav-cta" data-en="Call 50 26 07 39">Ring 50 26 07 39</a>
     </div>
   </div>
 </nav>
@@ -1271,15 +1294,15 @@
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-eyebrow">vikarbureau &amp; brolægger på Sjælland</span>
-      <h1>Mandskab til byggebranchen — og <span class="accent">brolægger</span> til private.</h1>
-      <div class="hero-tagline">Nordic Team dækker alle dine huller.</div>
-      <p class="lead">
+      <span class="hero-eyebrow" data-en="staffing &amp; paving on Zealand">vikarbureau &amp; brolægger på Sjælland</span>
+      <h1 data-en="Workforce for the construction industry — and <span class='accent'>paving</span> for private homes.">Mandskab til byggebranchen — og <span class="accent">brolægger</span> til private.</h1>
+      <div class="hero-tagline" data-en="Nordic Team fills every gap.">Nordic Team dækker alle dine huller.</div>
+      <p class="lead" data-en="We hire out skilled tradesmen to contractors and construction firms across Zealand — and carry out paving and landscaping work for private homeowners ourselves. Two businesses, the same craftsmanship.">
         Vi udlejer faglærte håndværkere til entreprenører og byggevirksomheder på hele Sjælland —
         og udfører selv brolægger- og anlægsopgaver hjemme hos private. To forretninger, samme håndværk.
       </p>
       <div class="hero-ctas">
-        <a href="#kontakt" class="btn-primary">Få et tilbud</a>
+        <a href="#kontakt" class="btn-primary" data-en="Get a quote">Få et tilbud</a>
         <a href="tel:+4550260739" class="btn-ghost">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
           50 26 07 39
@@ -1294,20 +1317,20 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat">
-        <div class="stat-num">48<span class="unit">t</span></div>
-        <div class="stat-label">Levering på pladsen</div>
+        <div class="stat-num" data-en="48<span class='unit'>h</span>">48<span class="unit">t</span></div>
+        <div class="stat-label" data-en="Delivery on site">Levering på pladsen</div>
       </div>
       <div class="stat">
         <div class="stat-num">1</div>
-        <div class="stat-label">Fast arbejdsleder</div>
+        <div class="stat-label" data-en="Dedicated supervisor">Fast arbejdsleder</div>
       </div>
       <div class="stat">
         <div class="stat-num">100<span class="unit">%</span></div>
-        <div class="stat-label">Faglært mandskab</div>
+        <div class="stat-label" data-en="Skilled workforce">Faglært mandskab</div>
       </div>
       <div class="stat">
         <div class="stat-num">0 <span class="unit">kr.</span></div>
-        <div class="stat-label">Skjulte gebyrer</div>
+        <div class="stat-label" data-en="Hidden fees">Skjulte gebyrer</div>
       </div>
     </div>
   </div>
@@ -1318,15 +1341,15 @@
   <div class="container">
     <div class="trust-item">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Fuld erhvervsansvarsforsikring
+      <span data-en="Full professional liability insurance">Fuld erhvervsansvarsforsikring</span>
     </div>
     <div class="trust-item">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Dansk CVR 46382056
+      <span data-en="Danish CVR 46382056">Dansk CVR 46382056</span>
     </div>
     <div class="trust-item">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Hele Sjælland — Hovedstaden & omegn
+      <span data-en="All of Zealand — Greater Copenhagen">Hele Sjælland — Hovedstaden & omegn</span>
     </div>
   </div>
 </div>
@@ -1335,9 +1358,9 @@
 <section id="ydelser" class="section">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">for virksomheder</span>
-      <h2 class="sec-title">Vi sender folk ud, når I har brug for ekstra hænder</h2>
-      <p class="sec-lead">
+      <span class="sec-eyebrow" data-en="for businesses">for virksomheder</span>
+      <h2 class="sec-title" data-en="We send people out when you need extra hands">Vi sender folk ud, når I har brug for ekstra hænder</h2>
+      <p class="sec-lead" data-en="Contractors and construction firms on Zealand hire workforce from us for the trades where capacity often falls short — paving, district heating, general assembly and dewatering. You only pay for the hours you use.">
         Entreprenører og byggevirksomheder på Sjælland lejer mandskab hos os
         til de fag, hvor det ofte halter med kapacitet — brolægning, fjernvarme, generel montage og afvanding.
         I betaler kun for de timer, I bruger.
@@ -1350,11 +1373,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </div>
         <div>
-          <h3>Brolægger</h3>
-          <p>Erfarne brolæggere til indkørsler, terrasser, fortove og granitarbejde — inkl. reetablering af belægning.</p>
+          <h3 data-en="Paving">Brolægger</h3>
+          <p data-en="Experienced pavers for driveways, patios, pavements and granite work — including reinstatement of surfaces.">Erfarne brolæggere til indkørsler, terrasser, fortove og granitarbejde — inkl. reetablering af belægning.</p>
           <div class="service-meta">
-            <span class="service-tag">Ring eller skriv for tilbud</span>
-            <a href="#kontakt" class="service-link">Bestil nu →</a>
+            <span class="service-tag" data-en="Call or write for a quote">Ring eller skriv for tilbud</span>
+            <a href="#kontakt" class="service-link" data-en="Order now →">Bestil nu →</a>
           </div>
         </div>
       </div>
@@ -1364,11 +1387,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.31 8l5.74 9.94"/><path d="M9.69 8h11.48"/><path d="M7.38 12l5.74-9.94"/><path d="M9.69 16L3.95 6.06"/><path d="M14.31 16H2.83"/><path d="M16.62 12l-5.74 9.94"/></svg>
         </div>
         <div>
-          <h3>Fjernvarme</h3>
-          <p>Gravefolk og håndmænd til fjernvarmeprojekter og ledningsanlæg på Sjælland.</p>
+          <h3 data-en="District heating">Fjernvarme</h3>
+          <p data-en="Diggers and labourers for district-heating projects and pipeline works on Zealand.">Gravefolk og håndmænd til fjernvarmeprojekter og ledningsanlæg på Sjælland.</p>
           <div class="service-meta">
-            <span class="service-tag">Ring eller skriv for tilbud</span>
-            <a href="#kontakt" class="service-link">Bestil nu →</a>
+            <span class="service-tag" data-en="Call or write for a quote">Ring eller skriv for tilbud</span>
+            <a href="#kontakt" class="service-link" data-en="Order now →">Bestil nu →</a>
           </div>
         </div>
       </div>
@@ -1378,11 +1401,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
         <div>
-          <h3>Generel montage</h3>
-          <p>Fleksibelt mandskab til monteringsopgaver, hjælpearbejde og byggelogistik.</p>
+          <h3 data-en="General assembly">Generel montage</h3>
+          <p data-en="Flexible workforce for assembly tasks, support work and site logistics.">Fleksibelt mandskab til monteringsopgaver, hjælpearbejde og byggelogistik.</p>
           <div class="service-meta">
-            <span class="service-tag">Ring eller skriv for tilbud</span>
-            <a href="#kontakt" class="service-link">Bestil nu →</a>
+            <span class="service-tag" data-en="Call or write for a quote">Ring eller skriv for tilbud</span>
+            <a href="#kontakt" class="service-link" data-en="Order now →">Bestil nu →</a>
           </div>
         </div>
       </div>
@@ -1392,11 +1415,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6"/><path d="M12 22a6 6 0 0 0 6-6c0-2-1-4-3-6l-3-4-3 4c-2 2-3 4-3 6a6 6 0 0 0 6 6z"/></svg>
         </div>
         <div>
-          <h3>Dykpumper &amp; afvanding</h3>
-          <p>Vi rykker ud med dykpumper og fjerner vand fra byggegruber, kældre og oversvømmede pladser.</p>
+          <h3 data-en="Submersible pumps &amp; dewatering">Dykpumper &amp; afvanding</h3>
+          <p data-en="We turn up with submersible pumps and remove water from excavation pits, basements and flooded sites.">Vi rykker ud med dykpumper og fjerner vand fra byggegruber, kældre og oversvømmede pladser.</p>
           <div class="service-meta">
-            <span class="service-tag">Ring eller skriv for tilbud</span>
-            <a href="#kontakt" class="service-link">Bestil nu →</a>
+            <span class="service-tag" data-en="Call or write for a quote">Ring eller skriv for tilbud</span>
+            <a href="#kontakt" class="service-link" data-en="Order now →">Bestil nu →</a>
           </div>
         </div>
       </div>
@@ -1407,12 +1430,12 @@
 <!-- PHONE STRIP (efter B2B-ydelser) -->
 <div class="phone-strip">
   <div class="container">
-    <div class="phone-strip-text">
+    <div class="phone-strip-text" data-en="<strong>Need workforce fast?</strong> We often have people ready to head out — even at short notice.">
       <strong>Brug for mandskab hurtigt?</strong> Vi har ofte folk klar til at rykke ud — også på kort varsel.
     </div>
     <a href="tel:+4550260739" class="phone-strip-cta">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-      Ring 50 26 07 39
+      <span data-en="Call 50 26 07 39">Ring 50 26 07 39</span>
     </a>
   </div>
 </div>
@@ -1421,9 +1444,9 @@
 <section id="privat" class="section section-warm">
   <div class="container">
     <div class="sec-header" style="margin-bottom:48px">
-      <span class="sec-eyebrow">for private</span>
-      <h2 class="sec-title">Anlæg og belægning hjemme hos dig</h2>
-      <p class="sec-lead">
+      <span class="sec-eyebrow" data-en="for private homes">for private</span>
+      <h2 class="sec-title" data-en="Landscaping and paving at your home">Anlæg og belægning hjemme hos dig</h2>
+      <p class="sec-lead" data-en="Need a new driveway, patio or pavement laid? We take on private jobs too — carried out by the same experienced pavers who work for our professional clients. A fixed price, so you know exactly what it costs.">
         Skal du have lagt ny indkørsel, terrasse eller fortov?
         Vi tager også private opgaver — udført af de samme erfarne brolæggere,
         som arbejder for vores professionelle kunder. Fast pris, så du ved præcis hvad det koster.
@@ -1432,44 +1455,44 @@
 
     <div class="private-grid">
       <div class="private-text">
-        <p>
+        <p data-en="From a single new stone patio to the entire driveway — we do the job properly and deliver a result that lasts for years. We clean up after ourselves and give you a clear plan for when we start and finish.">
           Fra én ny stenterrasse til hele indkørslen — vi tager opgaverne ordentligt,
           og afleverer et resultat, der står i mange år. Vi rydder op efter os og giver
           dig en klar plan for, hvornår vi starter og slutter.
         </p>
         <ul class="private-list">
-          <li>Indkørsler i sten eller fliser</li>
-          <li>Terrasser og udendørsarealer</li>
-          <li>Fortove og gangstier</li>
-          <li>Granitarbejde og kantsten</li>
-          <li>Reetablering af belægning</li>
-          <li>Drænage og afvanding</li>
+          <li data-en="Driveways in stone or pavers">Indkørsler i sten eller fliser</li>
+          <li data-en="Patios and outdoor areas">Terrasser og udendørsarealer</li>
+          <li data-en="Pavements and footpaths">Fortove og gangstier</li>
+          <li data-en="Granite work and kerbstones">Granitarbejde og kantsten</li>
+          <li data-en="Reinstatement of surfaces">Reetablering af belægning</li>
+          <li data-en="Drainage and dewatering">Drænage og afvanding</li>
         </ul>
-        <a href="#kontakt" class="btn-primary">Få fast pris på opgaven</a>
+        <a href="#kontakt" class="btn-primary" data-en="Get a fixed price for the job">Få fast pris på opgaven</a>
       </div>
 
       <div class="private-card">
-        <h3>Hvad får du som privat kunde?</h3>
+        <h3 data-en="What do you get as a private customer?">Hvad får du som privat kunde?</h3>
         <ul class="private-card-list">
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>Fast pris</strong>Skriftligt tilbud før vi går i gang — ingen overraskelser</div>
+            <div data-en="<strong>Fixed price</strong>A written quote before we start — no surprises"><strong>Fast pris</strong>Skriftligt tilbud før vi går i gang — ingen overraskelser</div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>Erfarne brolæggere</strong>Samme folk, som arbejder for byggevirksomheder</div>
+            <div data-en="<strong>Experienced pavers</strong>The same people who work for construction firms"><strong>Erfarne brolæggere</strong>Samme folk, som arbejder for byggevirksomheder</div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>Materialer kan inkluderes</strong>Vi kan også stå for indkøb af sten og sand</div>
+            <div data-en="<strong>Materials can be included</strong>We can also handle the purchase of stone and sand"><strong>Materialer kan inkluderes</strong>Vi kan også stå for indkøb af sten og sand</div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>Klar tidsplan</strong>Du ved hvornår vi starter og er færdige</div>
+            <div data-en="<strong>Clear schedule</strong>You know when we start and when we finish"><strong>Klar tidsplan</strong>Du ved hvornår vi starter og er færdige</div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>Garanti på arbejdet</strong>Vi står inde for det vi laver</div>
+            <div data-en="<strong>Guarantee on the work</strong>We stand behind what we do"><strong>Garanti på arbejdet</strong>Vi står inde for det vi laver</div>
           </li>
         </ul>
       </div>
@@ -1481,9 +1504,9 @@
 <section class="section alt">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">hvorfor os</span>
-      <h2 class="sec-title">Derfor ringer kunderne tilbage</h2>
-      <p class="sec-lead">
+      <span class="sec-eyebrow" data-en="why us">hvorfor os</span>
+      <h2 class="sec-title" data-en="Why customers keep calling back">Derfor ringer kunderne tilbage</h2>
+      <p class="sec-lead" data-en="We provide skilled labour so you can take on more jobs without hiring permanently. Call or write — and we will find the right person for the task.">
         Vi stiller faglært arbejdskraft til rådighed, så I kan tage flere opgaver uden at fastansætte.
         Ring eller skriv — så finder vi den rigtige mand til opgaven.
       </p>
@@ -1494,8 +1517,8 @@
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 13 9 20 9"/><path d="M20 13v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l7 7z"/></svg>
         </div>
-        <h3>Fleksibilitet</h3>
-        <p>
+        <h3 data-en="Flexibility">Fleksibilitet</h3>
+        <p data-en="Hire one person for a week or a whole crew for three months. We adapt the staffing to your project — not the other way round. No long commitments.">
           Hyr én mand i en uge eller et helt sjak i tre måneder. Vi tilpasser
           bemandingen til jeres projekt — ikke omvendt. Ingen lange bindinger.
         </p>
@@ -1505,8 +1528,8 @@
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <h3>Pålidelig</h3>
-        <p>
+        <h3 data-en="Reliable">Pålidelig</h3>
+        <p data-en="Our tradesmen show up on time, know their craft and speak Danish. We don't send people we wouldn't hire ourselves. Full stop.">
           Vores håndværkere møder til tiden, kan deres fag og taler dansk.
           Vi sender ikke folk, vi ikke selv ville hyre. Punktum.
         </p>
@@ -1516,8 +1539,8 @@
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
-        <h3>Erfarne folk</h3>
-        <p>
+        <h3 data-en="Experienced people">Erfarne folk</h3>
+        <p data-en="Pavers, district-heating fitters and construction workers with several years of experience from real building sites. Not temps on their first day.">
           Brolæggere, fjernvarmemontører og bygningsarbejdere med flere års
           erfaring fra reelle byggepladser. Ikke vikarer på første arbejdsdag.
         </p>
@@ -1530,31 +1553,31 @@
 <section id="proces" class="section">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">sådan virker det</span>
-      <h2 class="sec-title">Fra opkald til mand på pladsen — på 4 trin</h2>
-      <p class="sec-lead">Vi gør det enkelt. Ingen lange udvalgsprocesser, ingen skjulte gebyrer.</p>
+      <span class="sec-eyebrow" data-en="how it works">sådan virker det</span>
+      <h2 class="sec-title" data-en="From call to worker on site — in 4 steps">Fra opkald til mand på pladsen — på 4 trin</h2>
+      <p class="sec-lead" data-en="We keep it simple. No lengthy selection processes, no hidden fees.">Vi gør det enkelt. Ingen lange udvalgsprocesser, ingen skjulte gebyrer.</p>
     </div>
 
     <div class="process-grid">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Ring eller skriv</h3>
-        <p>Fortæl os om opgaven, omfanget og hvornår I har brug for mandskab.</p>
+        <h3 data-en="Call or write">Ring eller skriv</h3>
+        <p data-en="Tell us about the job, the scope and when you need workforce.">Fortæl os om opgaven, omfanget og hvornår I har brug for mandskab.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Tilbud samme dag</h3>
-        <p>I får skriftligt tilbud med timepris eller stykpris — og forventet start.</p>
+        <h3 data-en="Quote the same day">Tilbud samme dag</h3>
+        <p data-en="You get a written quote with an hourly or unit price — and an expected start.">I får skriftligt tilbud med timepris eller stykpris — og forventet start.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Mand på pladsen</h3>
-        <p>Vi sender en faglært håndværker inden 48 timer — ofte hurtigere.</p>
+        <h3 data-en="Worker on site">Mand på pladsen</h3>
+        <p data-en="We send a skilled tradesman within 48 hours — often sooner.">Vi sender en faglært håndværker inden 48 timer — ofte hurtigere.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h3>14-dags faktura</h3>
-        <p>Faktura hver anden uge med dokumenterede timer godkendt af jer.</p>
+        <h3 data-en="Invoice every 14 days">14-dags faktura</h3>
+        <p data-en="An invoice every two weeks with documented hours approved by you.">Faktura hver anden uge med dokumenterede timer godkendt af jer.</p>
       </div>
     </div>
   </div>
@@ -1565,14 +1588,14 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <span class="sec-eyebrow">om os</span>
-        <h2>Et lokalt vikarbureau bygget på håndværk og ordentlighed</h2>
-        <p>
+        <span class="sec-eyebrow" data-en="about us">om os</span>
+        <h2 data-en="A local staffing agency built on craftsmanship and decency">Et lokalt vikarbureau bygget på håndværk og ordentlighed</h2>
+        <p data-en="Nordic Team was founded with one purpose: to make it easy for contractors and construction firms on Zealand to get hold of reliable tradesmen when they need extra hands.">
           Nordic Team blev grundlagt med ét formål: at gøre det nemt for entreprenører
           og byggevirksomheder på Sjælland at få fat i pålidelige håndværkere, når de
           har brug for ekstra hænder.
         </p>
-        <p>
+        <p data-en="We're not the biggest agency — and we don't aim to be. We'd rather be the agency where you get the same supervisor on the phone every time, and where the tradesmen know what they're doing.">
           Vi er ikke det største bureau — og det skal vi ikke være. Vi vil hellere
           være det bureau, hvor du får den samme arbejdsleder i røret hver gang,
           og hvor håndværkerne ved, hvad de laver.
@@ -1580,30 +1603,30 @@
       </div>
 
       <ul class="about-list">
-        <h4>Vores løfte til jer</h4>
+        <h4 data-en="Our promise to you">Vores løfte til jer</h4>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Vi tør sige nej, hvis vi ikke kan levere kvalitet
+          <span data-en="We dare to say no if we can't deliver quality">Vi tør sige nej, hvis vi ikke kan levere kvalitet</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Skriftligt tilbud samme dag — ingen forsinkelser
+          <span data-en="Written quote the same day — no delays">Skriftligt tilbud samme dag — ingen forsinkelser</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Faglærte håndværkere — ingen "vikarer på første arbejdsdag"
+          <span data-en="Skilled tradesmen — no &quot;temps on their first day&quot;">Faglærte håndværkere — ingen "vikarer på første arbejdsdag"</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Klare timepriser uden skjulte gebyrer
+          <span data-en="Clear hourly rates with no hidden fees">Klare timepriser uden skjulte gebyrer</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Fuld erhvervsansvars- og arbejdsskadeforsikring
+          <span data-en="Full liability and workers' compensation insurance">Fuld erhvervsansvars- og arbejdsskadeforsikring</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          Personlig kontakt — du får én arbejdsleder, ikke et call center
+          <span data-en="Personal contact — you get one supervisor, not a call centre">Personlig kontakt — du får én arbejdsleder, ikke et call center</span>
         </li>
       </ul>
     </div>
