@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job hos Nordic Team — Bliv en del af holdet | Håndværkerjob Sjælland</title>
+  <title data-en="Jobs at Nordic Team — Join the team | Construction jobs Zealand">Job hos Nordic Team — Bliv en del af holdet | Håndværkerjob Sjælland</title>
   <meta name="description" content="Søg job hos Nordic Team. Vi søger brolæggere, fjernvarmefolk og håndmænd til projekter på hele Sjælland. Timeløn, forsikring og fleksible opgaver." />
   <meta name="keywords" content="håndværker job, brolægger job Sjælland, fjernvarme job, vikar byggeri, Nordic Team job, arbejde som håndværker" />
   <meta name="robots" content="index, follow" />
@@ -113,6 +113,26 @@
       transition: color .15s;
     }
     .nav-back:hover { color: var(--orange); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink, #0F172A);
+      font-family: inherit;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .lang-toggle:hover { border-color: var(--orange); color: var(--orange); }
 
     /* HERO */
     .job-hero {
@@ -488,10 +508,13 @@
   <div class="container">
     <div class="nav-inner">
       <a href="/" class="nav-logo"><img src="nordic_team_logo_transparent.png" alt="Nordic Team" /></a>
-      <a href="/" class="nav-back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
-        Tilbage til forsiden
-      </a>
+      <div class="nav-right">
+        <a href="/" class="nav-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span data-en="Back to homepage">Tilbage til forsiden</span>
+        </a>
+        <button class="lang-toggle" type="button" onclick="ntToggleLang()" aria-label="Skift sprog / Change language">EN</button>
+      </div>
     </div>
   </div>
 </nav>
@@ -499,10 +522,10 @@
 <!-- HERO -->
 <section class="job-hero">
   <div class="container">
-    <span class="eyebrow">vi søger folk nu</span>
-    <h1>Bliv en del af <span class="accent">Nordic Team</span></h1>
-    <p>Vi søger dygtige håndværkere til bygge- og anlægsprojekter på hele Sjælland. Få timeløn for det du arbejder, fuld forsikring og nye spændende opgaver.</p>
-    <a href="#ansog" class="hero-cta">Send din ansøgning ↓</a>
+    <span class="eyebrow" data-en="we're hiring now">vi søger folk nu</span>
+    <h1 data-en="Become part of <span class='accent'>Nordic Team</span>">Bliv en del af <span class="accent">Nordic Team</span></h1>
+    <p data-en="We're looking for skilled tradesmen for construction and civil-works projects across Zealand. Get paid by the hour for what you work, full insurance and new, exciting jobs.">Vi søger dygtige håndværkere til bygge- og anlægsprojekter på hele Sjælland. Få timeløn for det du arbejder, fuld forsikring og nye spændende opgaver.</p>
+    <a href="#ansog" class="hero-cta" data-en="Send your application ↓">Send din ansøgning ↓</a>
   </div>
 </section>
 
@@ -510,52 +533,52 @@
 <section class="section">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">fordele</span>
-      <h2 class="sec-title">Hvorfor vælge Nordic Team?</h2>
-      <p class="sec-lead">Vi tager os af alt det praktiske, så du kan fokusere på det du er bedst til — dit håndværk.</p>
+      <span class="sec-eyebrow" data-en="benefits">fordele</span>
+      <h2 class="sec-title" data-en="Why choose Nordic Team?">Hvorfor vælge Nordic Team?</h2>
+      <p class="sec-lead" data-en="We take care of all the practical details, so you can focus on what you do best — your craft.">Vi tager os af alt det praktiske, så du kan fokusere på det du er bedst til — dit håndværk.</p>
     </div>
     <div class="benefits-grid">
       <div class="benefit">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <h3>Løn for dine timer</h3>
-        <p>Timeløn baseret på registrerede timer. Vi håndterer skat, AM-bidrag og feriepenge.</p>
+        <h3 data-en="Pay for your hours">Løn for dine timer</h3>
+        <p data-en="Hourly pay based on registered hours. We handle tax, labour-market contributions and holiday pay.">Timeløn baseret på registrerede timer. Vi håndterer skat, AM-bidrag og feriepenge.</p>
       </div>
       <div class="benefit">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3>Fuld forsikring</h3>
-        <p>Arbejdsskadeforsikring og erhvervsansvarsforsikring inkluderet. Du er dækket fra dag ét.</p>
+        <h3 data-en="Full insurance">Fuld forsikring</h3>
+        <p data-en="Workers' compensation and professional liability insurance included. You're covered from day one.">Arbejdsskadeforsikring og erhvervsansvarsforsikring inkluderet. Du er dækket fra dag ét.</p>
       </div>
       <div class="benefit">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <h3>Fleksible opgaver</h3>
-        <p>Nye projekter på hele Sjælland matchet til dine kompetencer og tilgængelighed.</p>
+        <h3 data-en="Flexible jobs">Fleksible opgaver</h3>
+        <p data-en="New projects across Zealand matched to your skills and availability.">Nye projekter på hele Sjælland matchet til dine kompetencer og tilgængelighed.</p>
       </div>
       <div class="benefit">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <h3>Karriereudvikling</h3>
-        <p>Arbejd med store og små projekter. Opbyg erfaring og netværk i byggebranchen.</p>
+        <h3 data-en="Career development">Karriereudvikling</h3>
+        <p data-en="Work on projects large and small. Build experience and a network in the construction industry.">Arbejd med store og små projekter. Opbyg erfaring og netværk i byggebranchen.</p>
       </div>
       <div class="benefit">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Godt kollegaskab</h3>
-        <p>Bliv del af et hold med erfarne fagfolk. Vi bakker hinanden op på tværs af projekter.</p>
+        <h3 data-en="Great team spirit">Godt kollegaskab</h3>
+        <p data-en="Join a team of experienced professionals. We back each other up across projects.">Bliv del af et hold med erfarne fagfolk. Vi bakker hinanden op på tværs af projekter.</p>
       </div>
       <div class="benefit">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
         </div>
-        <h3>Hurtig opstart</h3>
-        <p>Fra ansøgning til første arbejdsdag kan der gå under en uge.</p>
+        <h3 data-en="Quick start">Hurtig opstart</h3>
+        <p data-en="From application to first day of work can take less than a week.">Fra ansøgning til første arbejdsdag kan der gå under en uge.</p>
       </div>
     </div>
   </div>
@@ -565,18 +588,18 @@
 <section class="section alt">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">faggrupper</span>
-      <h2 class="sec-title">Hvem søger vi?</h2>
-      <p class="sec-lead">Erfarne håndværkere indenfor følgende faggrupper:</p>
+      <span class="sec-eyebrow" data-en="trades">faggrupper</span>
+      <h2 class="sec-title" data-en="Who are we looking for?">Hvem søger vi?</h2>
+      <p class="sec-lead" data-en="Experienced tradesmen within the following trades:">Erfarne håndværkere indenfor følgende faggrupper:</p>
     </div>
     <div class="fag-grid">
-      <div class="fag-card"><div class="fag-dot"></div><span>Brolæggere</span></div>
-      <div class="fag-card"><div class="fag-dot"></div><span>Fjernvarmefolk</span></div>
-      <div class="fag-card"><div class="fag-dot"></div><span>Graveentreprenører</span></div>
-      <div class="fag-card"><div class="fag-dot"></div><span>Maskinførere</span></div>
-      <div class="fag-card"><div class="fag-dot"></div><span>Anlægsgartnere</span></div>
-      <div class="fag-card"><div class="fag-dot"></div><span>Dykpumpe- &amp; afvandingsfolk</span></div>
-      <div class="fag-card"><div class="fag-dot"></div><span>Ufaglærte arbejdsmænd</span></div>
+      <div class="fag-card"><div class="fag-dot"></div><span data-en="Pavers">Brolæggere</span></div>
+      <div class="fag-card"><div class="fag-dot"></div><span data-en="District-heating workers">Fjernvarmefolk</span></div>
+      <div class="fag-card"><div class="fag-dot"></div><span data-en="Excavation contractors">Graveentreprenører</span></div>
+      <div class="fag-card"><div class="fag-dot"></div><span data-en="Machine operators">Maskinførere</span></div>
+      <div class="fag-card"><div class="fag-dot"></div><span data-en="Landscape gardeners">Anlægsgartnere</span></div>
+      <div class="fag-card"><div class="fag-dot"></div><span data-en="Submersible-pump &amp; dewatering workers">Dykpumpe- &amp; afvandingsfolk</span></div>
+      <div class="fag-card"><div class="fag-dot"></div><span data-en="Unskilled labourers">Ufaglærte arbejdsmænd</span></div>
     </div>
   </div>
 </section>
@@ -585,17 +608,17 @@
 <section class="section">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">krav</span>
-      <h2 class="sec-title">Hvad forventer vi?</h2>
-      <p class="sec-lead">For at blive en del af Nordic Team skal du opfylde følgende:</p>
+      <span class="sec-eyebrow" data-en="requirements">krav</span>
+      <h2 class="sec-title" data-en="What do we expect?">Hvad forventer vi?</h2>
+      <p class="sec-lead" data-en="To become part of Nordic Team you must meet the following:">For at blive en del af Nordic Team skal du opfylde følgende:</p>
     </div>
     <ul class="krav-list">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Relevant erfaring indenfor din faggruppe (ufaglærte er også velkomne)</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Gyldigt CPR-nummer (dansk)</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Gyldig arbejdstilladelse (hvis ikke EU/EØS-borger)</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fysisk god form — du arbejder ude på byggepladser</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pålidelighed — du møder til tiden og leverer kvalitet</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Grundlæggende dansk eller engelsk (kommunikation på pladsen)</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Relevant experience within your trade (unskilled workers are also welcome)">Relevant erfaring indenfor din faggruppe (ufaglærte er også velkomne)</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en="A valid CPR number (Danish)">Gyldigt CPR-nummer (dansk)</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en="A valid work permit (if not an EU/EEA citizen)">Gyldig arbejdstilladelse (hvis ikke EU/EØS-borger)</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Good physical shape — you work outdoors on building sites">Fysisk god form — du arbejder ude på byggepladser</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Reliability — you show up on time and deliver quality">Pålidelighed — du møder til tiden og leverer kvalitet</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Basic Danish or English (communication on site)">Grundlæggende dansk eller engelsk (kommunikation på pladsen)</span></li>
     </ul>
   </div>
 </section>
@@ -604,30 +627,30 @@
 <section class="section alt">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">sådan gør du</span>
-      <h2 class="sec-title">Fra ansøgning til arbejde</h2>
-      <p class="sec-lead">Fire enkle trin — og så er du i gang.</p>
+      <span class="sec-eyebrow" data-en="how to apply">sådan gør du</span>
+      <h2 class="sec-title" data-en="From application to work">Fra ansøgning til arbejde</h2>
+      <p class="sec-lead" data-en="Four simple steps — and you're up and running.">Fire enkle trin — og så er du i gang.</p>
     </div>
     <div class="process-grid">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Send ansøgning</h3>
-        <p>Udfyld formularen med dine oplysninger og erfaring.</p>
+        <h3 data-en="Send application">Send ansøgning</h3>
+        <p data-en="Fill in the form with your details and experience.">Udfyld formularen med dine oplysninger og erfaring.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Vi ringer dig op</h3>
-        <p>En fra Nordic Team kontakter dig inden for 1-2 hverdage.</p>
+        <h3 data-en="We call you">Vi ringer dig op</h3>
+        <p data-en="Someone from Nordic Team contacts you within 1-2 working days.">En fra Nordic Team kontakter dig inden for 1-2 hverdage.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Godkendelse</h3>
-        <p>Vi gennemgår dine kvalifikationer og matcher dig med opgaver.</p>
+        <h3 data-en="Approval">Godkendelse</h3>
+        <p data-en="We review your qualifications and match you with jobs.">Vi gennemgår dine kvalifikationer og matcher dig med opgaver.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h3>Start arbejde</h3>
-        <p>Du starter på dit første projekt — ofte allerede samme uge.</p>
+        <h3 data-en="Start work">Start arbejde</h3>
+        <p data-en="You start on your first project — often the very same week.">Du starter på dit første projekt — ofte allerede samme uge.</p>
       </div>
     </div>
   </div>
@@ -637,45 +660,45 @@
 <section class="section">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-eyebrow">spørgsmål</span>
-      <h2 class="sec-title">Det vi oftest bliver spurgt om</h2>
+      <span class="sec-eyebrow" data-en="questions">spørgsmål</span>
+      <h2 class="sec-title" data-en="What we're asked most often">Det vi oftest bliver spurgt om</h2>
     </div>
     <div class="faq-list">
       <details>
-        <summary>Er jeg ansat hos Nordic Team?</summary>
-        <div class="faq-answer">
+        <summary data-en="Am I employed by Nordic Team?">Er jeg ansat hos Nordic Team?</summary>
+        <div class="faq-answer" data-en="You're affiliated with Nordic Team as a temp. We act as a staffing agency and hire you out to our clients on construction projects. You get hourly pay for the hours you work, and we handle tax, holiday pay and insurance.">
           Du er tilknyttet Nordic Team som vikar. Vi fungerer som vikarbureau og udlejer dig til vores kunder på byggeprojekter.
           Du får timeløn for de timer du arbejder, og vi håndterer skat, feriepenge og forsikring.
         </div>
       </details>
       <details>
-        <summary>Hvornår får jeg løn?</summary>
-        <div class="faq-answer">
+        <summary data-en="When do I get paid?">Hvornår får jeg løn?</summary>
+        <div class="faq-answer" data-en="Wages are paid on the last working day of the month. You register your hours via timesheets, which are approved by the client.">
           Lønnen udbetales den sidste hverdag i måneden. Du registrerer dine timer via timesedler, som godkendes af kunden.
         </div>
       </details>
       <details>
-        <summary>Kan jeg arbejde deltid?</summary>
-        <div class="faq-answer">
+        <summary data-en="Can I work part-time?">Kan jeg arbejde deltid?</summary>
+        <div class="faq-answer" data-en="It depends on the jobs we have. You tell us your availability, and we match you with suitable projects.">
           Det afhænger af de opgaver vi har. Du fortæller os din tilgængelighed, og vi matcher dig med passende projekter.
         </div>
       </details>
       <details>
-        <summary>Hvor arbejder jeg henne?</summary>
-        <div class="faq-answer">
+        <summary data-en="Where do I work?">Hvor arbejder jeg henne?</summary>
+        <div class="faq-answer" data-en="Mainly on building sites on Zealand — Copenhagen, North Zealand, West Zealand and South Zealand. We always try to match you with projects close to your home.">
           Primært på byggepladser på Sjælland — København, Nordsjælland, Vestsjælland og Sydsjælland.
           Vi forsøger altid at matche dig med projekter tæt på din bopæl.
         </div>
       </details>
       <details>
-        <summary>Skal jeg have eget værktøj?</summary>
-        <div class="faq-answer">
+        <summary data-en="Do I need my own tools?">Skal jeg have eget værktøj?</summary>
+        <div class="faq-answer" data-en="Basic hand tools are expected, but the client typically provides machines and specialist tools. This is agreed before the project starts.">
           Grundlæggende håndværktøj forventes, men kunden stiller typisk maskiner og specialværktøj til rådighed. Det aftales inden projektstart.
         </div>
       </details>
       <details>
-        <summary>Hvad er lønnen?</summary>
-        <div class="faq-answer">
+        <summary data-en="What's the pay?">Hvad er lønnen?</summary>
+        <div class="faq-answer" data-en="Pay depends on your trade, experience and project type. We offer competitive hourly rates. Call us on 50 26 07 39 for a no-obligation chat.">
           Lønnen afhænger af din faggruppe, erfaring og projekttype. Vi tilbyder konkurrencedygtige timelønsatser.
           Ring til os på 50 26 07 39 for en uforpligtende snak.
         </div>
@@ -688,69 +711,69 @@
 <section class="form-section" id="ansog">
   <div class="container">
     <div class="form-wrap">
-      <h2>Send din ansøgning</h2>
-      <p class="sub">Udfyld formularen, så vender vi tilbage inden for 1-2 hverdage.</p>
+      <h2 data-en="Send your application">Send din ansøgning</h2>
+      <p class="sub" data-en="Fill in the form and we'll get back to you within 1-2 working days.">Udfyld formularen, så vender vi tilbage inden for 1-2 hverdage.</p>
       <form id="job-form">
         <div class="form-grid">
           <div class="form-group">
-            <label for="navn">Fulde navn *</label>
-            <input type="text" id="navn" name="Navn" placeholder="Dit fulde navn" required />
+            <label for="navn" data-en="Full name *">Fulde navn *</label>
+            <input type="text" id="navn" name="Navn" placeholder="Dit fulde navn" data-en-ph="Your full name" required />
           </div>
           <div class="form-group">
-            <label for="telefon">Telefon *</label>
+            <label for="telefon" data-en="Phone *">Telefon *</label>
             <input type="tel" id="telefon" name="Telefon" placeholder="12 34 56 78" required />
           </div>
           <div class="form-group">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email" name="Email" placeholder="din@email.dk" required />
+            <label for="email" data-en="Email *">E-mail *</label>
+            <input type="email" id="email" name="Email" placeholder="din@email.dk" data-en-ph="your@email.com" required />
           </div>
           <div class="form-group">
-            <label for="faggruppe">Faggruppe *</label>
+            <label for="faggruppe" data-en="Trade *">Faggruppe *</label>
             <select id="faggruppe" name="Faggruppe" required>
-              <option value="" disabled selected>Vælg faggruppe</option>
-              <option value="Brolægger">Brolægger</option>
-              <option value="Fjernvarme">Fjernvarme / Anlæg</option>
-              <option value="Graveentreprenør">Graveentreprenør</option>
-              <option value="Maskinfører">Maskinfører</option>
-              <option value="Anlægsgartner">Anlægsgartner</option>
-              <option value="Dykpumper">Dykpumper &amp; afvanding</option>
-              <option value="Ufaglært arbejdsmand">Ufaglært arbejdsmand</option>
-              <option value="Andet">Andet</option>
+              <option value="" disabled selected data-en="Choose a trade">Vælg faggruppe</option>
+              <option value="Brolægger" data-en="Paver">Brolægger</option>
+              <option value="Fjernvarme" data-en="District heating / Civil works">Fjernvarme / Anlæg</option>
+              <option value="Graveentreprenør" data-en="Excavation contractor">Graveentreprenør</option>
+              <option value="Maskinfører" data-en="Machine operator">Maskinfører</option>
+              <option value="Anlægsgartner" data-en="Landscape gardener">Anlægsgartner</option>
+              <option value="Dykpumper" data-en="Submersible pumps &amp; dewatering">Dykpumper &amp; afvanding</option>
+              <option value="Ufaglært arbejdsmand" data-en="Unskilled labourer">Ufaglært arbejdsmand</option>
+              <option value="Andet" data-en="Other">Andet</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="erfaring">Års erfaring</label>
+            <label for="erfaring" data-en="Years of experience">Års erfaring</label>
             <select id="erfaring" name="Erfaring">
-              <option value="" disabled selected>Vælg</option>
-              <option value="0-1">0-1 år</option>
-              <option value="2-5">2-5 år</option>
-              <option value="5-10">5-10 år</option>
-              <option value="10+">10+ år</option>
+              <option value="" disabled selected data-en="Choose">Vælg</option>
+              <option value="0-1" data-en="0-1 years">0-1 år</option>
+              <option value="2-5" data-en="2-5 years">2-5 år</option>
+              <option value="5-10" data-en="5-10 years">5-10 år</option>
+              <option value="10+" data-en="10+ years">10+ år</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="tilgaengelig">Hvornår kan du starte?</label>
+            <label for="tilgaengelig" data-en="When can you start?">Hvornår kan du starte?</label>
             <select id="tilgaengelig" name="Tilgængelig">
-              <option value="" disabled selected>Vælg</option>
-              <option value="Med det samme">Med det samme</option>
-              <option value="Inden 1 uge">Inden 1 uge</option>
-              <option value="Inden 2 uger">Inden 2 uger</option>
-              <option value="Inden 1 måned">Inden 1 måned</option>
+              <option value="" disabled selected data-en="Choose">Vælg</option>
+              <option value="Med det samme" data-en="Right away">Med det samme</option>
+              <option value="Inden 1 uge" data-en="Within 1 week">Inden 1 uge</option>
+              <option value="Inden 2 uger" data-en="Within 2 weeks">Inden 2 uger</option>
+              <option value="Inden 1 måned" data-en="Within 1 month">Inden 1 måned</option>
             </select>
           </div>
           <div class="form-group full">
-            <label for="besked">Fortæl lidt om dig selv</label>
-            <textarea id="besked" name="Besked" placeholder="Kort om din erfaring, certifikater, kørekort osv."></textarea>
+            <label for="besked" data-en="Tell us a bit about yourself">Fortæl lidt om dig selv</label>
+            <textarea id="besked" name="Besked" placeholder="Kort om din erfaring, certifikater, kørekort osv." data-en-ph="Briefly about your experience, certificates, driving licence, etc."></textarea>
           </div>
         </div>
-        <button type="submit" class="form-submit" id="job-btn">Send ansøgning</button>
-        <div id="job-success" style="display:none;margin-top:16px;padding:14px 18px;background:#ECFDF5;border:1px solid #6EE7B7;border-radius:4px;color:#047857;font-weight:600;font-size:.95rem;text-align:center;">
+        <button type="submit" class="form-submit" id="job-btn" data-en="Send application">Send ansøgning</button>
+        <div id="job-success" style="display:none;margin-top:16px;padding:14px 18px;background:#ECFDF5;border:1px solid #6EE7B7;border-radius:4px;color:#047857;font-weight:600;font-size:.95rem;text-align:center;" data-en="✓ Thank you for your application! We'll contact you within 1-2 working days.">
           ✓ Tak for din ansøgning! Vi kontakter dig inden for 1-2 hverdage.
         </div>
-        <div id="job-error" style="display:none;margin-top:16px;padding:14px 18px;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:4px;color:#B91C1C;font-weight:600;font-size:.95rem;text-align:center;">
+        <div id="job-error" style="display:none;margin-top:16px;padding:14px 18px;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:4px;color:#B91C1C;font-weight:600;font-size:.95rem;text-align:center;" data-en="Something went wrong. Please try again or call us on 50 26 07 39.">
           Noget gik galt. Prøv igen eller ring til os på 50 26 07 39.
         </div>
-        <p class="form-note">Ved at sende accepterer du vores <a href="privatlivspolitik.html">privatlivspolitik</a>.</p>
+        <p class="form-note" data-en="By sending you accept our <a href='privatlivspolitik.html'>privacy policy</a>.">Ved at sende accepterer du vores <a href="privatlivspolitik.html">privatlivspolitik</a>.</p>
       </form>
       <script>
       document.getElementById('job-form').addEventListener('submit', async function(e) {
@@ -758,7 +781,8 @@
         const btn = document.getElementById('job-btn');
         const successEl = document.getElementById('job-success');
         const errorEl = document.getElementById('job-error');
-        btn.textContent = 'Sender...';
+        const isEn = document.documentElement.lang === 'en';
+        btn.textContent = isEn ? 'Sending...' : 'Sender...';
         btn.disabled = true;
         successEl.style.display = 'none';
         errorEl.style.display = 'none';
@@ -778,7 +802,7 @@
         } catch {
           errorEl.style.display = 'block';
         } finally {
-          btn.textContent = 'Send ansøgning';
+          btn.textContent = isEn ? 'Send application' : 'Send ansøgning';
           btn.disabled = false;
         }
       });
@@ -788,9 +812,30 @@
 </section>
 
 <footer>
-  <p>&copy; 2026 Nordic Team · CVR: 46382056 · <a href="/">Forside</a> · <a href="privatlivspolitik.html">Privatlivspolitik</a> · <a href="handelsbetingelser.html">Handelsbetingelser</a></p>
+  <p data-en="&copy; 2026 Nordic Team · CVR: 46382056 · <a href='/'>Home</a> · <a href='privatlivspolitik.html'>Privacy policy</a> · <a href='handelsbetingelser.html'>Terms &amp; conditions</a>">&copy; 2026 Nordic Team · CVR: 46382056 · <a href="/">Forside</a> · <a href="privatlivspolitik.html">Privatlivspolitik</a> · <a href="handelsbetingelser.html">Handelsbetingelser</a></p>
 </footer>
 
 <script src="cookies.js" defer></script>
+<script>
+  (function(){
+    var KEY = 'nt_lang';
+    function current(){ return localStorage.getItem(KEY) === 'en' ? 'en' : 'da'; }
+    function apply(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        if (el.getAttribute('data-da') === null) el.setAttribute('data-da', el.innerHTML);
+        el.innerHTML = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-da');
+      });
+      document.querySelectorAll('[data-en-ph]').forEach(function(el){
+        if (el.getAttribute('data-da-ph') === null) el.setAttribute('data-da-ph', el.getAttribute('placeholder') || '');
+        el.setAttribute('placeholder', (lang === 'en') ? el.getAttribute('data-en-ph') : el.getAttribute('data-da-ph'));
+      });
+      document.querySelectorAll('.lang-toggle').forEach(function(b){ b.textContent = (lang === 'en') ? 'DA' : 'EN'; });
+      try { localStorage.setItem(KEY, lang); } catch (e) {}
+    }
+    window.ntToggleLang = function(){ apply(current() === 'en' ? 'da' : 'en'); };
+    apply(current());
+  })();
+</script>
 </body>
 </html>
