@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privatlivspolitik — Nordic Team | GDPR</title>
+  <title data-en="Privacy Policy — Nordic Team | GDPR">Privatlivspolitik — Nordic Team | GDPR</title>
   <meta name="description" content="Nordic Teams privatlivspolitik. Læs om hvordan vi behandler dine personoplysninger i henhold til GDPR og den danske databeskyttelseslov." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.nordic-team.dk/privatlivspolitik.html" />
@@ -55,6 +55,16 @@
     .content td { color: var(--text-2); }
     footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: center; padding: 32px 28px; font-size: .8rem; }
     footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 44px; height: 36px; padding: 0 12px;
+      border: 1px solid var(--border); border-radius: 6px;
+      background: #fff; color: var(--navy);
+      font-family: inherit; font-size: .8rem; font-weight: 700; letter-spacing: .04em;
+      cursor: pointer; transition: border-color .15s, color .15s;
+    }
+    .lang-toggle:hover { border-color: var(--orange); color: var(--orange); }
   </style>
 </head>
 <body>
@@ -63,123 +73,143 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="nordic_team_logo_dk.png" alt="Nordic Team" /></a>
-    <a href="/" class="nav-back">← Tilbage til forsiden</a>
+    <div class="nav-right">
+      <a href="/" class="nav-back" data-en="← Back to homepage">← Tilbage til forsiden</a>
+      <button class="lang-toggle" type="button" onclick="ntToggleLang()" aria-label="Skift sprog / Change language">EN</button>
+    </div>
   </div>
 </nav>
 
 <div class="content">
-  <h1>Privatlivspolitik</h1>
-  <p class="updated">Senest opdateret: 10. april 2026</p>
+  <h1 data-en="Privacy Policy">Privatlivspolitik</h1>
+  <p class="updated" data-en="Last updated: 10 April 2026">Senest opdateret: 10. april 2026</p>
 
-  <h2>1. Dataansvarlig</h2>
-  <p>Nordic Team<br>CVR: 46382056<br>E-mail: <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a><br>Hjemmeside: <a href="https://www.nordic-team.dk">www.nordic-team.dk</a></p>
-  <p>Nordic Team er dataansvarlig for behandlingen af de personoplysninger, som vi modtager om dig. Denne privatlivspolitik beskriver, hvordan vi indsamler, bruger og beskytter dine oplysninger i henhold til EU's databeskyttelsesforordning (GDPR) og den danske databeskyttelseslov.</p>
+  <h2 data-en="1. Data controller">1. Dataansvarlig</h2>
+  <p data-en="Nordic Team<br>CVR: 46382056<br>Email: <a href='mailto:info@nordic-team.dk'>info@nordic-team.dk</a><br>Website: <a href='https://www.nordic-team.dk'>www.nordic-team.dk</a>">Nordic Team<br>CVR: 46382056<br>E-mail: <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a><br>Hjemmeside: <a href="https://www.nordic-team.dk">www.nordic-team.dk</a></p>
+  <p data-en="Nordic Team is the data controller for the processing of the personal data we receive about you. This privacy policy describes how we collect, use and protect your information in accordance with the EU General Data Protection Regulation (GDPR) and the Danish Data Protection Act.">Nordic Team er dataansvarlig for behandlingen af de personoplysninger, som vi modtager om dig. Denne privatlivspolitik beskriver, hvordan vi indsamler, bruger og beskytter dine oplysninger i henhold til EU's databeskyttelsesforordning (GDPR) og den danske databeskyttelseslov.</p>
 
-  <h2>2. Hvilke oplysninger indsamler vi?</h2>
+  <h2 data-en="2. What information do we collect?">2. Hvilke oplysninger indsamler vi?</h2>
 
-  <h3>2.1 B2B-kunder (virksomheder)</h3>
-  <p>Når du som virksomhed kontakter os for at bestille mandskab, indsamler vi:</p>
+  <h3 data-en="2.1 B2B customers (businesses)">2.1 B2B-kunder (virksomheder)</h3>
+  <p data-en="When you contact us as a business to order workforce, we collect:">Når du som virksomhed kontakter os for at bestille mandskab, indsamler vi:</p>
   <ul>
-    <li>Kontaktpersonens navn, titel og direkte telefonnummer</li>
-    <li>Virksomhedens navn, CVR-nummer og adresse</li>
-    <li>E-mailadresse</li>
-    <li>Oplysninger om projektbehov (faggruppe, antal personer, varighed, arbejdssted)</li>
-    <li>Faktureringsoplysninger</li>
+    <li data-en="The contact person's name, title and direct phone number">Kontaktpersonens navn, titel og direkte telefonnummer</li>
+    <li data-en="The company's name, CVR number and address">Virksomhedens navn, CVR-nummer og adresse</li>
+    <li data-en="Email address">E-mailadresse</li>
+    <li data-en="Information about project needs (trade, number of people, duration, work site)">Oplysninger om projektbehov (faggruppe, antal personer, varighed, arbejdssted)</li>
+    <li data-en="Billing information">Faktureringsoplysninger</li>
   </ul>
 
-  <h3>2.2 B2C-brugere (privatpersoner)</h3>
-  <p>Når du som privatperson kontakter os via hjemmesiden, indsamler vi:</p>
+  <h3 data-en="2.2 B2C users (private individuals)">2.2 B2C-brugere (privatpersoner)</h3>
+  <p data-en="When you contact us as a private individual via the website, we collect:">Når du som privatperson kontakter os via hjemmesiden, indsamler vi:</p>
   <ul>
-    <li>Navn</li>
-    <li>Telefonnummer</li>
-    <li>E-mailadresse</li>
-    <li>Eventuelt firmanavn</li>
-    <li>Beskrivelse af dit behov</li>
+    <li data-en="Name">Navn</li>
+    <li data-en="Phone number">Telefonnummer</li>
+    <li data-en="Email address">E-mailadresse</li>
+    <li data-en="Company name, if any">Eventuelt firmanavn</li>
+    <li data-en="Description of your needs">Beskrivelse af dit behov</li>
   </ul>
 
-  <h3>2.3 Ansatte og vikarer</h3>
-  <p>For medarbejdere og vikarer, der udlejes gennem Nordic Team, indsamler vi desuden:</p>
+  <h3 data-en="2.3 Employees and temps">2.3 Ansatte og vikarer</h3>
+  <p data-en="For employees and temps hired out through Nordic Team, we also collect:">For medarbejdere og vikarer, der udlejes gennem Nordic Team, indsamler vi desuden:</p>
   <ul>
-    <li>Fuldt navn, adresse og CPR-nummer (til lønudbetaling og SKAT)</li>
-    <li>Bankoplysninger</li>
-    <li>Uddannelsesbeviser og certifikater</li>
-    <li>Arbejdstilladelse og opholdstilladelse (hvor relevant)</li>
-    <li>Helbredsoplysninger i det omfang, det er nødvendigt for arbejdsmiljøet</li>
+    <li data-en="Full name, address and CPR number (for payroll and the Danish tax authority)">Fuldt navn, adresse og CPR-nummer (til lønudbetaling og SKAT)</li>
+    <li data-en="Bank details">Bankoplysninger</li>
+    <li data-en="Educational diplomas and certificates">Uddannelsesbeviser og certifikater</li>
+    <li data-en="Work permit and residence permit (where relevant)">Arbejdstilladelse og opholdstilladelse (hvor relevant)</li>
+    <li data-en="Health information to the extent necessary for the working environment">Helbredsoplysninger i det omfang, det er nødvendigt for arbejdsmiljøet</li>
   </ul>
 
-  <h2>3. Formål og retsgrundlag</h2>
+  <h2 data-en="3. Purpose and legal basis">3. Formål og retsgrundlag</h2>
   <table>
-    <thead><tr><th>Formål</th><th>Retsgrundlag (GDPR)</th></tr></thead>
+    <thead><tr><th data-en="Purpose">Formål</th><th data-en="Legal basis (GDPR)">Retsgrundlag (GDPR)</th></tr></thead>
     <tbody>
-      <tr><td>Besvarelse af henvendelser via kontaktformular</td><td>Art. 6(1)(b) — opfyldelse af aftale / foranstaltninger forud for aftale</td></tr>
-      <tr><td>Udarbejdelse og fremsendelse af tilbud</td><td>Art. 6(1)(b) — opfyldelse af aftale</td></tr>
-      <tr><td>Fakturering og bogføring</td><td>Art. 6(1)(c) — retlig forpligtelse (bogføringsloven)</td></tr>
-      <tr><td>Lønudbetaling og indberetning til SKAT</td><td>Art. 6(1)(c) — retlig forpligtelse</td></tr>
-      <tr><td>Overholdelse af vikarloven og arbejdsmiljøloven</td><td>Art. 6(1)(c) — retlig forpligtelse</td></tr>
-      <tr><td>Administration af kundeforhold</td><td>Art. 6(1)(f) — legitim interesse</td></tr>
-      <tr><td>Markedsføring (kun med samtykke)</td><td>Art. 6(1)(a) — samtykke</td></tr>
+      <tr><td data-en="Responding to enquiries via the contact form">Besvarelse af henvendelser via kontaktformular</td><td data-en="Art. 6(1)(b) — performance of a contract / pre-contractual measures">Art. 6(1)(b) — opfyldelse af aftale / foranstaltninger forud for aftale</td></tr>
+      <tr><td data-en="Preparing and sending quotes">Udarbejdelse og fremsendelse af tilbud</td><td data-en="Art. 6(1)(b) — performance of a contract">Art. 6(1)(b) — opfyldelse af aftale</td></tr>
+      <tr><td data-en="Invoicing and bookkeeping">Fakturering og bogføring</td><td data-en="Art. 6(1)(c) — legal obligation (Danish Bookkeeping Act)">Art. 6(1)(c) — retlig forpligtelse (bogføringsloven)</td></tr>
+      <tr><td data-en="Payroll and reporting to the Danish tax authority">Lønudbetaling og indberetning til SKAT</td><td data-en="Art. 6(1)(c) — legal obligation">Art. 6(1)(c) — retlig forpligtelse</td></tr>
+      <tr><td data-en="Compliance with the Temporary Agency Workers Act and the Working Environment Act">Overholdelse af vikarloven og arbejdsmiljøloven</td><td data-en="Art. 6(1)(c) — legal obligation">Art. 6(1)(c) — retlig forpligtelse</td></tr>
+      <tr><td data-en="Administration of customer relationships">Administration af kundeforhold</td><td data-en="Art. 6(1)(f) — legitimate interest">Art. 6(1)(f) — legitim interesse</td></tr>
+      <tr><td data-en="Marketing (only with consent)">Markedsføring (kun med samtykke)</td><td data-en="Art. 6(1)(a) — consent">Art. 6(1)(a) — samtykke</td></tr>
     </tbody>
   </table>
 
-  <h2>4. Opbevaringsperiode</h2>
+  <h2 data-en="4. Retention period">4. Opbevaringsperiode</h2>
   <ul>
-    <li><strong>Kontaktformulardata:</strong> Slettes efter 12 måneder, medmindre der indgås aftale.</li>
-    <li><strong>Kundeoplysninger:</strong> Opbevares i kontraktperioden + 3 år (forældelsesfristen).</li>
-    <li><strong>Bogføringsmateriale:</strong> Opbevares i 5 år efter regnskabsårets udløb (bogføringsloven).</li>
-    <li><strong>Medarbejder- og vikaroplysninger:</strong> Opbevares i ansættelsesperioden + 5 år.</li>
-    <li><strong>CPR-numre:</strong> Slettes, når formålet er opfyldt og den lovpligtige opbevaringsperiode er udløbet.</li>
+    <li data-en="<strong>Contact form data:</strong> Deleted after 12 months, unless an agreement is concluded."><strong>Kontaktformulardata:</strong> Slettes efter 12 måneder, medmindre der indgås aftale.</li>
+    <li data-en="<strong>Customer data:</strong> Stored for the contract period + 3 years (the limitation period)."><strong>Kundeoplysninger:</strong> Opbevares i kontraktperioden + 3 år (forældelsesfristen).</li>
+    <li data-en="<strong>Accounting records:</strong> Stored for 5 years after the end of the financial year (the Danish Bookkeeping Act)."><strong>Bogføringsmateriale:</strong> Opbevares i 5 år efter regnskabsårets udløb (bogføringsloven).</li>
+    <li data-en="<strong>Employee and temp data:</strong> Stored for the employment period + 5 years."><strong>Medarbejder- og vikaroplysninger:</strong> Opbevares i ansættelsesperioden + 5 år.</li>
+    <li data-en="<strong>CPR numbers:</strong> Deleted once the purpose is fulfilled and the statutory retention period has expired."><strong>CPR-numre:</strong> Slettes, når formålet er opfyldt og den lovpligtige opbevaringsperiode er udløbet.</li>
   </ul>
 
-  <h2>5. Modtagere af personoplysninger</h2>
-  <p>Vi deler kun dine oplysninger med tredjeparter, når det er nødvendigt:</p>
+  <h2 data-en="5. Recipients of personal data">5. Modtagere af personoplysninger</h2>
+  <p data-en="We only share your information with third parties when necessary:">Vi deler kun dine oplysninger med tredjeparter, når det er nødvendigt:</p>
   <ul>
-    <li><strong>SKAT og offentlige myndigheder</strong> — lovpligtige indberetninger</li>
-    <li><strong>Revisionsselskab</strong> — bogføring og regnskab</li>
-    <li><strong>Forsikringsselskab</strong> — erhvervsansvar- og arbejdsskadeforsikring</li>
-    <li><strong>IT-leverandører</strong> — hosting og e-mail (databehandleraftaler er indgået)</li>
-    <li><strong>Kunden</strong> — nødvendige oplysninger om den udlejede medarbejder (navn, kvalifikationer)</li>
+    <li data-en="<strong>The tax authority and public authorities</strong> — statutory reporting"><strong>SKAT og offentlige myndigheder</strong> — lovpligtige indberetninger</li>
+    <li data-en="<strong>Accounting firm</strong> — bookkeeping and accounts"><strong>Revisionsselskab</strong> — bogføring og regnskab</li>
+    <li data-en="<strong>Insurance company</strong> — professional liability and workers' compensation insurance"><strong>Forsikringsselskab</strong> — erhvervsansvar- og arbejdsskadeforsikring</li>
+    <li data-en="<strong>IT suppliers</strong> — hosting and email (data processing agreements are in place)"><strong>IT-leverandører</strong> — hosting og e-mail (databehandleraftaler er indgået)</li>
+    <li data-en="<strong>The customer</strong> — necessary information about the hired employee (name, qualifications)"><strong>Kunden</strong> — nødvendige oplysninger om den udlejede medarbejder (navn, kvalifikationer)</li>
   </ul>
-  <p>Vi sælger aldrig dine personoplysninger til tredjeparter.</p>
+  <p data-en="We never sell your personal data to third parties.">Vi sælger aldrig dine personoplysninger til tredjeparter.</p>
 
-  <h2>6. Overførsel til tredjelande</h2>
-  <p>Vi tilstræber, at alle personoplysninger opbevares inden for EU/EØS. Hvis der undtagelsesvis overføres data til tredjelande (fx via IT-leverandører), sikrer vi, at der foreligger et gyldigt overførselsgrundlag i henhold til GDPR kapitel V (fx EU-Kommissionens standardkontraktbestemmelser).</p>
+  <h2 data-en="6. Transfer to third countries">6. Overførsel til tredjelande</h2>
+  <p data-en="We strive to store all personal data within the EU/EEA. If data is exceptionally transferred to third countries (e.g. via IT suppliers), we ensure that a valid transfer basis exists under GDPR Chapter V (e.g. the European Commission's standard contractual clauses).">Vi tilstræber, at alle personoplysninger opbevares inden for EU/EØS. Hvis der undtagelsesvis overføres data til tredjelande (fx via IT-leverandører), sikrer vi, at der foreligger et gyldigt overførselsgrundlag i henhold til GDPR kapitel V (fx EU-Kommissionens standardkontraktbestemmelser).</p>
 
-  <h2>7. Cookies og samtykke</h2>
-  <p>Når du besøger nordic-team.dk, beder vi om dit samtykke til brug af cookies og lignende teknologier i overensstemmelse med cookiebekendtgørelsen og databeskyttelsesforordningen (GDPR).</p>
+  <h2 data-en="7. Cookies and consent">7. Cookies og samtykke</h2>
+  <p data-en="When you visit nordic-team.dk, we ask for your consent to the use of cookies and similar technologies in accordance with the Danish Cookie Order and the General Data Protection Regulation (GDPR).">Når du besøger nordic-team.dk, beder vi om dit samtykke til brug af cookies og lignende teknologier i overensstemmelse med cookiebekendtgørelsen og databeskyttelsesforordningen (GDPR).</p>
 
-  <p><strong>Nødvendige cookies (altid aktive):</strong> Vi gemmer dit cookie-samtykke i din browsers <em>localStorage</em> under nøglen <code>nt_cookie_consent_v1</code>, så vi husker dit valg. Disse data forlader ikke din enhed og kræver ikke samtykke.</p>
+  <p data-en="<strong>Necessary cookies (always active):</strong> We store your cookie consent in your browser's <em>localStorage</em> under the key <code>nt_cookie_consent_v1</code> so we remember your choice. This data does not leave your device and does not require consent."><strong>Nødvendige cookies (altid aktive):</strong> Vi gemmer dit cookie-samtykke i din browsers <em>localStorage</em> under nøglen <code>nt_cookie_consent_v1</code>, så vi husker dit valg. Disse data forlader ikke din enhed og kræver ikke samtykke.</p>
 
-  <p><strong>Funktionelle cookies/tjenester (kræver samtykke):</strong> Hvis du accepterer, indlæser vi skrifttyper fra Google Fonts (<code>fonts.googleapis.com</code>). Når du indlæser siden med samtykke, sender din browser sin IP-adresse til Google LLC i USA. Google kan opbevare denne information i overensstemmelse med deres egen privatlivspolitik. Hvis du afviser, indlæses skrifttyperne ikke, og siden vises med systemets standardskrifttyper.</p>
+  <p data-en="<strong>Functional cookies/services (require consent):</strong> If you accept, we load fonts from Google Fonts (<code>fonts.googleapis.com</code>). When you load the page with consent, your browser sends its IP address to Google LLC in the USA. Google may store this information in accordance with their own privacy policy. If you decline, the fonts are not loaded and the page is displayed with the system's default fonts."><strong>Funktionelle cookies/tjenester (kræver samtykke):</strong> Hvis du accepterer, indlæser vi skrifttyper fra Google Fonts (<code>fonts.googleapis.com</code>). Når du indlæser siden med samtykke, sender din browser sin IP-adresse til Google LLC i USA. Google kan opbevare denne information i overensstemmelse med deres egen privatlivspolitik. Hvis du afviser, indlæses skrifttyperne ikke, og siden vises med systemets standardskrifttyper.</p>
 
-  <p><strong>Vi bruger ikke:</strong> tracking-cookies, markedsføringscookies, Google Analytics, Facebook Pixel, Hotjar eller lignende analyse-/sporingsværktøjer.</p>
+  <p data-en="<strong>We do not use:</strong> tracking cookies, marketing cookies, Google Analytics, Facebook Pixel, Hotjar or similar analytics/tracking tools."><strong>Vi bruger ikke:</strong> tracking-cookies, markedsføringscookies, Google Analytics, Facebook Pixel, Hotjar eller lignende analyse-/sporingsværktøjer.</p>
 
-  <p>Du kan til enhver tid ændre eller trække dit samtykke tilbage ved at klikke på cookie-ikonet 🍪 nederst til venstre på siden, eller ved at slette <em>localStorage</em> i din browser.</p>
+  <p data-en="You can change or withdraw your consent at any time by clicking the cookie icon 🍪 at the bottom left of the page, or by deleting <em>localStorage</em> in your browser.">Du kan til enhver tid ændre eller trække dit samtykke tilbage ved at klikke på cookie-ikonet 🍪 nederst til venstre på siden, eller ved at slette <em>localStorage</em> i din browser.</p>
 
-  <h2>8. Dine rettigheder</h2>
-  <p>Du har følgende rettigheder i henhold til GDPR:</p>
+  <h2 data-en="8. Your rights">8. Dine rettigheder</h2>
+  <p data-en="You have the following rights under the GDPR:">Du har følgende rettigheder i henhold til GDPR:</p>
   <ul>
-    <li><strong>Ret til indsigt</strong> (art. 15) — du kan få oplyst, hvilke data vi behandler om dig.</li>
-    <li><strong>Ret til berigtigelse</strong> (art. 16) — du kan få rettet urigtige oplysninger.</li>
-    <li><strong>Ret til sletning</strong> (art. 17) — du kan bede om at få dine data slettet, medmindre vi har en lovpligtig grund til at opbevare dem.</li>
-    <li><strong>Ret til begrænsning</strong> (art. 18) — du kan bede om, at behandlingen begrænses.</li>
-    <li><strong>Ret til dataportabilitet</strong> (art. 20) — du kan få udleveret dine data i et struktureret format.</li>
-    <li><strong>Ret til indsigelse</strong> (art. 21) — du kan gøre indsigelse mod behandling baseret på legitim interesse.</li>
-    <li><strong>Ret til at trække samtykke tilbage</strong> — hvis behandlingen er baseret på samtykke, kan du til enhver tid trække det tilbage.</li>
+    <li data-en="<strong>Right of access</strong> (art. 15) — you can be informed which data we process about you."><strong>Ret til indsigt</strong> (art. 15) — du kan få oplyst, hvilke data vi behandler om dig.</li>
+    <li data-en="<strong>Right to rectification</strong> (art. 16) — you can have inaccurate information corrected."><strong>Ret til berigtigelse</strong> (art. 16) — du kan få rettet urigtige oplysninger.</li>
+    <li data-en="<strong>Right to erasure</strong> (art. 17) — you can request that your data be deleted, unless we have a statutory reason to retain it."><strong>Ret til sletning</strong> (art. 17) — du kan bede om at få dine data slettet, medmindre vi har en lovpligtig grund til at opbevare dem.</li>
+    <li data-en="<strong>Right to restriction</strong> (art. 18) — you can request that processing be restricted."><strong>Ret til begrænsning</strong> (art. 18) — du kan bede om, at behandlingen begrænses.</li>
+    <li data-en="<strong>Right to data portability</strong> (art. 20) — you can receive your data in a structured format."><strong>Ret til dataportabilitet</strong> (art. 20) — du kan få udleveret dine data i et struktureret format.</li>
+    <li data-en="<strong>Right to object</strong> (art. 21) — you can object to processing based on legitimate interest."><strong>Ret til indsigelse</strong> (art. 21) — du kan gøre indsigelse mod behandling baseret på legitim interesse.</li>
+    <li data-en="<strong>Right to withdraw consent</strong> — if processing is based on consent, you can withdraw it at any time."><strong>Ret til at trække samtykke tilbage</strong> — hvis behandlingen er baseret på samtykke, kan du til enhver tid trække det tilbage.</li>
   </ul>
-  <p>Henvendelser om dine rettigheder sendes til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a>. Vi besvarer din henvendelse inden 30 dage.</p>
+  <p data-en="Enquiries about your rights should be sent to <a href='mailto:info@nordic-team.dk'>info@nordic-team.dk</a>. We respond to your enquiry within 30 days.">Henvendelser om dine rettigheder sendes til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a>. Vi besvarer din henvendelse inden 30 dage.</p>
 
-  <h2>9. Klage</h2>
-  <p>Hvis du er utilfreds med vores behandling af dine personoplysninger, kan du klage til:</p>
-  <p><strong>Datatilsynet</strong><br>Carl Jacobsens Vej 35<br>2500 Valby<br>Telefon: 33 19 32 00<br>E-mail: dt@datatilsynet.dk<br>Hjemmeside: <a href="https://www.datatilsynet.dk" target="_blank">www.datatilsynet.dk</a></p>
+  <h2 data-en="9. Complaints">9. Klage</h2>
+  <p data-en="If you are dissatisfied with our processing of your personal data, you can complain to:">Hvis du er utilfreds med vores behandling af dine personoplysninger, kan du klage til:</p>
+  <p data-en="<strong>Datatilsynet (Danish Data Protection Agency)</strong><br>Carl Jacobsens Vej 35<br>2500 Valby<br>Phone: 33 19 32 00<br>Email: dt@datatilsynet.dk<br>Website: <a href='https://www.datatilsynet.dk' target='_blank'>www.datatilsynet.dk</a>"><strong>Datatilsynet</strong><br>Carl Jacobsens Vej 35<br>2500 Valby<br>Telefon: 33 19 32 00<br>E-mail: dt@datatilsynet.dk<br>Hjemmeside: <a href="https://www.datatilsynet.dk" target="_blank">www.datatilsynet.dk</a></p>
 
-  <h2>10. Ændringer</h2>
-  <p>Vi forbeholder os retten til at opdatere denne privatlivspolitik. Ved væsentlige ændringer informerer vi berørte parter direkte. Den seneste version vil altid være tilgængelig på denne side.</p>
+  <h2 data-en="10. Changes">10. Ændringer</h2>
+  <p data-en="We reserve the right to update this privacy policy. In the event of significant changes, we will inform affected parties directly. The latest version will always be available on this page.">Vi forbeholder os retten til at opdatere denne privatlivspolitik. Ved væsentlige ændringer informerer vi berørte parter direkte. Den seneste version vil altid være tilgængelig på denne side.</p>
 </div>
 
 <footer>
-  <p>© 2026 Nordic Team · CVR: 46382056 · <a href="/">Forside</a> · <a href="handelsbetingelser.html">Handelsbetingelser</a> · <a href="job.html">Job</a></p>
+  <p data-en="© 2026 Nordic Team · CVR: 46382056 · <a href='/'>Home</a> · <a href='handelsbetingelser.html'>Terms &amp; conditions</a> · <a href='job.html'>Jobs</a>">© 2026 Nordic Team · CVR: 46382056 · <a href="/">Forside</a> · <a href="handelsbetingelser.html">Handelsbetingelser</a> · <a href="job.html">Job</a></p>
 </footer>
 
 <script src="cookies.js" defer></script>
+<script>
+  (function(){
+    var KEY = 'nt_lang';
+    function current(){ return localStorage.getItem(KEY) === 'en' ? 'en' : 'da'; }
+    function apply(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        if (el.getAttribute('data-da') === null) el.setAttribute('data-da', el.innerHTML);
+        el.innerHTML = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-da');
+      });
+      document.querySelectorAll('.lang-toggle').forEach(function(b){ b.textContent = (lang === 'en') ? 'DA' : 'EN'; });
+      try { localStorage.setItem(KEY, lang); } catch (e) {}
+    }
+    window.ntToggleLang = function(){ apply(current() === 'en' ? 'da' : 'en'); };
+    apply(current());
+  })();
+</script>
 </body>
 </html>
