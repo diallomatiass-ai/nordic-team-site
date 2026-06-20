@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Handelsbetingelser — Nordic Team | B2B og B2C</title>
+  <title data-en="Terms &amp; Conditions — Nordic Team | B2B and B2C">Handelsbetingelser — Nordic Team | B2B og B2C</title>
   <meta name="description" content="Nordic Teams handelsbetingelser for B2B og B2C mandskabsudlejning til byggebranchen. Priser, betaling, reklamation og fortrydelsesret." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.nordic-team.dk/handelsbetingelser.html" />
@@ -53,6 +53,16 @@
     .divider { border: none; border-top: 2px solid var(--border); margin: 56px 0; }
     footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: center; padding: 32px 28px; font-size: .8rem; }
     footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 44px; height: 36px; padding: 0 12px;
+      border: 1px solid var(--border); border-radius: 6px;
+      background: #fff; color: var(--navy);
+      font-family: inherit; font-size: .8rem; font-weight: 700; letter-spacing: .04em;
+      cursor: pointer; transition: border-color .15s, color .15s;
+    }
+    .lang-toggle:hover { border-color: var(--orange); color: var(--orange); }
   </style>
 </head>
 <body>
@@ -61,157 +71,177 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="nordic_team_logo_dk.png" alt="Nordic Team" /></a>
-    <a href="/" class="nav-back">← Tilbage til forsiden</a>
+    <div class="nav-right">
+      <a href="/" class="nav-back" data-en="← Back to homepage">← Tilbage til forsiden</a>
+      <button class="lang-toggle" type="button" onclick="ntToggleLang()" aria-label="Skift sprog / Change language">EN</button>
+    </div>
   </div>
 </nav>
 
 <div class="content">
-  <h1>Handelsbetingelser</h1>
-  <p class="updated">Senest opdateret: 10. april 2026</p>
+  <h1 data-en="Terms &amp; Conditions">Handelsbetingelser</h1>
+  <p class="updated" data-en="Last updated: 10 April 2026">Senest opdateret: 10. april 2026</p>
 
-  <p>Disse handelsbetingelser gælder for alle ydelser leveret af Nordic Team, CVR: 46382056. Betingelserne er opdelt i en B2B-del (virksomhedskunder) og en B2C-del (privatkunder).</p>
+  <p data-en="These terms and conditions apply to all services provided by Nordic Team, CVR: 46382056. The terms are divided into a B2B section (business customers) and a B2C section (private customers).">Disse handelsbetingelser gælder for alle ydelser leveret af Nordic Team, CVR: 46382056. Betingelserne er opdelt i en B2B-del (virksomhedskunder) og en B2C-del (privatkunder).</p>
 
   <!-- ═══════════════════ B2B ═══════════════════ -->
   <hr class="divider">
-  <span class="section-label">Del A — B2B (Erhvervskunder)</span>
+  <span class="section-label" data-en="Part A — B2B (Business customers)">Del A — B2B (Erhvervskunder)</span>
 
-  <h2>A1. Anvendelsesområde</h2>
-  <p>Del A gælder, når kunden er en virksomhed (CVR-registreret). Ved uoverensstemmelse mellem disse betingelser og en individuel aftale har den individuelle aftale forrang.</p>
+  <h2 data-en="A1. Scope">A1. Anvendelsesområde</h2>
+  <p data-en="Part A applies when the customer is a business (registered with a CVR number). In the event of a discrepancy between these terms and an individual agreement, the individual agreement takes precedence.">Del A gælder, når kunden er en virksomhed (CVR-registreret). Ved uoverensstemmelse mellem disse betingelser og en individuel aftale har den individuelle aftale forrang.</p>
 
-  <h2>A2. Ydelsen</h2>
-  <p>Nordic Team udlejer kvalificeret arbejdskraft til bygge- og anlægsprojekter. Den udlejede medarbejder udfører arbejde under kundens instruktions- og ledelsesbeføjelse i henhold til vikarloven (LBK nr. 595 af 12/05/2015).</p>
+  <h2 data-en="A2. The service">A2. Ydelsen</h2>
+  <p data-en="Nordic Team hires out qualified labour for construction and civil-works projects. The hired employee performs work under the customer's right of instruction and management in accordance with the Danish Temporary Agency Workers Act (LBK no. 595 of 12/05/2015).">Nordic Team udlejer kvalificeret arbejdskraft til bygge- og anlægsprojekter. Den udlejede medarbejder udfører arbejde under kundens instruktions- og ledelsesbeføjelse i henhold til vikarloven (LBK nr. 595 af 12/05/2015).</p>
   <ul>
-    <li>Nordic Team er arbejdsgiver for den udlejede medarbejder og varetager alle personalejuridiske og administrative forpligtelser, herunder løn, skat, feriepenge, pension og forsikring.</li>
-    <li>Kunden er ansvarlig for at sikre et lovligt og forsvarligt arbejdsmiljø på arbejdsstedet i henhold til arbejdsmiljøloven.</li>
-    <li>Kunden stiller nødvendigt værktøj, materialer og sikkerhedsudstyr til rådighed, medmindre andet er aftalt.</li>
+    <li data-en="Nordic Team is the employer of the hired employee and handles all HR-legal and administrative obligations, including wages, tax, holiday pay, pension and insurance.">Nordic Team er arbejdsgiver for den udlejede medarbejder og varetager alle personalejuridiske og administrative forpligtelser, herunder løn, skat, feriepenge, pension og forsikring.</li>
+    <li data-en="The customer is responsible for ensuring a lawful and safe working environment at the workplace in accordance with the Danish Working Environment Act.">Kunden er ansvarlig for at sikre et lovligt og forsvarligt arbejdsmiljø på arbejdsstedet i henhold til arbejdsmiljøloven.</li>
+    <li data-en="The customer provides the necessary tools, materials and safety equipment, unless otherwise agreed.">Kunden stiller nødvendigt værktøj, materialer og sikkerhedsudstyr til rådighed, medmindre andet er aftalt.</li>
   </ul>
 
-  <h2>A3. Bestilling og levering</h2>
+  <h2 data-en="A3. Ordering and delivery">A3. Bestilling og levering</h2>
   <ul>
-    <li>Bestilling sker via kontaktformularen på hjemmesiden, e-mail til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a> eller telefonisk.</li>
-    <li>En bestilling er bindende, når Nordic Team har bekræftet den skriftligt (e-mail er tilstrækkeligt).</li>
-    <li>Vi tilstræber levering inden for 48 timer, men garanterer ikke et bestemt leveringstidspunkt, medmindre det er skriftligt aftalt.</li>
-    <li>Hvis en udlejet medarbejder ikke lever op til kundens faglige forventninger, stiller Nordic Team en erstatning til rådighed hurtigst muligt.</li>
+    <li data-en="Orders are placed via the contact form on the website, by email to <a href='mailto:info@nordic-team.dk'>info@nordic-team.dk</a>, or by phone.">Bestilling sker via kontaktformularen på hjemmesiden, e-mail til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a> eller telefonisk.</li>
+    <li data-en="An order is binding once Nordic Team has confirmed it in writing (email is sufficient).">En bestilling er bindende, når Nordic Team har bekræftet den skriftligt (e-mail er tilstrækkeligt).</li>
+    <li data-en="We aim to deliver within 48 hours, but do not guarantee a specific delivery time unless agreed in writing.">Vi tilstræber levering inden for 48 timer, men garanterer ikke et bestemt leveringstidspunkt, medmindre det er skriftligt aftalt.</li>
+    <li data-en="If a hired employee does not meet the customer's professional expectations, Nordic Team will provide a replacement as quickly as possible.">Hvis en udlejet medarbejder ikke lever op til kundens faglige forventninger, stiller Nordic Team en erstatning til rådighed hurtigst muligt.</li>
   </ul>
 
-  <h2>A4. Priser og betaling</h2>
+  <h2 data-en="A4. Prices and payment">A4. Priser og betaling</h2>
   <ul>
-    <li>Alle priser er angivet ekskl. moms, medmindre andet fremgår.</li>
-    <li>Den aftalte timepris fremgår af ordrebekræftelsen. Timeprisen dækker løn, feriepenge, pension, forsikring og administration.</li>
-    <li>Fakturering sker hver 14. dag bagud, baseret på godkendte timesedler.</li>
-    <li>Betalingsbetingelser: Netto 14 dage fra fakturadato.</li>
-    <li>Ved forsinket betaling tilskrives morarente på 2% pr. påbegyndt måned samt et rykkergebyr på 100 kr. pr. rykkerskrivelse, jf. renteloven.</li>
-    <li>Nordic Team forbeholder sig ret til at justere priser med 30 dages skriftligt varsel ved ændringer i overenskomster, lovgivning eller øvrige omkostninger.</li>
+    <li data-en="All prices are stated excluding VAT unless otherwise indicated.">Alle priser er angivet ekskl. moms, medmindre andet fremgår.</li>
+    <li data-en="The agreed hourly rate appears in the order confirmation. The hourly rate covers wages, holiday pay, pension, insurance and administration.">Den aftalte timepris fremgår af ordrebekræftelsen. Timeprisen dækker løn, feriepenge, pension, forsikring og administration.</li>
+    <li data-en="Invoicing takes place every 14 days in arrears, based on approved timesheets.">Fakturering sker hver 14. dag bagud, baseret på godkendte timesedler.</li>
+    <li data-en="Payment terms: net 14 days from the invoice date.">Betalingsbetingelser: Netto 14 dage fra fakturadato.</li>
+    <li data-en="In the event of late payment, default interest of 2% per commenced month is charged, plus a reminder fee of DKK 100 per reminder letter, cf. the Danish Interest Act.">Ved forsinket betaling tilskrives morarente på 2% pr. påbegyndt måned samt et rykkergebyr på 100 kr. pr. rykkerskrivelse, jf. renteloven.</li>
+    <li data-en="Nordic Team reserves the right to adjust prices with 30 days' written notice in the event of changes to collective agreements, legislation or other costs.">Nordic Team forbeholder sig ret til at justere priser med 30 dages skriftligt varsel ved ændringer i overenskomster, lovgivning eller øvrige omkostninger.</li>
   </ul>
 
-  <h2>A5. Timesedler</h2>
+  <h2 data-en="A5. Timesheets">A5. Timesedler</h2>
   <ul>
-    <li>Den udlejede medarbejder registrerer dagligt sine arbejdstimer.</li>
-    <li>Kunden godkender timesedler ugentligt. Timesedler, der ikke er bestridt inden 5 hverdage, anses for godkendt.</li>
-    <li>Faktureringen baseres på godkendte timesedler.</li>
+    <li data-en="The hired employee records their working hours daily.">Den udlejede medarbejder registrerer dagligt sine arbejdstimer.</li>
+    <li data-en="The customer approves timesheets weekly. Timesheets not disputed within 5 working days are considered approved.">Kunden godkender timesedler ugentligt. Timesedler, der ikke er bestridt inden 5 hverdage, anses for godkendt.</li>
+    <li data-en="Invoicing is based on approved timesheets.">Faktureringen baseres på godkendte timesedler.</li>
   </ul>
 
-  <h2>A6. Ansvar og forsikring</h2>
+  <h2 data-en="A6. Liability and insurance">A6. Ansvar og forsikring</h2>
   <ul>
-    <li>Nordic Team tegner lovpligtige forsikringer, herunder erhvervsansvarsforsikring og arbejdsskadeforsikring, hos If Skadeforsikring.</li>
-    <li>Nordic Team er ikke ansvarlig for indirekte tab, herunder driftstab, tabt avance eller følgeskader.</li>
-    <li>Nordic Teams samlede erstatningsansvar er begrænset til det beløb, der er faktureret for den pågældende opgave i de seneste 3 måneder.</li>
-    <li>Kunden er ansvarlig for skader forårsaget af mangelfuld instruktion, defekt udstyr eller utilstrækkeligt arbejdsmiljø.</li>
+    <li data-en="Nordic Team holds statutory insurance, including professional liability and workers' compensation insurance, with If Skadeforsikring.">Nordic Team tegner lovpligtige forsikringer, herunder erhvervsansvarsforsikring og arbejdsskadeforsikring, hos If Skadeforsikring.</li>
+    <li data-en="Nordic Team is not liable for indirect losses, including operating losses, lost profits or consequential damage.">Nordic Team er ikke ansvarlig for indirekte tab, herunder driftstab, tabt avance eller følgeskader.</li>
+    <li data-en="Nordic Team's total liability is limited to the amount invoiced for the relevant assignment over the past 3 months.">Nordic Teams samlede erstatningsansvar er begrænset til det beløb, der er faktureret for den pågældende opgave i de seneste 3 måneder.</li>
+    <li data-en="The customer is liable for damage caused by inadequate instruction, defective equipment or an insufficient working environment.">Kunden er ansvarlig for skader forårsaget af mangelfuld instruktion, defekt udstyr eller utilstrækkeligt arbejdsmiljø.</li>
   </ul>
 
-  <h2>A7. Opsigelse og afbestilling</h2>
+  <h2 data-en="A7. Termination and cancellation">A7. Opsigelse og afbestilling</h2>
   <ul>
-    <li>Løbende aftaler kan opsiges af begge parter med 5 hverdages skriftligt varsel.</li>
-    <li>Afbestilling af bekræftet mandskab med mindre end 24 timers varsel medfører fakturering af 8 timers arbejde pr. afbestilt medarbejder.</li>
-    <li>Ved gentagen afbestilling forbeholder Nordic Team sig ret til at kræve et fast bookinggebyr.</li>
+    <li data-en="Ongoing agreements may be terminated by either party with 5 working days' written notice.">Løbende aftaler kan opsiges af begge parter med 5 hverdages skriftligt varsel.</li>
+    <li data-en="Cancellation of confirmed workforce with less than 24 hours' notice results in invoicing of 8 hours of work per cancelled employee.">Afbestilling af bekræftet mandskab med mindre end 24 timers varsel medfører fakturering af 8 timers arbejde pr. afbestilt medarbejder.</li>
+    <li data-en="In the case of repeated cancellation, Nordic Team reserves the right to charge a fixed booking fee.">Ved gentagen afbestilling forbeholder Nordic Team sig ret til at kræve et fast bookinggebyr.</li>
   </ul>
 
-  <h2>A8. Overtagelse af personale</h2>
-  <p>Ønsker kunden at ansætte en medarbejder, der er udlejet af Nordic Team, direkte, skal dette aftales skriftligt. Der opkræves et formidlingshonorar svarende til 2 måneders faktureret timepris for den pågældende medarbejder, medmindre medarbejderen har været udlejet til kunden i mere end 12 sammenhængende måneder.</p>
+  <h2 data-en="A8. Hiring of personnel">A8. Overtagelse af personale</h2>
+  <p data-en="If the customer wishes to employ an employee hired out by Nordic Team directly, this must be agreed in writing. A placement fee equivalent to 2 months' invoiced hourly rate for the relevant employee is charged, unless the employee has been hired out to the customer for more than 12 consecutive months.">Ønsker kunden at ansætte en medarbejder, der er udlejet af Nordic Team, direkte, skal dette aftales skriftligt. Der opkræves et formidlingshonorar svarende til 2 måneders faktureret timepris for den pågældende medarbejder, medmindre medarbejderen har været udlejet til kunden i mere end 12 sammenhængende måneder.</p>
 
-  <h2>A9. Fortrolighed</h2>
-  <p>Begge parter forpligter sig til at behandle fortrolige oplysninger om den anden parts forretningsforhold fortroligt. Denne forpligtelse gælder også efter samarbejdets ophør.</p>
+  <h2 data-en="A9. Confidentiality">A9. Fortrolighed</h2>
+  <p data-en="Both parties undertake to treat confidential information about the other party's business affairs confidentially. This obligation also applies after the cooperation ends.">Begge parter forpligter sig til at behandle fortrolige oplysninger om den anden parts forretningsforhold fortroligt. Denne forpligtelse gælder også efter samarbejdets ophør.</p>
 
-  <h2>A10. Force majeure</h2>
-  <p>Ingen af parterne er ansvarlige for manglende opfyldelse af forpligtelser, der skyldes omstændigheder uden for partens kontrol, herunder strejke, lockout, naturkatastrofer, pandemier, myndighedspåbud eller krig.</p>
+  <h2 data-en="A10. Force majeure">A10. Force majeure</h2>
+  <p data-en="Neither party is liable for failure to fulfil obligations due to circumstances beyond the party's control, including strikes, lockouts, natural disasters, pandemics, government orders or war.">Ingen af parterne er ansvarlige for manglende opfyldelse af forpligtelser, der skyldes omstændigheder uden for partens kontrol, herunder strejke, lockout, naturkatastrofer, pandemier, myndighedspåbud eller krig.</p>
 
-  <h2>A11. Lovvalg og tvister</h2>
-  <p>Disse betingelser er underlagt dansk ret. Tvister, der ikke kan løses i mindelighed, afgøres ved Retten i København som første instans.</p>
+  <h2 data-en="A11. Governing law and disputes">A11. Lovvalg og tvister</h2>
+  <p data-en="These terms are governed by Danish law. Disputes that cannot be resolved amicably are settled before the City Court of Copenhagen as the court of first instance.">Disse betingelser er underlagt dansk ret. Tvister, der ikke kan løses i mindelighed, afgøres ved Retten i København som første instans.</p>
 
   <!-- ═══════════════════ B2C ═══════════════════ -->
   <hr class="divider">
-  <span class="section-label">Del B — B2C (Privatkunder)</span>
+  <span class="section-label" data-en="Part B — B2C (Private customers)">Del B — B2C (Privatkunder)</span>
 
-  <h2>B1. Anvendelsesområde</h2>
-  <p>Del B gælder, når kunden er en privatperson (forbruger), der bestiller mandskab til private bygge- eller renoveringsprojekter. Forbrugerens rettigheder i henhold til forbrugeraftaleloven og købeloven kan ikke fraviges til skade for forbrugeren.</p>
+  <h2 data-en="B1. Scope">B1. Anvendelsesområde</h2>
+  <p data-en="Part B applies when the customer is a private individual (consumer) ordering workforce for private construction or renovation projects. The consumer's rights under the Danish Consumer Contracts Act and the Danish Sale of Goods Act cannot be waived to the detriment of the consumer.">Del B gælder, når kunden er en privatperson (forbruger), der bestiller mandskab til private bygge- eller renoveringsprojekter. Forbrugerens rettigheder i henhold til forbrugeraftaleloven og købeloven kan ikke fraviges til skade for forbrugeren.</p>
 
-  <h2>B2. Ydelsen</h2>
-  <p>Nordic Team udlejer kvalificeret arbejdskraft til private bygge- og renoveringsopgaver. Den udlejede medarbejder arbejder under kundens anvisning på det aftalte arbejdssted.</p>
+  <h2 data-en="B2. The service">B2. Ydelsen</h2>
+  <p data-en="Nordic Team hires out qualified labour for private construction and renovation jobs. The hired employee works under the customer's direction at the agreed work site.">Nordic Team udlejer kvalificeret arbejdskraft til private bygge- og renoveringsopgaver. Den udlejede medarbejder arbejder under kundens anvisning på det aftalte arbejdssted.</p>
   <ul>
-    <li>Nordic Team er arbejdsgiver og håndterer alle administrative forpligtelser.</li>
-    <li>Kunden sikrer, at arbejdsstedet er sikkert og tilgængeligt.</li>
-    <li>Nødvendigt værktøj og materialer aftales forud for opgavens start.</li>
+    <li data-en="Nordic Team is the employer and handles all administrative obligations.">Nordic Team er arbejdsgiver og håndterer alle administrative forpligtelser.</li>
+    <li data-en="The customer ensures that the work site is safe and accessible.">Kunden sikrer, at arbejdsstedet er sikkert og tilgængeligt.</li>
+    <li data-en="Necessary tools and materials are agreed before the job begins.">Nødvendigt værktøj og materialer aftales forud for opgavens start.</li>
   </ul>
 
-  <h2>B3. Priser og betaling</h2>
+  <h2 data-en="B3. Prices and payment">B3. Priser og betaling</h2>
   <ul>
-    <li>Alle priser oplyses inkl. moms til private kunder, medmindre andet tydeligt fremgår.</li>
-    <li>Den endelige pris fremgår af ordrebekræftelsen.</li>
-    <li>Betaling sker via faktura med 14 dages betalingsfrist.</li>
-    <li>Ved forsinket betaling pålægges rente i henhold til renteloven.</li>
+    <li data-en="All prices are quoted including VAT to private customers, unless otherwise clearly stated.">Alle priser oplyses inkl. moms til private kunder, medmindre andet tydeligt fremgår.</li>
+    <li data-en="The final price appears in the order confirmation.">Den endelige pris fremgår af ordrebekræftelsen.</li>
+    <li data-en="Payment is made by invoice with a 14-day payment deadline.">Betaling sker via faktura med 14 dages betalingsfrist.</li>
+    <li data-en="In the event of late payment, interest is charged in accordance with the Danish Interest Act.">Ved forsinket betaling pålægges rente i henhold til renteloven.</li>
   </ul>
 
-  <h2>B4. Fortrydelsesret</h2>
-  <p>I henhold til forbrugeraftaleloven har du som forbruger 14 dages fortrydelsesret fra den dag, aftalen indgås, forudsat at ydelsen ikke allerede er påbegyndt med dit samtykke.</p>
-  <p>Hvis du har givet samtykke til, at udførelsen af ydelsen påbegyndes inden fortrydelsesfristens udløb, og ydelsen er leveret fuldt ud, bortfalder fortrydelsesretten.</p>
-  <p>Fortrydelse meddeles skriftligt til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a>. Du kan anvende den standardiserede fortrydelsesformular, men det er ikke et krav.</p>
+  <h2 data-en="B4. Right of withdrawal">B4. Fortrydelsesret</h2>
+  <p data-en="Under the Danish Consumer Contracts Act, you as a consumer have a 14-day right of withdrawal from the day the agreement is concluded, provided the service has not already commenced with your consent.">I henhold til forbrugeraftaleloven har du som forbruger 14 dages fortrydelsesret fra den dag, aftalen indgås, forudsat at ydelsen ikke allerede er påbegyndt med dit samtykke.</p>
+  <p data-en="If you have consented to the service being started before the withdrawal period expires, and the service has been fully delivered, the right of withdrawal lapses.">Hvis du har givet samtykke til, at udførelsen af ydelsen påbegyndes inden fortrydelsesfristens udløb, og ydelsen er leveret fuldt ud, bortfalder fortrydelsesretten.</p>
+  <p data-en="Withdrawal must be notified in writing to <a href='mailto:info@nordic-team.dk'>info@nordic-team.dk</a>. You may use the standard withdrawal form, but it is not a requirement.">Fortrydelse meddeles skriftligt til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a>. Du kan anvende den standardiserede fortrydelsesformular, men det er ikke et krav.</p>
 
-  <h2>B5. Reklamation</h2>
+  <h2 data-en="B5. Complaints">B5. Reklamation</h2>
   <ul>
-    <li>Reklamation over mangelfuldt udført arbejde skal ske hurtigst muligt og senest 7 dage efter, at manglen er opdaget.</li>
-    <li>Nordic Team vil efter modtagelse af en berettiget reklamation tilbyde udbedring, erstatning eller en passende reduktion i prisen.</li>
-    <li>Reklamation sendes til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a>.</li>
+    <li data-en="Complaints about defective work must be made as soon as possible and no later than 7 days after the defect is discovered.">Reklamation over mangelfuldt udført arbejde skal ske hurtigst muligt og senest 7 dage efter, at manglen er opdaget.</li>
+    <li data-en="Upon receiving a justified complaint, Nordic Team will offer remediation, compensation or an appropriate reduction in price.">Nordic Team vil efter modtagelse af en berettiget reklamation tilbyde udbedring, erstatning eller en passende reduktion i prisen.</li>
+    <li data-en="Complaints are sent to <a href='mailto:info@nordic-team.dk'>info@nordic-team.dk</a>.">Reklamation sendes til <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a>.</li>
   </ul>
 
-  <h2>B6. Ansvar</h2>
+  <h2 data-en="B6. Liability">B6. Ansvar</h2>
   <ul>
-    <li>Nordic Team tegner lovpligtige forsikringer, herunder erhvervsansvarsforsikring og arbejdsskadeforsikring, hos If Skadeforsikring.</li>
-    <li>Nordic Team er ansvarlig for skader forvoldt af den udlejede medarbejder i forbindelse med arbejdets udførelse, i det omfang dansk rets almindelige erstatningsregler foreskriver.</li>
-    <li>Kunden er ansvarlig for at give korrekte anvisninger og sikre et sikkert arbejdssted.</li>
+    <li data-en="Nordic Team holds statutory insurance, including professional liability and workers' compensation insurance, with If Skadeforsikring.">Nordic Team tegner lovpligtige forsikringer, herunder erhvervsansvarsforsikring og arbejdsskadeforsikring, hos If Skadeforsikring.</li>
+    <li data-en="Nordic Team is liable for damage caused by the hired employee in connection with the performance of the work, to the extent prescribed by the general rules of Danish liability law.">Nordic Team er ansvarlig for skader forvoldt af den udlejede medarbejder i forbindelse med arbejdets udførelse, i det omfang dansk rets almindelige erstatningsregler foreskriver.</li>
+    <li data-en="The customer is responsible for giving correct instructions and ensuring a safe work site.">Kunden er ansvarlig for at give korrekte anvisninger og sikre et sikkert arbejdssted.</li>
   </ul>
 
-  <h2>B7. Afbestilling</h2>
+  <h2 data-en="B7. Cancellation">B7. Afbestilling</h2>
   <ul>
-    <li>Afbestilling mere end 24 timer før aftalt opstart er gratis.</li>
-    <li>Afbestilling mindre end 24 timer før aftalt opstart medfører fakturering af 4 timers arbejde pr. bestilt medarbejder.</li>
+    <li data-en="Cancellation more than 24 hours before the agreed start is free of charge.">Afbestilling mere end 24 timer før aftalt opstart er gratis.</li>
+    <li data-en="Cancellation less than 24 hours before the agreed start results in invoicing of 4 hours of work per booked employee.">Afbestilling mindre end 24 timer før aftalt opstart medfører fakturering af 4 timers arbejde pr. bestilt medarbejder.</li>
   </ul>
 
-  <h2>B8. Klage</h2>
-  <p>Kan en tvist ikke løses i mindelighed, kan du som forbruger indgive klage til:</p>
-  <p><strong>Nævnenes Hus</strong><br>Toldboden 2<br>8800 Viborg<br>Hjemmeside: <a href="https://naevneneshus.dk" target="_blank">naevneneshus.dk</a></p>
-  <p>Du kan også benytte EU-Kommissionens online klageportal: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a></p>
+  <h2 data-en="B8. Complaints body">B8. Klage</h2>
+  <p data-en="If a dispute cannot be resolved amicably, you as a consumer may file a complaint with:">Kan en tvist ikke løses i mindelighed, kan du som forbruger indgive klage til:</p>
+  <p data-en="<strong>Nævnenes Hus</strong><br>Toldboden 2<br>8800 Viborg<br>Website: <a href='https://naevneneshus.dk' target='_blank'>naevneneshus.dk</a>"><strong>Nævnenes Hus</strong><br>Toldboden 2<br>8800 Viborg<br>Hjemmeside: <a href="https://naevneneshus.dk" target="_blank">naevneneshus.dk</a></p>
+  <p data-en="You may also use the European Commission's online complaints portal: <a href='https://ec.europa.eu/consumers/odr' target='_blank'>ec.europa.eu/consumers/odr</a>">Du kan også benytte EU-Kommissionens online klageportal: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a></p>
 
-  <h2>B9. Lovvalg</h2>
-  <p>Disse betingelser er underlagt dansk ret. Ufravigelige forbrugerrettigheder i dit bopælsland kan ikke tilsidesættes.</p>
+  <h2 data-en="B9. Governing law">B9. Lovvalg</h2>
+  <p data-en="These terms are governed by Danish law. Mandatory consumer rights in your country of residence cannot be overridden.">Disse betingelser er underlagt dansk ret. Ufravigelige forbrugerrettigheder i dit bopælsland kan ikke tilsidesættes.</p>
 
   <!-- ═══════════════════ FÆLLES ═══════════════════ -->
   <hr class="divider">
-  <span class="section-label">Del C — Fælles bestemmelser</span>
+  <span class="section-label" data-en="Part C — Common provisions">Del C — Fælles bestemmelser</span>
 
-  <h2>C1. Personoplysninger</h2>
-  <p>Nordic Team behandler personoplysninger i henhold til vores <a href="privatlivspolitik.html">privatlivspolitik</a> og gældende databeskyttelseslovgivning.</p>
+  <h2 data-en="C1. Personal data">C1. Personoplysninger</h2>
+  <p data-en="Nordic Team processes personal data in accordance with our <a href='privatlivspolitik.html'>privacy policy</a> and applicable data protection legislation.">Nordic Team behandler personoplysninger i henhold til vores <a href="privatlivspolitik.html">privatlivspolitik</a> og gældende databeskyttelseslovgivning.</p>
 
-  <h2>C2. Ændringer af betingelserne</h2>
-  <p>Nordic Team kan til enhver tid opdatere disse betingelser. Ændringer træder i kraft for nye aftaler fra offentliggørelsesdatoen. Eksisterende aftaler er underlagt de betingelser, der var gældende på aftaletidspunktet.</p>
+  <h2 data-en="C2. Changes to the terms">C2. Ændringer af betingelserne</h2>
+  <p data-en="Nordic Team may update these terms at any time. Changes take effect for new agreements from the date of publication. Existing agreements are subject to the terms in force at the time the agreement was made.">Nordic Team kan til enhver tid opdatere disse betingelser. Ændringer træder i kraft for nye aftaler fra offentliggørelsesdatoen. Eksisterende aftaler er underlagt de betingelser, der var gældende på aftaletidspunktet.</p>
 
-  <h2>C3. Kontakt</h2>
-  <p>Nordic Team<br>CVR: 46382056<br>E-mail: <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a><br>Hjemmeside: <a href="https://www.nordic-team.dk">www.nordic-team.dk</a></p>
+  <h2 data-en="C3. Contact">C3. Kontakt</h2>
+  <p data-en="Nordic Team<br>CVR: 46382056<br>Email: <a href='mailto:info@nordic-team.dk'>info@nordic-team.dk</a><br>Website: <a href='https://www.nordic-team.dk'>www.nordic-team.dk</a>">Nordic Team<br>CVR: 46382056<br>E-mail: <a href="mailto:info@nordic-team.dk">info@nordic-team.dk</a><br>Hjemmeside: <a href="https://www.nordic-team.dk">www.nordic-team.dk</a></p>
 </div>
 
 <footer>
-  <p>© 2026 Nordic Team · CVR: 46382056 · <a href="/">Forside</a> · <a href="privatlivspolitik.html">Privatlivspolitik</a> · <a href="job.html">Job</a></p>
+  <p data-en="© 2026 Nordic Team · CVR: 46382056 · <a href='/'>Home</a> · <a href='privatlivspolitik.html'>Privacy policy</a> · <a href='job.html'>Jobs</a>">© 2026 Nordic Team · CVR: 46382056 · <a href="/">Forside</a> · <a href="privatlivspolitik.html">Privatlivspolitik</a> · <a href="job.html">Job</a></p>
 </footer>
 
 <script src="cookies.js" defer></script>
+<script>
+  (function(){
+    var KEY = 'nt_lang';
+    function current(){ return localStorage.getItem(KEY) === 'en' ? 'en' : 'da'; }
+    function apply(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        if (el.getAttribute('data-da') === null) el.setAttribute('data-da', el.innerHTML);
+        el.innerHTML = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-da');
+      });
+      document.querySelectorAll('.lang-toggle').forEach(function(b){ b.textContent = (lang === 'en') ? 'DA' : 'EN'; });
+      try { localStorage.setItem(KEY, lang); } catch (e) {}
+    }
+    window.ntToggleLang = function(){ apply(current() === 'en' ? 'da' : 'en'); };
+    apply(current());
+  })();
+</script>
 </body>
 </html>
