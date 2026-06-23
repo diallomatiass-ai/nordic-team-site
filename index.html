@@ -1368,7 +1368,14 @@
   .film-frame video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
   .film-caption{max-width:1080px;margin:20px auto 0;text-align:center;font-size:.95rem;color:rgba(255,255,255,.6)}
   .film-cta{display:flex;justify-content:center;margin-top:30px}
-  @media(max-width:640px){.film-section{padding:56px 0}}
+  @media(max-width:760px){
+    .film-section{padding:56px 0}
+    .film-section::before,.film-section::after{width:300px;height:300px}
+    .film-frame{border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.45)}
+    .film-caption{font-size:.85rem;margin-top:16px;padding:0 4px}
+    .film-cta{margin-top:24px}
+    .film-cta .btn-primary{width:100%;text-align:center}
+  }
 </style>
 <section class="film-section">
   <div class="container">
