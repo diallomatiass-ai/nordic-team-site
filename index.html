@@ -1387,7 +1387,9 @@
       </p>
     </div>
     <div class="film-frame">
-      <video autoplay muted loop playsinline preload="metadata" poster="media/nordic-forvandling-poster.jpg">
+      <video id="forvandling-video" autoplay muted loop playsinline preload="metadata"
+             poster="media/nordic-forvandling-poster.jpg"
+             data-src-da="media/nordic-forvandling.mp4" data-src-en="media/nordic-forvandling-en.mp4">
         <source src="media/nordic-forvandling.mp4" type="video/mp4">
       </video>
     </div>
@@ -1967,6 +1969,14 @@
         el.setAttribute('label', (lang === 'en') ? el.getAttribute('data-en-label') : el.getAttribute('data-da-label'));
       });
       document.querySelectorAll('.lang-toggle').forEach(function(b){ b.textContent = (lang === 'en') ? 'DA' : 'EN'; });
+      var fv = document.getElementById('forvandling-video');
+      if (fv) {
+        var want = (lang === 'en') ? fv.getAttribute('data-src-en') : fv.getAttribute('data-src-da');
+        var srcEl = fv.querySelector('source');
+        if (want && srcEl && srcEl.getAttribute('src') !== want) {
+          srcEl.setAttribute('src', want); fv.load(); fv.play().catch(function(){});
+        }
+      }
       setYear();
       try { localStorage.setItem(KEY, lang); } catch (e) {}
     }
