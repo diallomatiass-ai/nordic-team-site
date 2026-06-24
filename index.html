@@ -208,7 +208,7 @@
     .nav-inner .lang-toggle { margin-left: auto; }
     @media (min-width: 881px) { .nav-inner .lang-toggle { margin-left: 0; } }
     @media (max-width: 880px) {
-      .nav-links, nav > .nav-inner > .nav-cta { display: none; }
+      .nav-links, .nav-inner > .nav-cta { display: none; }
       .hamburger { display: flex; }
     }
 
@@ -1359,20 +1359,21 @@
   .film-section{position:relative;background:linear-gradient(180deg,#0c2240 0%,var(--navy) 100%);color:#fff;padding:84px 0;overflow:hidden}
   .film-section::before{content:"";position:absolute;top:-18%;right:-8%;width:520px;height:520px;background:radial-gradient(circle,rgba(244,121,32,.16),transparent 70%);pointer-events:none}
   .film-section::after{content:"";position:absolute;bottom:-22%;left:-10%;width:480px;height:480px;background:radial-gradient(circle,rgba(229,255,0,.07),transparent 70%);pointer-events:none}
-  .film-section .container{position:relative;z-index:1}
+  .film-section .container{position:relative;z-index:1;max-width:1400px}
   .film-section .sec-header{margin-bottom:40px}
   .film-section .sec-eyebrow{color:var(--orange)}
   .film-section .sec-title{color:#fff}
   .film-section .sec-lead{color:rgba(255,255,255,.78)}
-  .film-frame{position:relative;max-width:1080px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.10);background:#000}
+  .film-frame{position:relative;max-width:1360px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.10);background:#000}
   .film-frame video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-  .film-caption{max-width:1080px;margin:20px auto 0;text-align:center;font-size:.95rem;color:rgba(255,255,255,.6)}
+  .film-caption{max-width:1360px;margin:20px auto 0;text-align:center;font-size:.95rem;color:rgba(255,255,255,.6)}
   .film-cta{display:flex;justify-content:center;margin-top:30px}
   @media(max-width:760px){
     .film-section{padding:56px 0}
     .film-section::before,.film-section::after{width:300px;height:300px}
-    .film-frame{border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.45)}
-    .film-caption{font-size:.85rem;margin-top:16px;padding:0 4px}
+    /* kant-til-kant så videoen fylder mest muligt på mobil (iOS + Android) — negativ margin = container-padding, ingen vandret overløb */
+    .film-frame{max-width:none;margin-left:-16px;margin-right:-16px;border-radius:0;border-left:0;border-right:0;box-shadow:0 16px 40px rgba(0,0,0,.45)}
+    .film-caption{font-size:.85rem;margin-top:16px;padding:0 16px}
     .film-cta{margin-top:24px}
     .film-cta .btn-primary{width:100%;text-align:center}
   }
