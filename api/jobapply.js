@@ -39,8 +39,8 @@ module.exports = async function handler(req, res) {
         <tr><td style="padding:8px 0;font-weight:600">Telefon:</td><td style="padding:8px 0"><a href="tel:${esc(Telefon)}" style="color:#F47920">${esc(Telefon)}</a></td></tr>
         <tr><td style="padding:8px 0;font-weight:600">E-mail:</td><td style="padding:8px 0"><a href="mailto:${esc(Email)}" style="color:#F47920">${esc(Email)}</a></td></tr>
         <tr><td style="padding:8px 0;font-weight:600">Faggruppe:</td><td style="padding:8px 0">${esc(Faggruppe)}</td></tr>
-        <tr><td style="padding:8px 0;font-weight:600">Erfaring:</td><td style="padding:8px 0">${esc(Erfaring || '—')}</td></tr>
-        <tr><td style="padding:8px 0;font-weight:600">Kan starte:</td><td style="padding:8px 0">${esc(Tilgængelig || '—')}</td></tr>
+        <tr><td style="padding:8px 0;font-weight:600">Erfaring:</td><td style="padding:8px 0">${esc(Erfaring || '-')}</td></tr>
+        <tr><td style="padding:8px 0;font-weight:600">Kan starte:</td><td style="padding:8px 0">${esc(Tilgængelig || '-')}</td></tr>
       </table>
       ${Besked ? `<div style="margin-top:24px"><div style="font-weight:600;margin-bottom:8px">Om ansøgeren:</div><div style="background:#F8FAFC;padding:16px;border-left:3px solid #F47920;white-space:pre-wrap">${esc(Besked)}</div></div>` : ''}
       <p style="margin-top:32px;color:#64748B;font-size:13px">Sendt via job-formularen på nordic-team.dk/job.html</p>
@@ -54,8 +54,8 @@ module.exports = async function handler(req, res) {
     `Telefon:   ${Telefon}`,
     `E-mail:    ${Email}`,
     `Faggruppe: ${Faggruppe}`,
-    `Erfaring:  ${Erfaring || '—'}`,
-    `Kan starte: ${Tilgængelig || '—'}`,
+    `Erfaring:  ${Erfaring || '-'}`,
+    `Kan starte: ${Tilgængelig || '-'}`,
     ``,
     `Om ansøgeren:`,
     Besked || '(intet skrevet)',

@@ -64,7 +64,7 @@
       '<h3>Vi bruger cookies</h3>',
       '<p>Nordic Team bruger nødvendige cookies for at hjemmesiden virker. Vi indlæser også skrifttyper fra Google Fonts, hvilket sender din IP-adresse til Google. Vælg hvad du accepterer. Læs mere i vores <a href="privatlivspolitik.html">privatlivspolitik</a>.</p>',
       '<div class="nt-cats" id="nt-cats">',
-      '  <div class="nt-cat"><input type="checkbox" id="nt-c-necessary" checked disabled><label for="nt-c-necessary"><strong>Nødvendige (altid aktive)</strong><span>Påkrævet for at hjemmesiden fungerer — fx kontaktformular og navigation.</span></label></div>',
+      '  <div class="nt-cat"><input type="checkbox" id="nt-c-necessary" checked disabled><label for="nt-c-necessary"><strong>Nødvendige (altid aktive)</strong><span>Påkrævet for at hjemmesiden fungerer - fx kontaktformular og navigation.</span></label></div>',
       '  <div class="nt-cat"><input type="checkbox" id="nt-c-functional"><label for="nt-c-functional"><strong>Funktionelle</strong><span>Eksterne skrifttyper fra Google Fonts. Forbedrer udseendet, men sender din IP til Google.</span></label></div>',
       '</div>',
       '<div class="nt-btns">',
