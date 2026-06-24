@@ -50,10 +50,7 @@
       '#nt-cookie-banner .nt-cat input[type=checkbox]:disabled{opacity:.5;cursor:not-allowed}',
       '#nt-cookie-banner .nt-cat label{cursor:pointer;font-size:.86rem}',
       '#nt-cookie-banner .nt-cat label strong{display:block;color:#0f172a}',
-      '#nt-cookie-banner .nt-cat label span{color:#64748b;font-size:.8rem;display:block;margin-top:2px}',
-      '#nt-cookie-reopen{position:fixed;left:16px;bottom:16px;background:#fff;border:1px solid #e2e8f0;border-radius:50%;width:42px;height:42px;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:99998;font-size:18px}',
-      '@media(max-width:768px){#nt-cookie-reopen{bottom:80px}}',
-      '#nt-cookie-reopen.show{display:flex}'
+      '#nt-cookie-banner .nt-cat label span{color:#64748b;font-size:.8rem;display:block;margin-top:2px}'
     ].join('');
     document.head.appendChild(s);
   }
@@ -80,18 +77,6 @@
     return b;
   }
 
-  function buildReopen() {
-    var r = document.createElement('button');
-    r.id = 'nt-cookie-reopen';
-    r.setAttribute('aria-label', 'Åbn cookie-indstillinger');
-    r.innerHTML = '🍪';
-    r.addEventListener('click', function () {
-      r.classList.remove('show');
-      show();
-    });
-    return r;
-  }
-
   function applyConsent(consent) {
     if (consent && consent.functional) {
       loadGoogleFonts();
@@ -110,8 +95,6 @@
   function hide() {
     var b = document.getElementById('nt-cookie-banner');
     if (b) b.remove();
-    var r = document.getElementById('nt-cookie-reopen');
-    if (r) r.classList.add('show');
   }
 
   function show() {
@@ -154,13 +137,10 @@
 
   function init() {
     injectStyles();
-    var reopen = buildReopen();
-    document.body.appendChild(reopen);
 
     var consent = getConsent();
     if (consent) {
       applyConsent(consent);
-      reopen.classList.add('show');
     } else {
       show();
     }
