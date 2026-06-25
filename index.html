@@ -2005,5 +2005,26 @@
   })();
 </script>
 
+<script>
+  /* Robust mobil-autoplay: rigtige iOS/Android afspiller ofte ikke bare via autoplay-attributten.
+     Vi forsøger play() når videoen er i billedet, og låser op ved første berøring (dækker Low Power Mode). */
+  (function(){
+    var v = document.getElementById('forvandling-video');
+    if (!v) return;
+    v.muted = true; v.setAttribute('muted',''); v.playsInline = true;
+    function tryPlay(){ try { var p = v.play(); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (e.isIntersecting) tryPlay(); });
+      }, { threshold: 0.2 }).observe(v);
+    } else { tryPlay(); }
+    ['touchstart','pointerdown','click','scroll'].forEach(function(ev){
+      window.addEventListener(ev, function(){ tryPlay(); }, { once:true, passive:true });
+    });
+    v.addEventListener('canplay', tryPlay);
+    tryPlay();
+  })();
+</script>
+
 </body>
 </html>
