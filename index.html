@@ -2156,5 +2156,28 @@
   })();
 </script>
 
+<script>
+  /* Tæller-animation på nøgletallene (48t, 1, 100%) når de kommer i syne. Bevarer enheds-span, springer 0 over, respekterer reduced-motion. */
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    if(window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    var nums=[].slice.call(document.querySelectorAll('.stat-num'));
+    if(!nums.length) return;
+    function run(el){
+      var node=el.firstChild;
+      while(node && !(node.nodeType===3 && /\d/.test(node.nodeValue))) node=node.nextSibling;
+      if(!node) return;
+      var raw=node.nodeValue, m=raw.match(/(\d+)/); if(!m) return;
+      var target=parseInt(m[1],10); if(!(target>0)) return; // 0 → ingen animation
+      var prefix=raw.slice(0,m.index), suffix=raw.slice(m.index+m[1].length), dur=950, start=null;
+      function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1); var e=1-Math.pow(1-p,3);
+        node.nodeValue=prefix+Math.round(e*target)+suffix; if(p<1) requestAnimationFrame(step); }
+      node.nodeValue=prefix+'0'+suffix; requestAnimationFrame(step);
+    }
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});},{threshold:0.5});
+    nums.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
 </body>
 </html>
