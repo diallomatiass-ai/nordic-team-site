@@ -684,6 +684,18 @@
       letter-spacing: -.02em;
     }
     .about-text p { color: var(--text); margin-bottom: 18px; font-size: 1rem; line-height: 1.75; }
+    .about-photo {
+      width: 100%;
+      display: block;
+      margin-top: 8px;
+      border-radius: 14px;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center 35%;
+      box-shadow: 0 18px 44px rgba(15,42,71,.20);
+    }
+    @supports not (aspect-ratio: 1 / 1){ .about-photo{ height: 280px; } }
+    .about-photo-cap { margin-top: 10px; font-size: .85rem; color: var(--text-2); font-style: italic; }
     .about-list {
       background: var(--bg-soft);
       border-left: 3px solid var(--orange);
@@ -1780,6 +1792,8 @@
           være det bureau, hvor du får den samme arbejdsleder i røret hver gang,
           og hvor håndværkerne ved, hvad de laver.
         </p>
+        <img class="about-photo" src="hero_brolaegger.jpg" alt="Brolægger fra Nordic Team i arbejde på pladsen" loading="lazy">
+        <p class="about-photo-cap" data-en="Our own paver on site - the craftsmanship you get.">Vores egen brolægger på pladsen - det håndværk du får.</p>
       </div>
 
       <ul class="about-list">
