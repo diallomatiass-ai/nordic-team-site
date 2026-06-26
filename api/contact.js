@@ -21,6 +21,40 @@ function esc(s = '') {
     .replace(/'/g, '&#39;');
 }
 
+// Videresend lead til Nordic Team OS (CRM). Fejler ALDRIG hårdt — må ikke kunne
+// bryde kontaktformularen. Springes over hvis OS_INGEST_TOKEN ikke er sat endnu.
+async function forwardLeadToOS(lead) {
+  const base = (process.env.OS_API_URL || 'https://nordic-team-os-production.up.railway.app')
+    .trim().replace(/\/$/, '');
+  const token = (process.env.OS_INGEST_TOKEN || '').trim();
+  if (!token) return; // ikke konfigureret endnu — graceful skip
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 4000);
+  try {
+    const r = await fetch(`${base}/api/ingest/lead`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Ingest-Token': token },
+      body: JSON.stringify({
+        navn: lead.navn,
+        firma: lead.firma || null,
+        telefon: lead.telefon,
+        email: lead.email,
+        ydelse: lead.ydelse || null,
+        ydelse_label: lead.ydelseLabel || null,
+        besked: lead.besked || null,
+        kilde: 'kontaktform',
+        source: 'nordic-team.dk',
+      }),
+      signal: ctrl.signal,
+    });
+    if (!r.ok) console.error('OS lead-ingest svarede HTTP', r.status);
+  } catch (err) {
+    console.error('OS lead-ingest fejlede (ignoreret):', err && err.message);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -89,6 +123,9 @@ module.exports = async function handler(req, res) {
       console.error('Resend error:', error);
       return res.status(500).json({ error: 'Kunne ikke sende email' });
     }
+
+    // Leadet er sikret via mail — send det også til OS/CRM (må ikke blokere svaret)
+    await forwardLeadToOS({ navn, firma, telefon, email, ydelse, ydelseLabel: ydelseLabel, besked });
 
     return res.status(200).json({ success: true });
   } catch (err) {
