@@ -120,6 +120,7 @@
     nav {
       background: #fff;
       border-bottom: 1px solid var(--border);
+      position: -webkit-sticky;
       position: sticky;
       top: 0;
       z-index: 500;
@@ -334,6 +335,7 @@
       text-decoration: none;
       border: 1px solid rgba(255,255,255,.25);
       transition: background .15s, border-color .15s;
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
     }
     .btn-ghost:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.5); }
@@ -1661,11 +1663,18 @@
   .gallery-item:hover img{transform:scale(1.06)}
   .gallery-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;color:#fff;font-size:.92rem;font-weight:600;letter-spacing:-.01em;background:linear-gradient(transparent,rgba(15,42,71,.88));opacity:0;transform:translateY(10px);transition:opacity .3s ease,transform .3s ease}
   .gallery-item:hover figcaption{opacity:1;transform:none}
-  .gallery-item::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);border-radius:12px;pointer-events:none}
+  .gallery-item::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);border-radius:12px;pointer-events:none}
   @media(max-width:880px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-item figcaption{opacity:1;transform:none;font-size:.8rem;padding:20px 12px 10px}}
   @media(max-width:520px){.gallery-grid{gap:8px}.gallery-item figcaption{font-size:.72rem}}
+  /* Fallback for browsere uden aspect-ratio (iOS <15.4 / ældre Android) — undgår at galleri/film kollapser */
+  @supports not (aspect-ratio: 1 / 1){
+    .gallery-item{height:0;padding-bottom:75%}
+    .gallery-item img{position:absolute;top:0;left:0;width:100%;height:100%}
+    .film-frame{height:0;padding-bottom:56.25%;overflow:hidden}
+    .film-frame video{position:absolute;top:0;left:0;width:100%;height:100%}
+  }
   /* Lightbox */
-  .lb{position:fixed;inset:0;background:rgba(7,16,29,.95);display:none;align-items:center;justify-content:center;z-index:2000;padding:24px}
+  .lb{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(7,16,29,.95);display:none;align-items:center;justify-content:center;z-index:2000;padding:24px}
   .lb.open{display:flex}
   .lb-img{max-width:92vw;max-height:82vh;border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.6);background:var(--navy)}
   .lb-cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:rgba(255,255,255,.92);font-size:1rem;font-weight:500;padding:0 20px}
