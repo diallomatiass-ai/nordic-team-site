@@ -219,17 +219,16 @@
       color: #fff;
       overflow: hidden;
       background: var(--navy);
-      min-height: 640px;
+      min-height: 88vh;
       display: flex;
       align-items: center;
-      padding: 80px 0;
+      padding: 96px 0;
     }
+    /* Full-bleed dronevideo bag hele hero'en */
     .hero-bg {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 60%;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%;
       z-index: 0;
       overflow: hidden;
     }
@@ -242,17 +241,13 @@
     }
     .hero-overlay {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 70%;
-      background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 50%, rgba(15,42,71,.85) 75%, rgba(15,42,71,0) 100%);
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: linear-gradient(90deg, rgba(11,28,48,.95) 0%, rgba(11,28,48,.84) 30%, rgba(11,28,48,.55) 60%, rgba(11,28,48,.28) 100%);
       z-index: 1;
     }
     @media (max-width: 880px) {
-      .hero { min-height: auto; padding-bottom: 0; }
-      .hero-bg { position: relative; width: 100%; height: 280px; margin-top: 24px; }
-      .hero-overlay { display: none; }
+      .hero { min-height: 84vh; padding: 84px 0; }
+      .hero-overlay { background: linear-gradient(180deg, rgba(11,28,48,.55) 0%, rgba(11,28,48,.42) 32%, rgba(11,28,48,.9) 100%); }
     }
     .hero .container { position: relative; z-index: 2; }
     .hero-content { max-width: 760px; }
@@ -340,7 +335,6 @@
     }
     .btn-ghost:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.5); }
     @media (max-width: 720px) {
-      .hero { min-height: 560px; padding: 72px 0 64px; }
       .hero-ctas { flex-direction: column; align-items: stretch; }
       .btn-primary, .btn-ghost { justify-content: center; }
     }
@@ -1045,34 +1039,13 @@
       .nav-inner { height: 64px; }
       .nav-logo img { height: 30px; }
 
-      /* ─── HERO - split layout: foto øverst, tekst nederst ─── */
-      .hero {
-        min-height: auto;
-        padding: 0;
-        align-items: stretch;
-        background: var(--navy);
-        display: flex;
-        flex-direction: column;
-      }
-      .hero-bg {
-        position: relative;
-        top: auto; left: auto; right: auto; bottom: auto;
-        width: 100%;
-        height: 320px;
-        margin: 0;
-        z-index: 0;
-        order: 1;
-      }
+      /* ─── HERO mobil: full-bleed video, tekst overlejret ─── */
       .hero-bg img, .hero-bg video {
-        object-position: 50% 35%;
-      }
-      .hero-overlay {
-        display: none;
+        object-position: 50% 30%;
       }
       .hero .container {
-        order: 2;
-        padding-top: 48px;
-        padding-bottom: 56px;
+        padding-top: 28px;
+        padding-bottom: 28px;
       }
       .hero-content {
         position: relative;
@@ -1382,15 +1355,14 @@
   .film-section .sec-eyebrow{color:var(--orange)}
   .film-section .sec-title{color:#fff}
   .film-section .sec-lead{color:rgba(255,255,255,.78)}
-  .film-frame{position:relative;max-width:1360px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.10);background:#000}
+  /* Full-bleed film — fylder hele bredden, ingen boks */
+  .film-frame{position:relative;width:100%;max-width:1920px;margin:0 auto;overflow:hidden;background:#000;line-height:0}
   .film-frame video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-  .film-caption{max-width:1360px;margin:20px auto 0;text-align:center;font-size:.95rem;color:rgba(255,255,255,.6)}
+  .film-caption{max-width:1360px;margin:24px auto 0;text-align:center;font-size:.95rem;color:rgba(255,255,255,.6)}
   .film-cta{display:flex;justify-content:center;margin-top:30px}
   @media(max-width:760px){
     .film-section{padding:56px 0}
     .film-section::before,.film-section::after{width:300px;height:300px}
-    /* kant-til-kant så videoen fylder mest muligt på mobil (iOS + Android) — negativ margin = container-padding, ingen vandret overløb */
-    .film-frame{max-width:none;margin-left:-16px;margin-right:-16px;border-radius:0;border-left:0;border-right:0;box-shadow:0 16px 40px rgba(0,0,0,.45)}
     .film-caption{font-size:.85rem;margin-top:16px;padding:0 16px}
     .film-cta{margin-top:24px}
     .film-cta .btn-primary{width:100%;text-align:center}
@@ -1405,13 +1377,15 @@
         En privat gårdterrasse i Ejby - udgravning, dræn og støttemur til højbed, og så den færdige brolægning. Filmet på pladsen og fra luften.
       </p>
     </div>
-    <div class="film-frame">
-      <video id="forvandling-video" autoplay muted loop playsinline preload="none"
-             poster="media/nordic-forvandling-poster.jpg"
-             data-src-da="media/nordic-forvandling.mp4" data-src-en="media/nordic-forvandling-en.mp4">
-        <source src="media/nordic-forvandling.mp4" type="video/mp4">
-      </video>
-    </div>
+  </div>
+  <div class="film-frame">
+    <video id="forvandling-video" autoplay muted loop playsinline preload="none"
+           poster="media/nordic-forvandling-poster.jpg"
+           data-src-da="media/nordic-forvandling.mp4" data-src-en="media/nordic-forvandling-en.mp4">
+      <source src="media/nordic-forvandling.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container">
     <p class="film-caption" data-en="Before &amp; after · paving, drainage and groundwork by Nordic Team">Før &amp; efter · brolægning, dræn og anlæg udført af Nordic Team</p>
     <div class="film-cta">
       <a href="#kontakt" class="btn-primary" data-en="Get the same result">Få samme resultat</a>
@@ -1707,15 +1681,15 @@
       <p class="sec-lead" data-en="A selection from real projects on Zealand - from bare ground to finished result, on the ground and from the air.">Et udpluk fra rigtige projekter på Sjælland - fra bar jord til færdigt resultat, på pladsen og fra luften.</p>
     </div>
     <div class="gallery-grid" id="galleryGrid">
-      <figure class="gallery-item" data-full="media/galleri/01-luft-faerdig.jpg"><picture><source srcset="media/galleri/01-luft-faerdig-thumb.webp" type="image/webp"><img src="media/galleri/01-luft-faerdig-thumb.jpg" alt="Færdig gårdterrasse fra luften" loading="lazy"></picture><figcaption><span data-en="Finished courtyard from above">Færdig gårdterrasse fra luften</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/02-faerdig-brolaegning.jpg"><picture><source srcset="media/galleri/02-faerdig-brolaegning-thumb.webp" type="image/webp"><img src="media/galleri/02-faerdig-brolaegning-thumb.jpg" alt="Færdig brolægning" loading="lazy"></picture><figcaption><span data-en="Finished paving">Færdig brolægning</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/03-draen.jpg"><picture><source srcset="media/galleri/03-draen-thumb.webp" type="image/webp"><img src="media/galleri/03-draen-thumb.jpg" alt="Dræn og afvanding" loading="lazy"></picture><figcaption><span data-en="Drainage works">Dræn og afvanding</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/04-belaegning-kant.jpg"><picture><source srcset="media/galleri/04-belaegning-kant-thumb.webp" type="image/webp"><img src="media/galleri/04-belaegning-kant-thumb.jpg" alt="Belægning og højbede i kantblokke" loading="lazy"></picture><figcaption><span data-en="Paving and raised beds in edge blocks">Belægning og højbede i kantblokke</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/05-stoettemur.jpg"><picture><source srcset="media/galleri/05-stoettemur-thumb.webp" type="image/webp"><img src="media/galleri/05-stoettemur-thumb.jpg" alt="Støttemur i kantblokke" loading="lazy"></picture><figcaption><span data-en="Retaining wall in edge blocks">Støttemur i kantblokke</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/06-luft-projekt.jpg"><picture><source srcset="media/galleri/06-luft-projekt-thumb.webp" type="image/webp"><img src="media/galleri/06-luft-projekt-thumb.jpg" alt="Projektet fra luften" loading="lazy"></picture><figcaption><span data-en="The project from above">Projektet fra luften</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/07-udgravning.jpg"><picture><source srcset="media/galleri/07-udgravning-thumb.webp" type="image/webp"><img src="media/galleri/07-udgravning-thumb.jpg" alt="Udgravning og forberedelse" loading="lazy"></picture><figcaption><span data-en="Excavation &amp; prep">Udgravning og forberedelse</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/08-brolaegning-igang.jpg"><picture><source srcset="media/galleri/08-brolaegning-igang-thumb.webp" type="image/webp"><img src="media/galleri/08-brolaegning-igang-thumb.jpg" alt="Brolægning i gang" loading="lazy"></picture><figcaption><span data-en="Paving in progress">Brolægning i gang</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/09-luft-arbejde.jpg"><picture><source srcset="media/galleri/09-luft-arbejde-thumb.webp" type="image/webp"><img src="media/galleri/09-luft-arbejde-thumb.jpg" alt="Luftfoto af det færdige resultat" loading="lazy"></picture><figcaption><span data-en="Aerial of the finished result">Luftfoto af det færdige resultat</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/01-luft-faerdig.jpg"><img src="media/galleri/01-luft-faerdig-thumb.jpg" alt="Færdig gårdterrasse fra luften" loading="lazy"><figcaption><span data-en="Finished courtyard from above">Færdig gårdterrasse fra luften</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/02-faerdig-brolaegning.jpg"><img src="media/galleri/02-faerdig-brolaegning-thumb.jpg" alt="Færdig brolægning" loading="lazy"><figcaption><span data-en="Finished paving">Færdig brolægning</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/03-draen.jpg"><img src="media/galleri/03-draen-thumb.jpg" alt="Dræn og afvanding" loading="lazy"><figcaption><span data-en="Drainage works">Dræn og afvanding</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/04-belaegning-kant.jpg"><img src="media/galleri/04-belaegning-kant-thumb.jpg" alt="Belægning og højbede i kantblokke" loading="lazy"><figcaption><span data-en="Paving and raised beds in edge blocks">Belægning og højbede i kantblokke</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/05-stoettemur.jpg"><img src="media/galleri/05-stoettemur-thumb.jpg" alt="Støttemur i kantblokke" loading="lazy"><figcaption><span data-en="Retaining wall in edge blocks">Støttemur i kantblokke</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/06-luft-projekt.jpg"><img src="media/galleri/06-luft-projekt-thumb.jpg" alt="Projektet fra luften" loading="lazy"><figcaption><span data-en="The project from above">Projektet fra luften</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/07-udgravning.jpg"><img src="media/galleri/07-udgravning-thumb.jpg" alt="Udgravning og forberedelse" loading="lazy"><figcaption><span data-en="Excavation &amp; prep">Udgravning og forberedelse</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/08-brolaegning-igang.jpg"><img src="media/galleri/08-brolaegning-igang-thumb.jpg" alt="Brolægning i gang" loading="lazy"><figcaption><span data-en="Paving in progress">Brolægning i gang</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/09-luft-arbejde.jpg"><img src="media/galleri/09-luft-arbejde-thumb.jpg" alt="Luftfoto af det færdige resultat" loading="lazy"><figcaption><span data-en="Aerial of the finished result">Luftfoto af det færdige resultat</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1794,7 +1768,7 @@
           være det bureau, hvor du får den samme arbejdsleder i røret hver gang,
           og hvor håndværkerne ved, hvad de laver.
         </p>
-        <picture class="about-photo-pic"><source srcset="hero_brolaegger.webp" type="image/webp"><img class="about-photo" src="hero_brolaegger.jpg" alt="Brolægger fra Nordic Team i arbejde på pladsen" loading="lazy"></picture>
+        <img class="about-photo" src="hero_brolaegger.jpg" alt="Brolægger fra Nordic Team i arbejde på pladsen" loading="lazy">
         <p class="about-photo-cap" data-en="Our own paver on site - the craftsmanship you get.">Vores egen brolægger på pladsen - det håndværk du får.</p>
       </div>
 
