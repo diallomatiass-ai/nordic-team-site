@@ -694,6 +694,7 @@
       object-position: center 35%;
       box-shadow: 0 18px 44px rgba(15,42,71,.20);
     }
+    .about-photo-pic { display: block; }
     @supports not (aspect-ratio: 1 / 1){ .about-photo{ height: 280px; } }
     .about-photo-cap { margin-top: 10px; font-size: .85rem; color: var(--text-2); font-style: italic; }
     .about-list {
@@ -1405,7 +1406,7 @@
       </p>
     </div>
     <div class="film-frame">
-      <video id="forvandling-video" autoplay muted loop playsinline preload="metadata"
+      <video id="forvandling-video" autoplay muted loop playsinline preload="none"
              poster="media/nordic-forvandling-poster.jpg"
              data-src-da="media/nordic-forvandling.mp4" data-src-en="media/nordic-forvandling-en.mp4">
         <source src="media/nordic-forvandling.mp4" type="video/mp4">
@@ -1671,6 +1672,7 @@
   .gallery-section{background:var(--bg-soft)}
   .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
   .gallery-item{position:relative;overflow:hidden;border-radius:12px;cursor:pointer;aspect-ratio:4/3;background:var(--navy);margin:0;box-shadow:0 6px 18px rgba(15,42,71,.10)}
+  .gallery-item picture{display:block;width:100%;height:100%}
   .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.2,.6,.2,1)}
   .gallery-item:hover img{transform:scale(1.06)}
   .gallery-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;color:#fff;font-size:.92rem;font-weight:600;letter-spacing:-.01em;background:linear-gradient(transparent,rgba(15,42,71,.88));opacity:0;transform:translateY(10px);transition:opacity .3s ease,transform .3s ease}
@@ -1681,7 +1683,7 @@
   /* Fallback for browsere uden aspect-ratio (iOS <15.4 / ældre Android) — undgår at galleri/film kollapser */
   @supports not (aspect-ratio: 1 / 1){
     .gallery-item{height:0;padding-bottom:75%}
-    .gallery-item img{position:absolute;top:0;left:0;width:100%;height:100%}
+    .gallery-item picture{position:absolute;top:0;left:0;width:100%;height:100%}
     .film-frame{height:0;padding-bottom:56.25%;overflow:hidden}
     .film-frame video{position:absolute;top:0;left:0;width:100%;height:100%}
   }
@@ -1705,15 +1707,15 @@
       <p class="sec-lead" data-en="A selection from real projects on Zealand - from bare ground to finished result, on the ground and from the air.">Et udpluk fra rigtige projekter på Sjælland - fra bar jord til færdigt resultat, på pladsen og fra luften.</p>
     </div>
     <div class="gallery-grid" id="galleryGrid">
-      <figure class="gallery-item" data-full="media/galleri/01-luft-faerdig.jpg"><img src="media/galleri/01-luft-faerdig-thumb.jpg" alt="Færdig gårdterrasse fra luften" loading="lazy"><figcaption><span data-en="Finished courtyard from above">Færdig gårdterrasse fra luften</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/02-faerdig-brolaegning.jpg"><img src="media/galleri/02-faerdig-brolaegning-thumb.jpg" alt="Færdig brolægning" loading="lazy"><figcaption><span data-en="Finished paving">Færdig brolægning</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/03-draen.jpg"><img src="media/galleri/03-draen-thumb.jpg" alt="Dræn og afvanding" loading="lazy"><figcaption><span data-en="Drainage works">Dræn og afvanding</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/04-belaegning-kant.jpg"><img src="media/galleri/04-belaegning-kant-thumb.jpg" alt="Belægning og højbede i kantblokke" loading="lazy"><figcaption><span data-en="Paving and raised beds in edge blocks">Belægning og højbede i kantblokke</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/05-stoettemur.jpg"><img src="media/galleri/05-stoettemur-thumb.jpg" alt="Støttemur i kantblokke" loading="lazy"><figcaption><span data-en="Retaining wall in edge blocks">Støttemur i kantblokke</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/06-luft-projekt.jpg"><img src="media/galleri/06-luft-projekt-thumb.jpg" alt="Projektet fra luften" loading="lazy"><figcaption><span data-en="The project from above">Projektet fra luften</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/07-udgravning.jpg"><img src="media/galleri/07-udgravning-thumb.jpg" alt="Udgravning og forberedelse" loading="lazy"><figcaption><span data-en="Excavation &amp; prep">Udgravning og forberedelse</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/08-brolaegning-igang.jpg"><img src="media/galleri/08-brolaegning-igang-thumb.jpg" alt="Brolægning i gang" loading="lazy"><figcaption><span data-en="Paving in progress">Brolægning i gang</span></figcaption></figure>
-      <figure class="gallery-item" data-full="media/galleri/09-luft-arbejde.jpg"><img src="media/galleri/09-luft-arbejde-thumb.jpg" alt="Luftfoto af det færdige resultat" loading="lazy"><figcaption><span data-en="Aerial of the finished result">Luftfoto af det færdige resultat</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/01-luft-faerdig.jpg"><picture><source srcset="media/galleri/01-luft-faerdig-thumb.webp" type="image/webp"><img src="media/galleri/01-luft-faerdig-thumb.jpg" alt="Færdig gårdterrasse fra luften" loading="lazy"></picture><figcaption><span data-en="Finished courtyard from above">Færdig gårdterrasse fra luften</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/02-faerdig-brolaegning.jpg"><picture><source srcset="media/galleri/02-faerdig-brolaegning-thumb.webp" type="image/webp"><img src="media/galleri/02-faerdig-brolaegning-thumb.jpg" alt="Færdig brolægning" loading="lazy"></picture><figcaption><span data-en="Finished paving">Færdig brolægning</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/03-draen.jpg"><picture><source srcset="media/galleri/03-draen-thumb.webp" type="image/webp"><img src="media/galleri/03-draen-thumb.jpg" alt="Dræn og afvanding" loading="lazy"></picture><figcaption><span data-en="Drainage works">Dræn og afvanding</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/04-belaegning-kant.jpg"><picture><source srcset="media/galleri/04-belaegning-kant-thumb.webp" type="image/webp"><img src="media/galleri/04-belaegning-kant-thumb.jpg" alt="Belægning og højbede i kantblokke" loading="lazy"></picture><figcaption><span data-en="Paving and raised beds in edge blocks">Belægning og højbede i kantblokke</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/05-stoettemur.jpg"><picture><source srcset="media/galleri/05-stoettemur-thumb.webp" type="image/webp"><img src="media/galleri/05-stoettemur-thumb.jpg" alt="Støttemur i kantblokke" loading="lazy"></picture><figcaption><span data-en="Retaining wall in edge blocks">Støttemur i kantblokke</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/06-luft-projekt.jpg"><picture><source srcset="media/galleri/06-luft-projekt-thumb.webp" type="image/webp"><img src="media/galleri/06-luft-projekt-thumb.jpg" alt="Projektet fra luften" loading="lazy"></picture><figcaption><span data-en="The project from above">Projektet fra luften</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/07-udgravning.jpg"><picture><source srcset="media/galleri/07-udgravning-thumb.webp" type="image/webp"><img src="media/galleri/07-udgravning-thumb.jpg" alt="Udgravning og forberedelse" loading="lazy"></picture><figcaption><span data-en="Excavation &amp; prep">Udgravning og forberedelse</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/08-brolaegning-igang.jpg"><picture><source srcset="media/galleri/08-brolaegning-igang-thumb.webp" type="image/webp"><img src="media/galleri/08-brolaegning-igang-thumb.jpg" alt="Brolægning i gang" loading="lazy"></picture><figcaption><span data-en="Paving in progress">Brolægning i gang</span></figcaption></figure>
+      <figure class="gallery-item" data-full="media/galleri/09-luft-arbejde.jpg"><picture><source srcset="media/galleri/09-luft-arbejde-thumb.webp" type="image/webp"><img src="media/galleri/09-luft-arbejde-thumb.jpg" alt="Luftfoto af det færdige resultat" loading="lazy"></picture><figcaption><span data-en="Aerial of the finished result">Luftfoto af det færdige resultat</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1792,7 +1794,7 @@
           være det bureau, hvor du får den samme arbejdsleder i røret hver gang,
           og hvor håndværkerne ved, hvad de laver.
         </p>
-        <img class="about-photo" src="hero_brolaegger.jpg" alt="Brolægger fra Nordic Team i arbejde på pladsen" loading="lazy">
+        <picture class="about-photo-pic"><source srcset="hero_brolaegger.webp" type="image/webp"><img class="about-photo" src="hero_brolaegger.jpg" alt="Brolægger fra Nordic Team i arbejde på pladsen" loading="lazy"></picture>
         <p class="about-photo-cap" data-en="Our own paver on site - the craftsmanship you get.">Vores egen brolægger på pladsen - det håndværk du får.</p>
       </div>
 

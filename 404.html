@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siden findes ikke — Nordic Team</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0F2A47;--orange:#F47920;--orange-dk:#C45E0A}
+    html,body{height:100%}
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      background:var(--navy);color:#fff;min-height:100%;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      padding:40px 24px;-webkit-font-smoothing:antialiased;position:relative;overflow:hidden;
+    }
+    body::before{content:"";position:absolute;top:-20%;right:-10%;width:520px;height:520px;
+      background:radial-gradient(circle,rgba(244,121,32,.18),transparent 70%);pointer-events:none}
+    .wrap{position:relative;z-index:1;max-width:560px}
+    img.logo{height:48px;width:auto;margin:0 auto 40px;display:block}
+    .code{font-size:clamp(4rem,16vw,7rem);font-weight:800;line-height:1;letter-spacing:-.04em;color:#fff}
+    .code span{color:var(--orange)}
+    h1{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:700;margin:18px 0 14px;letter-spacing:-.02em}
+    p{color:rgba(255,255,255,.78);font-size:1.05rem;line-height:1.65;margin-bottom:34px}
+    .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    a.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:4px;
+      text-decoration:none;font-weight:600;font-size:1rem;transition:background .15s,transform .15s}
+    a.primary{background:var(--orange);color:#fff}
+    a.primary:hover{background:var(--orange-dk);transform:translateY(-1px)}
+    a.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+    a.ghost:hover{background:rgba(255,255,255,.16)}
+    @media(max-width:520px){.btns a.btn{width:100%;justify-content:center}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="/nordic_team_logo_transparent.png" alt="Nordic Team" />
+    <div class="code">4<span>0</span>4</div>
+    <h1>Siden findes ikke</h1>
+    <p>Siden er måske flyttet eller fjernet. Lad os få dig tilbage på sporet — eller ring, så hjælper vi med det samme.</p>
+    <div class="btns">
+      <a class="btn primary" href="/">Til forsiden</a>
+      <a class="btn ghost" href="tel:+4521904030">Ring 21 90 40 30</a>
+    </div>
+  </div>
+</body>
+</html>
