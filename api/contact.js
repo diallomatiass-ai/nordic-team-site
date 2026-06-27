@@ -44,12 +44,10 @@ async function forwardLeadToOS(lead) {
         besked: lead.besked || null,
         kilde: 'kontaktform',
         source: 'nordic-team.dk',
-        // Marketing-attribution (OS mapper utm_source->utm_kilde osv.)
-        utm_source: lead.utm_source || null,
+        // Marketing-attribution — feltnavne matcher OS' ingest-kontrakt (LeadIn)
+        utm_kilde: lead.utm_source || null,
         utm_medium: lead.utm_medium || null,
-        utm_campaign: lead.utm_campaign || null,
-        utm_content: lead.utm_content || null,
-        utm_term: lead.utm_term || null,
+        utm_kampagne: lead.utm_campaign || null,
         landingsside: lead.landingsside || null,
         referrer: lead.referrer || null,
       }),
