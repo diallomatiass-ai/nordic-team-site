@@ -904,6 +904,10 @@
       border-color: var(--orange);
     }
     .form-wrap textarea { min-height: 110px; resize: vertical; }
+    .form-status { margin-top: 14px; padding: 12px 16px; border-radius: 6px; font-size: .95rem; font-weight: 500; }
+    .form-status.ok { background: #ECFDF3; color: #027A48; border: 1px solid #A6F4C5; }
+    .form-status.err { background: #FEF3F2; color: #B42318; border: 1px solid #FECDCA; }
+    .form-btn[disabled] { opacity: .65; cursor: progress; }
     .form-btn {
       width: 100%;
       background: var(--orange);
@@ -1958,7 +1962,7 @@
         </div>
       </div>
 
-      <form class="form-wrap" action="/api/contact" method="POST">
+      <form class="form-wrap" id="kontaktForm" action="/api/contact" method="POST">
         <div class="form-grid">
           <div>
             <label for="navn" data-en="Your name">Dit navn</label>
@@ -2001,6 +2005,7 @@
           </div>
           <div class="form-full">
             <button type="submit" class="form-btn" data-en="Send enquiry">Send forespørgsel</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
           </div>
         </div>
       </form>
@@ -2184,6 +2189,51 @@
     }
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});},{threshold:0.5});
     nums.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+<script>
+  /* UTM-attribution: fang kampagne-data ved første besøg (gemmes indtil leadet sendes) */
+  (function(){
+    try{
+      var p=new URLSearchParams(location.search);
+      var keys=["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+      var got={}, any=false;
+      keys.forEach(function(k){ var v=p.get(k); if(v){ got[k]=v; any=true; } });
+      if(any && !sessionStorage.getItem("nt_utm")){
+        got.landingsside=location.pathname+location.search;
+        got.referrer=document.referrer||"";
+        sessionStorage.setItem("nt_utm", JSON.stringify(got));
+      }
+    }catch(e){}
+  })();
+
+  /* Kontaktformular: AJAX med pæn kvittering (i stedet for rå JSON-side) + UTM med */
+  (function(){
+    var form=document.getElementById("kontaktForm");
+    if(!form) return;
+    var status=document.getElementById("formStatus");
+    var btn=form.querySelector(".form-btn");
+    var isEn=function(){ return document.documentElement.lang==="en"; };
+    function show(type,msg){ status.hidden=false; status.className="form-status "+type; status.textContent=msg; }
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var body={};
+      new FormData(form).forEach(function(v,k){ body[k]=v; });
+      try{ var u=JSON.parse(sessionStorage.getItem("nt_utm")||"{}"); Object.keys(u).forEach(function(k){ body[k]=u[k]; }); }catch(e){}
+      var orig=btn.textContent;
+      btn.disabled=true; btn.textContent=isEn()?"Sending...":"Sender..."; status.hidden=true;
+      fetch(form.getAttribute("action"),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})
+        .then(function(r){ return r.ok?r.json():Promise.reject(); })
+        .then(function(){
+          form.reset();
+          show("ok", isEn()?"Thank you! We'll get back to you shortly.":"Tak for din forespørgsel - vi vender tilbage hurtigst muligt.");
+        })
+        .catch(function(){
+          show("err", isEn()?"Something went wrong - please call us on 21 90 40 30.":"Noget gik galt - ring til os på 21 90 40 30, så hjælper vi.");
+        })
+        .finally(function(){ btn.disabled=false; btn.textContent=orig; });
+    });
   })();
 </script>
 

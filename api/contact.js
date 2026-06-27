@@ -44,6 +44,14 @@ async function forwardLeadToOS(lead) {
         besked: lead.besked || null,
         kilde: 'kontaktform',
         source: 'nordic-team.dk',
+        // Marketing-attribution (OS mapper utm_source->utm_kilde osv.)
+        utm_source: lead.utm_source || null,
+        utm_medium: lead.utm_medium || null,
+        utm_campaign: lead.utm_campaign || null,
+        utm_content: lead.utm_content || null,
+        utm_term: lead.utm_term || null,
+        landingsside: lead.landingsside || null,
+        referrer: lead.referrer || null,
       }),
       signal: ctrl.signal,
     });
@@ -63,7 +71,10 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { navn, firma, telefon, email, ydelse, besked } = req.body || {};
+  const {
+    navn, firma, telefon, email, ydelse, besked,
+    utm_source, utm_medium, utm_campaign, utm_content, utm_term, landingsside, referrer,
+  } = req.body || {};
 
   if (!navn || !telefon || !email) {
     return res.status(400).json({ error: 'Udfyld navn, telefon og e-mail' });
@@ -125,7 +136,10 @@ module.exports = async function handler(req, res) {
     }
 
     // Leadet er sikret via mail — send det også til OS/CRM (må ikke blokere svaret)
-    await forwardLeadToOS({ navn, firma, telefon, email, ydelse, ydelseLabel: ydelseLabel, besked });
+    await forwardLeadToOS({
+      navn, firma, telefon, email, ydelse, ydelseLabel, besked,
+      utm_source, utm_medium, utm_campaign, utm_content, utm_term, landingsside, referrer,
+    });
 
     return res.status(200).json({ success: true });
   } catch (err) {
