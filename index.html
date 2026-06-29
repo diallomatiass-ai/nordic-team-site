@@ -1225,6 +1225,31 @@
   </style>
   <!-- Umami analytics (cookieless, EU-hosted, GDPR-konform - intet samtykke krævet) -->
   <script defer src="https://umami-production-7900.up.railway.app/script.js" data-website-id="a91427c5-fd53-4b57-b186-6ac5a53334eb"></script>
+<style>
+  /* Søgebar i nav (+ tracking via Umami) */
+  .nav-search { position: relative; display: flex; align-items: center; gap: 8px;
+    background: var(--bg-soft); border: 1px solid var(--border); border-radius: 999px;
+    padding: 7px 14px; min-width: 190px; transition: border-color .15s, box-shadow .15s; }
+  .nav-search:focus-within { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(244,121,32,.12); }
+  .nav-search svg { flex: 0 0 auto; color: #94a3b8; }
+  .nav-search input { border: 0; outline: 0; background: transparent; font-size: 14px;
+    color: var(--ink); width: 100%; font-family: inherit; }
+  .nav-search input::placeholder { color: #94a3b8; }
+  .search-suggest { position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+    background: #fff; border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(15,42,71,.14); overflow: hidden; display: none; z-index: 60; }
+  .search-suggest.open { display: block; }
+  .search-suggest a { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    padding: 11px 15px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--border-soft); font-size: 14px; }
+  .search-suggest a:last-child { border-bottom: 0; }
+  .search-suggest a:hover, .search-suggest a.active { background: var(--orange-soft); }
+  .search-suggest .hint { color: #94a3b8; font-size: 12px; flex: 0 0 auto; }
+  .search-suggest .tom { padding: 13px 15px; color: #64748b; font-size: 13px; }
+  .search-suggest .tom a { display: inline; padding: 0; border: 0; color: var(--orange); font-weight: 600; }
+  /* Mobil: fuld bredde i menuen */
+  .nav-search--mobile { width: 100%; margin-bottom: 6px; }
+  @media (max-width: 900px) { .nav-search--desktop { display: none; } }
+</style>
 </head>
 <body>
 
@@ -1267,6 +1292,11 @@
         <li><a href="#kontakt" data-en="Contact">Kontakt</a></li>
         <li><a href="job.html" data-en="Jobs">Job</a></li>
       </ul>
+      <div class="nav-search nav-search--desktop" data-nt-search>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" placeholder="Søg…" aria-label="Søg på siden" autocomplete="off" data-nt-search-input />
+        <div class="search-suggest" data-nt-suggest></div>
+      </div>
       <a href="#kontakt" class="nav-cta" data-en="Get a quote" data-umami-event="Få tilbud">Få et tilbud</a>
       <button class="lang-toggle" type="button" onclick="ntToggleLang()" aria-label="Skift sprog / Change language">EN</button>
       <label class="hamburger" for="nav-toggle" aria-label="Menu">
@@ -1274,6 +1304,11 @@
       </label>
     </div>
     <div class="mobile-menu">
+      <div class="nav-search nav-search--mobile" data-nt-search>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" placeholder="Søg…" aria-label="Søg på siden" autocomplete="off" data-nt-search-input />
+        <div class="search-suggest" data-nt-suggest></div>
+      </div>
       <a href="#ydelser" data-en="Staffing">Vikarbureau</a>
       <a href="#privat" data-en="Private">Privat</a>
       <a href="#faq" data-en="FAQ">FAQ</a>
@@ -2242,5 +2277,101 @@
   })();
 </script>
 
+<script>
+/* Søgebar: hjælper besøgende videre + tracker søgeord i Umami (så ejeren ser efterspørgslen). */
+(function () {
+  var IDX = [
+    { label: "Brolægning", hint: "Vikarbureau", target: "#ydelser", kw: "brolaegning brolaegger fliser sten chausse kantsten" },
+    { label: "Fjernvarme", hint: "Vikarbureau", target: "#ydelser", kw: "fjernvarme varme roer gravearbejde graver" },
+    { label: "Montage", hint: "Vikarbureau", target: "#ydelser", kw: "montage montoer" },
+    { label: "Dykpumper & afvanding", hint: "Vikarbureau", target: "#ydelser", kw: "dykpumper pumpe afvanding vand grundvand" },
+    { label: "Vikar / mandskab", hint: "Vikarbureau", target: "#ydelser", kw: "vikar mandskab arbejdskraft folk haender bemanding udlejning" },
+    { label: "Privat: indkørsel", hint: "Privat", target: "#privat", kw: "indkoersel privat" },
+    { label: "Privat: terrasse", hint: "Privat", target: "#privat", kw: "terrasse have fliser" },
+    { label: "Anlæg & belægning (privat)", hint: "Privat", target: "#privat", kw: "anlaeg belaegning have gaardhave indkoersel" },
+    { label: "Job & karriere", hint: "Job", target: "job.html", kw: "job arbejde ansoeg ansoegning ansaettelse karriere ledig stilling" },
+    { label: "Kontakt / få et tilbud", hint: "Kontakt", target: "#kontakt", kw: "kontakt tilbud pris ring telefon mail bestil priser" },
+    { label: "Ofte stillede spørgsmål", hint: "FAQ", target: "#faq", kw: "faq spoergsmaal ofte hjaelp" },
+    { label: "Om os", hint: "Om", target: "#om-os", kw: "om os firma historie hvem" }
+  ];
+  function fold(s) {
+    return (s || "").toLowerCase().replace(/æ/g, "ae").replace(/ø/g, "oe").replace(/å/g, "aa").trim();
+  }
+  function soeg(q) {
+    var toks = fold(q).split(/\s+/).filter(Boolean);
+    if (!toks.length) return [];
+    return IDX.map(function (e) {
+      var hay = fold(e.label) + " " + e.kw;
+      var score = 0;
+      toks.forEach(function (t) { if (hay.indexOf(t) !== -1) score += 1; });
+      return { e: e, score: score };
+    }).filter(function (x) { return x.score > 0; })
+      .sort(function (a, b) { return b.score - a.score; })
+      .slice(0, 5).map(function (x) { return x.e; });
+  }
+  function track(q, traf) {
+    try { if (window.umami && typeof umami.track === "function") umami.track("Søgning", { soegeord: q, traf: traf }); } catch (e) {}
+  }
+  function gaa(target, q, label) {
+    track(q, label || "ingen");
+    if (target.charAt(0) === "#") {
+      var el = document.querySelector(target);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      else location.hash = target;
+    } else {
+      location.href = target;
+    }
+  }
+  function wire(box) {
+    var input = box.querySelector("[data-nt-search-input]");
+    var panel = box.querySelector("[data-nt-suggest]");
+    var aktiv = -1, naval = [];
+    function luk() { panel.classList.remove("open"); panel.innerHTML = ""; aktiv = -1; }
+    function render() {
+      var q = input.value.trim();
+      if (!q) { luk(); return; }
+      naval = soeg(q); aktiv = -1;
+      if (!naval.length) {
+        panel.innerHTML = '<div class="tom">Ingen direkte match. <a href="#kontakt" data-nt-kontakt>Skriv til os</a>, så hjælper vi.</div>';
+        panel.classList.add("open");
+        var k = panel.querySelector("[data-nt-kontakt]");
+        if (k) k.addEventListener("click", function (e) { e.preventDefault(); luk(); gaa("#kontakt", q, "ingen"); });
+        return;
+      }
+      panel.innerHTML = naval.map(function (e, i) {
+        return '<a href="' + e.target + '" data-i="' + i + '"><span>' + e.label + '</span><span class="hint">' + e.hint + "</span></a>";
+      }).join("");
+      panel.classList.add("open");
+      Array.prototype.forEach.call(panel.querySelectorAll("a"), function (a) {
+        a.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          var e = naval[+a.getAttribute("data-i")];
+          luk(); input.value = ""; gaa(e.target, q, e.label);
+        });
+      });
+    }
+    input.addEventListener("input", render);
+    input.addEventListener("focus", render);
+    input.addEventListener("keydown", function (ev) {
+      var items = panel.querySelectorAll("a");
+      if (ev.key === "ArrowDown" && items.length) { ev.preventDefault(); aktiv = (aktiv + 1) % items.length; opdaterAktiv(items); }
+      else if (ev.key === "ArrowUp" && items.length) { ev.preventDefault(); aktiv = (aktiv - 1 + items.length) % items.length; opdaterAktiv(items); }
+      else if (ev.key === "Enter") {
+        var q = input.value.trim(); if (!q) return;
+        if (aktiv >= 0 && naval[aktiv]) { luk(); input.value = ""; gaa(naval[aktiv].target, q, naval[aktiv].label); }
+        else if (naval.length) { luk(); input.value = ""; gaa(naval[0].target, q, naval[0].label); }
+        else { gaa("#kontakt", q, "ingen"); luk(); }
+      } else if (ev.key === "Escape") { luk(); }
+    });
+    function opdaterAktiv(items) {
+      Array.prototype.forEach.call(items, function (a, i) { a.classList.toggle("active", i === aktiv); });
+    }
+    document.addEventListener("click", function (e) { if (!box.contains(e.target)) luk(); });
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-nt-search]"), wire);
+  });
+})();
+</script>
 </body>
 </html>
