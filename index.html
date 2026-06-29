@@ -1246,9 +1246,13 @@
   .search-suggest .hint { color: #94a3b8; font-size: 12px; flex: 0 0 auto; }
   .search-suggest .tom { padding: 13px 15px; color: #64748b; font-size: 13px; }
   .search-suggest .tom a { display: inline; padding: 0; border: 0; color: var(--orange); font-weight: 600; }
-  /* Mobil: fuld bredde i menuen */
-  .nav-search--mobile { width: 100%; margin-bottom: 6px; }
-  @media (max-width: 900px) { .nav-search--desktop { display: none; } }
+  /* Mobil: altid-synlig fuld-bredde søgebar lige under logo-baren */
+  .nav-search--bar { display: none; width: 100%; }
+  @media (max-width: 900px) {
+    .nav-search--desktop { display: none; }
+    .nav-search--bar { display: flex; margin: 0 0 12px; }
+  }
+  @media (min-width: 901px) { .nav-search--bar { display: none !important; } }
 </style>
 </head>
 <body>
@@ -1303,12 +1307,13 @@
         <span></span><span></span><span></span>
       </label>
     </div>
+    <!-- Altid-synlig søgebar på mobil (tydeligt øverst) -->
+    <div class="nav-search nav-search--bar" data-nt-search>
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" placeholder="Søg efter ydelse…" aria-label="Søg på siden" autocomplete="off" data-nt-search-input />
+      <div class="search-suggest" data-nt-suggest></div>
+    </div>
     <div class="mobile-menu">
-      <div class="nav-search nav-search--mobile" data-nt-search>
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="search" placeholder="Søg…" aria-label="Søg på siden" autocomplete="off" data-nt-search-input />
-        <div class="search-suggest" data-nt-suggest></div>
-      </div>
       <a href="#ydelser" data-en="Staffing">Vikarbureau</a>
       <a href="#privat" data-en="Private">Privat</a>
       <a href="#faq" data-en="FAQ">FAQ</a>
