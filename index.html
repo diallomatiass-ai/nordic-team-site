@@ -1742,7 +1742,7 @@
         </figure>
         <figure style="margin:0">
           <video id="drone-efter-video" autoplay muted loop playsinline preload="none" poster="media/hero-drone-poster.jpg" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;display:block;background:#0F2A47">
-            <source src="media/hero-drone.mp4" type="video/mp4">
+            <source src="media/drone-efter-lite.mp4" type="video/mp4">
           </video>
           <figcaption style="margin-top:8px;font-weight:600;color:var(--navy)"><span data-en="After &middot; from the air">Efter &middot; fra luften</span></figcaption>
         </figure>
@@ -2188,10 +2188,14 @@
     if (!vids.length) return;
     vids.forEach(function(v){
       v.muted = true; v.setAttribute('muted',''); v.playsInline = true;
-      function tryPlay(){ try { var p = v.play(); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+      function inView(){ var r = v.getBoundingClientRect(); return r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight); }
+      function tryPlay(){ if (!inView()) return; try { var p = v.play(); if (p && p.catch) p.catch(function(){}); } catch(e){} }
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(function(es){
-          es.forEach(function(e){ if (e.isIntersecting) tryPlay(); });
+          es.forEach(function(e){
+            if (e.isIntersecting) tryPlay();
+            else { try { e.target.pause(); } catch(_){} }  /* frigiv decode naar ude af billedet */
+          });
         }, { threshold: 0.2 }).observe(v);
       } else { tryPlay(); }
       ['touchstart','pointerdown','click','scroll'].forEach(function(ev){
