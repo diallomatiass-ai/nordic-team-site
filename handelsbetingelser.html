@@ -63,6 +63,18 @@
       cursor: pointer; transition: border-color .15s, color .15s;
     }
     .lang-toggle:hover { border-color: var(--orange); color: var(--orange); }
+    @media (max-width: 560px) {
+      nav { padding: 0 16px; }
+      .nav-inner { height: 60px; }
+      .nav-logo img { height: 30px; }
+      .nav-right { gap: 10px; }
+      .nav-back {
+        font-size: 0; gap: 0;
+        width: 38px; height: 38px; justify-content: center;
+        border: 1px solid var(--border); border-radius: 6px;
+      }
+      .nav-back::before { content: "\2190"; font-size: 1.15rem; line-height: 1; }
+    }
   </style>
   <!-- Umami analytics (cookieless, EU-hosted, GDPR-konform - intet samtykke krævet) -->
   <script defer src="https://umami-production-7900.up.railway.app/script.js" data-website-id="a91427c5-fd53-4b57-b186-6ac5a53334eb"></script>

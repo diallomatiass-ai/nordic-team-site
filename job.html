@@ -500,6 +500,16 @@
       .nav-inner { height: 64px; }
       .nav-logo img { height: 30px; }
     }
+    @media (max-width: 560px) {
+      .nav-right { gap: 10px; }
+      .nav-back span { display: none; }
+      .nav-back {
+        width: 38px; height: 38px;
+        justify-content: center;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+      }
+    }
   </style>
   <!-- Umami analytics (cookieless, EU-hosted, GDPR-konform - intet samtykke krævet) -->
   <script defer src="https://umami-production-7900.up.railway.app/script.js" data-website-id="a91427c5-fd53-4b57-b186-6ac5a53334eb"></script>
@@ -511,7 +521,7 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo"><img src="nordic_team_logo_nav.png" alt="Nordic Team" /></a>
       <div class="nav-right">
-        <a href="/" class="nav-back">
+        <a href="/" class="nav-back" aria-label="Tilbage til forsiden" title="Tilbage til forsiden">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           <span data-en="Back to homepage">Tilbage til forsiden</span>
         </a>
