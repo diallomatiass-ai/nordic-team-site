@@ -1687,14 +1687,6 @@
     </video>
   </div>
   <div class="container">
-    <p class="film-caption" data-en="After &middot; the finished courtyard from above">Efter &middot; det færdige anlæg fra luften</p>
-  </div>
-  <div class="film-frame">
-    <video id="drone-efter-video" autoplay muted loop playsinline preload="none" poster="media/hero-drone-poster.jpg" aria-label="Drone over det færdige anlæg">
-      <source src="media/hero-drone.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="container">
     <p class="film-caption" data-en="Before &amp; after · paving, drainage and groundwork by Nordic Team">Før &amp; efter · brolægning, dræn og anlæg udført af Nordic Team</p>
     <div class="film-cta">
       <a href="#kontakt" class="btn-primary" data-en="Get the same result">Få samme resultat</a>
@@ -2176,7 +2168,7 @@
   /* Robust mobil-autoplay: rigtige iOS/Android afspiller ofte ikke bare via autoplay-attributten.
      Vi forsøger play() når videoen er i billedet, og låser op ved første berøring (dækker Low Power Mode). */
   (function(){
-    var vids = ['hero-video','forvandling-video','drone-efter-video']
+    var vids = ['hero-video','forvandling-video']
       .map(function(id){ return document.getElementById(id); })
       .filter(Boolean);
     if (!vids.length) return;
