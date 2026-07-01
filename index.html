@@ -1420,7 +1420,7 @@
   .film-section .sec-eyebrow{color:var(--orange)}
   .film-section .sec-title{color:#fff}
   .film-section .sec-lead{color:rgba(255,255,255,.78)}
-  /* Full-bleed film — fylder hele bredden, ingen boks */
+  /* Full-bleed film - fylder hele bredden, ingen boks */
   .film-frame{position:relative;width:100%;max-width:1920px;margin:0 auto;overflow:hidden;background:#000;line-height:0}
   .film-frame video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
   .film-caption{max-width:1360px;margin:24px auto 0;text-align:center;font-size:.95rem;color:rgba(255,255,255,.6)}
@@ -1721,7 +1721,7 @@
   .gallery-item::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);border-radius:12px;pointer-events:none}
   @media(max-width:880px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-item figcaption{opacity:1;transform:none;font-size:.8rem;padding:20px 12px 10px}}
   @media(max-width:520px){.gallery-grid{gap:8px}.gallery-item figcaption{font-size:.72rem}}
-  /* Fallback for browsere uden aspect-ratio (iOS <15.4 / ældre Android) — undgår at galleri/film kollapser */
+  /* Fallback for browsere uden aspect-ratio (iOS <15.4 / ældre Android) - undgår at galleri/film kollapser */
   @supports not (aspect-ratio: 1 / 1){
     .gallery-item{height:0;padding-bottom:75%}
     .gallery-item picture{position:absolute;top:0;left:0;width:100%;height:100%}
@@ -1783,7 +1783,7 @@
   <div class="lb-cap" id="lbCap"></div>
 </div>
 <script>
-  /* Lightbox via event-delegation — virker uanset om billederne er statiske eller hentet fra OS */
+  /* Lightbox via event-delegation - virker uanset om billederne er statiske eller hentet fra OS */
   (function(){
     var grid=document.getElementById('galleryGrid');
     var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
@@ -2290,7 +2290,7 @@
   .reveal-in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
 </style>
 <script>
-  /* Diskret scroll-reveal — JS-drevet (intet kan blive usynligt hvis JS fejler), respekterer reduced-motion */
+  /* Diskret scroll-reveal - JS-drevet (intet kan blive usynligt hvis JS fejler), respekterer reduced-motion */
   (function(){
     if(!('IntersectionObserver' in window)) return;
     if(window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches) return;
