@@ -1733,6 +1733,20 @@
       <h2 class="sec-title" data-en="Paving, drainage and groundwork we've delivered">Brolægning, dræn og anlæg vi har leveret</h2>
       <p class="sec-lead" data-en="A selection from real projects on Zealand - from bare ground to finished result, on the ground and from the air.">Et udpluk fra rigtige projekter på Sjælland - fra bar jord til færdigt resultat, på pladsen og fra luften.</p>
     </div>
+      <div class="luft-foer-efter" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:4px 0 30px">
+        <figure style="margin:0">
+          <video id="drone-foer-video" autoplay muted loop playsinline preload="none" poster="media/drone-foer-poster.jpg" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;display:block;background:#0F2A47">
+            <source src="media/drone-foer.mp4" type="video/mp4">
+          </video>
+          <figcaption style="margin-top:8px;font-weight:600;color:var(--navy)"><span data-en="Before &middot; from the air">Før &middot; fra luften</span></figcaption>
+        </figure>
+        <figure style="margin:0">
+          <video id="drone-efter-video" autoplay muted loop playsinline preload="none" poster="media/hero-drone-poster.jpg" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;display:block;background:#0F2A47">
+            <source src="media/hero-drone.mp4" type="video/mp4">
+          </video>
+          <figcaption style="margin-top:8px;font-weight:600;color:var(--navy)"><span data-en="After &middot; from the air">Efter &middot; fra luften</span></figcaption>
+        </figure>
+      </div>
     <div class="gallery-grid" id="galleryGrid">
       <figure class="gallery-item" data-full="media/galleri/07-udgravning.jpg"><img src="media/galleri/07-udgravning-thumb.jpg" alt="Udgravning og forberedelse" loading="lazy"><figcaption><span data-en="Excavation &amp; prep">Udgravning og forberedelse</span></figcaption></figure>
       <figure class="gallery-item" data-full="media/galleri/03-draen.jpg"><img src="media/galleri/03-draen-thumb.jpg" alt="Dræn og afvanding" loading="lazy"><figcaption><span data-en="Drainage works">Dræn og afvanding</span></figcaption></figure>
@@ -2168,7 +2182,7 @@
   /* Robust mobil-autoplay: rigtige iOS/Android afspiller ofte ikke bare via autoplay-attributten.
      Vi forsøger play() når videoen er i billedet, og låser op ved første berøring (dækker Low Power Mode). */
   (function(){
-    var vids = ['hero-video','forvandling-video']
+    var vids = ['hero-video','forvandling-video','drone-foer-video','drone-efter-video']
       .map(function(id){ return document.getElementById(id); })
       .filter(Boolean);
     if (!vids.length) return;
