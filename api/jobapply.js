@@ -9,6 +9,33 @@ function esc(s = '') {
     .replace(/'/g, '&#39;');
 }
 
+// Send ansøgningen videre til OS-CRM'et (rekruttering) - server-til-server med
+// service-token. Best-effort: fejler aldrig ansøgningen, springes over hvis token mangler.
+async function forwardApplicationToOS(a) {
+  const base = (process.env.OS_API_URL || 'https://nordic-team-os-production.up.railway.app')
+    .trim().replace(/\/$/, '');
+  const token = (process.env.OS_INGEST_TOKEN || '').trim();
+  if (!token) return; // ikke konfigureret endnu - graceful skip
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 4000);
+  try {
+    const r = await fetch(`${base}/api/ingest/ansoegning`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Ingest-Token': token },
+      body: JSON.stringify({
+        navn: a.Navn, telefon: a.Telefon, email: a.Email, faggruppe: a.Faggruppe,
+        erfaring: a.Erfaring || null, tilgaengelig: a.Tilgængelig || null, besked: a.Besked || null,
+      }),
+      signal: ctrl.signal,
+    });
+    if (!r.ok) console.error('OS ansoegning-ingest svarede HTTP', r.status);
+  } catch (err) {
+    console.error('OS ansoegning-ingest fejlede (ignoreret):', err && err.message);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -78,6 +105,9 @@ module.exports = async function handler(req, res) {
       console.error('Resend error:', error);
       return res.status(500).json({ error: 'Kunne ikke sende ansøgning' });
     }
+
+    // Læg også ansøgningen i OS-CRM'et (rekruttering). Best-effort - blokerer ikke svaret.
+    await forwardApplicationToOS({ Navn, Telefon, Email, Faggruppe, Erfaring, Tilgængelig, Besked });
 
     return res.status(200).json({ success: true });
   } catch (err) {
